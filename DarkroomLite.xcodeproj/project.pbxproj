@@ -7,94 +7,94 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		03374824BC9E2E2E4B0AD4BC /* ColorWheelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645F4C7BB784665CCAFDDBCF /* ColorWheelView.swift */; };
-		08494C1E88867E9C219F4433 /* ThumbnailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65304590AA7733AFA1988C98 /* ThumbnailService.swift */; };
-		0B9E4D3B8EA8B6B77060DEF4 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C24379BB473CD3A3EF2620 /* Album.swift */; };
-		0D984EEDB729BC0D5F615FC3 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C04E88B43F6852A8413363 /* GridView.swift */; };
-		14F34500B573C1E38D7EB60B /* ImageRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745D44A5830263BF448DA2E3 /* ImageRenderer.swift */; };
-		157D48BC879FCD1F361108E1 /* CropSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8509440BB3BD5F198215B585 /* CropSettings.swift */; };
-		15F04A598F3CFFD5A099BBDD /* GeneralSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1243838B92B4BA756F77AD /* GeneralSettingsView.swift */; };
-		1A0349399A496610E2A9BA13 /* Comparable+Clamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60642EBBD1EC15ED78DED35 /* Comparable+Clamp.swift */; };
-		1BFF4AD8ADBF27FDE737F97B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC9F47FAAE982719A7DC04BD /* Assets.xcassets */; };
-		22674FA39DB800B1C571FF3F /* EditedPhotoPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6B4C049B701180785364ED /* EditedPhotoPreviewView.swift */; };
-		249E4ADD9CF69E7893AC8DDD /* EditSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6054852AE89CFEB26A03899 /* EditSettings.swift */; };
-		280F4CC7BBF4ACA2C120931B /* ToneCurvePanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D28469F8EAC203D62EA30F0 /* ToneCurvePanelView.swift */; };
-		2AE8498999A5D56520E5DF94 /* SettingsRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C32462C8E07608F2761A608 /* SettingsRootView.swift */; };
-		2EA4479283E59EB7766D944F /* FilterBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972549409B4779B518DF46E5 /* FilterBarView.swift */; };
-		31BF4EC5B9D1708488ED13DB /* LensPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B943C99F904CD0AF6CAECB /* LensPanelView.swift */; };
-		322E4CE9A5F16C4EFD0393EE /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78647299AFF8CA3F3877045 /* SidebarView.swift */; };
-		35B74717842A50710A592E69 /* EditSliderRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46F4C24A3048F4C56088506 /* EditSliderRow.swift */; };
-		35BA408F8C8B2BE3A969B30B /* PhotoThumbnailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9345048C741762CB563048 /* PhotoThumbnailView.swift */; };
-		3AE14A21AD2DCACA7B2E0E7C /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9E4169BBC1D55DC23CD09A /* AppController.swift */; };
-		3B524016BEEE52C8EB5DC826 /* ExportSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9345DA8CF91B5812886828 /* ExportSheetView.swift */; };
-		3DBC441A85A5D4B7F8D80C88 /* PerspectiveToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5564D6696C580A2D007EAA6 /* PerspectiveToolView.swift */; };
-		43CD4C778F74EB7A0FCA661D /* FilmstripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66F46078EB492E178EED787 /* FilmstripView.swift */; };
-		49E24F6B8E14078459224938 /* AccentColorOption+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AA454CA05141748BEAEA60 /* AccentColorOption+Color.swift */; };
-		4D8B4629A8A2543477E06570 /* LoupeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEB4CDBB6C8DC4CF9B53C0F /* LoupeView.swift */; };
-		504346709E917026CBBCFD8D /* ProjectsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63354B10A774764B51E2B2E1 /* ProjectsViewModel.swift */; };
-		52F742AE87C05A0AC616E523 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BA4B4197F3F237E428B23F /* PersistenceController.swift */; };
-		5A034253950D614C06AD0207 /* Preset.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8F44D78CE64FDF3F9BFAE9 /* Preset.swift */; };
-		5E014CD1AAA08C82CE0631AE /* MainToolbarContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4C45988E90678F536F1115 /* MainToolbarContent.swift */; };
-		60D248EE89AD8E2DC57FAE6B /* ExportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3142FD901D44DB03F3FF5A /* ExportService.swift */; };
-		611A404AAEB6DF6BA644EE3B /* KeyEventMonitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EA4EFF836ABF6B540D689E /* KeyEventMonitorView.swift */; };
-		62114ADEAFF18398B2B4726D /* ImportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75944D928BA138C0D81280E2 /* ImportService.swift */; };
-		640C44E6998C407CAB7E2D5C /* ShortcutRecorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EB461BB1F898BEEF722E7D /* ShortcutRecorderView.swift */; };
-		64A44C9E9DCA45813CACC8C9 /* ColorGradingPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B886469981706777C4C58EAE /* ColorGradingPanelView.swift */; };
-		66074497A267A90C846CD4BE /* DetailPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC346829657C9C4E808255D /* DetailPanelView.swift */; };
-		68C748368D8779AA93AC7454 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDE4398B1E6E5D64D4B7908 /* Project.swift */; };
-		7297453DA56A0B09D19A60A3 /* EditValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD3494B94456915AC4912A8 /* EditValues.swift */; };
-		72E846B4A67A6070DDDA506C /* ProjectWorkspaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606F47BBB047883857674B5E /* ProjectWorkspaceView.swift */; };
-		75E940049D796CC36F96A1F6 /* EditorPanelContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92F4EA288C778A5481966D3 /* EditorPanelContainerView.swift */; };
-		7A324FF8B8851D2EA35AAC17 /* LUTBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E24AA6BA57919CF2D4FCAB /* LUTBuilder.swift */; };
-		7B80484FA456CDC7229936F2 /* Clipboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234C42B4AB0E36339857C816 /* Clipboard.swift */; };
-		85084697A7CCAB4AFCA3B907 /* PhotoGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164F4AE1A7340409F4FCBD39 /* PhotoGridCell.swift */; };
-		85834A29875D4E7D3CFF936F /* HorizonDetectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861D49A88D4356967B9578E8 /* HorizonDetectionService.swift */; };
-		864243B8B75782D8D6CFB1FF /* CropPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C346E6A21A37A9A8F8F3B5 /* CropPanelView.swift */; };
-		8698478481F53F28E94F4365 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6244458881004CC04526AFB5 /* Photo.swift */; };
-		87194FD2B4422B2F1FBE86D7 /* EffectsPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593D45B586AB6D327707EEE8 /* EffectsPanelView.swift */; };
-		87A2497E898282DA84F0387E /* LightPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D34A4AAB3EB260B4EF24B8 /* LightPanelView.swift */; };
-		898B4E93A9FE1D6ABFEDC5DB /* SliderRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7434CA7A6BE1E3C3FABEFA3 /* SliderRow.swift */; };
-		8ABF4E57BDA3B2F753618D21 /* SettingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDA4999A8E6D5EC3FFAC010 /* SettingsStore.swift */; };
-		8C3C42A5B0534C6F66BA39EA /* MetadataSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B824E53B38BA7432071FFF3 /* MetadataSettingsView.swift */; };
-		93664B2F963AD581412A4F3C /* CompareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD745C3B0ABF806FD755B40 /* CompareView.swift */; };
-		95884139AB2FE891ACA03E92 /* MetadataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2A4D7DB8FFD8A3B20D4EDA /* MetadataService.swift */; };
-		9D284E68BDD10AF5A6C56160 /* LibrarySettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B054A96BBAE44EBD833769D /* LibrarySettingsView.swift */; };
-		9EBD4D7C8D068CEAEDD70A6E /* ConfirmationsSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1634B07B891B6874EB048B5 /* ConfirmationsSettingsView.swift */; };
-		A1A6422BBD1E5C09AB5B9E6B /* KeyboardShortcutsSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354B49C3A9C87BE3AD28DC4F /* KeyboardShortcutsSettingsView.swift */; };
-		A3284FC7A32ABE8196497DBB /* CurveEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5B4FB380225DAAEFBB0BE3 /* CurveEditorView.swift */; };
-		A38C4291A72DAB1BC5EE4917 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF448B7843AA4C333A7011F /* Formatters.swift */; };
-		A44440D79F7D7A74E257E3CB /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4634C998DD260B330651D9C /* Enums.swift */; };
-		AA954979A18248A47476E320 /* EditSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3341D0B963489DD7B9FAEF /* EditSnapshot.swift */; };
-		AAFC4596BF7B22D75031819D /* SecurityScopedFileAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31E465FAAE6550A44C20AA1 /* SecurityScopedFileAccess.swift */; };
-		AB2C410DA1F3B794955C2760 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F0548F3A53C8ADAE2702634 /* Preview Assets.xcassets */; };
-		B01E41E283044F1734FE7C8C /* AppCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58444A9801B95AB7DECB42F /* AppCommands.swift */; };
-		B5754D9EB4B6DCD7A082D703 /* HSLPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FF41D9B3F53ED34F4027C5 /* HSLPanelView.swift */; };
-		B6AF45C9811DFAED02CB0986 /* CropPerspectiveSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA54B81B10B57B3028AACAF /* CropPerspectiveSettingsView.swift */; };
-		BA064E4CB23F15A47AA97F5E /* CullingControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26074E0287FD8CB99C51D0CD /* CullingControls.swift */; };
-		BC614770B0AD4D15AD89FADD /* RawSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1474273A8C7F0AF9C390D27 /* RawSupport.swift */; };
-		C33143FEBA8B1D4A28F53A5B /* DarkroomLiteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069B46339928B23B15E52DFF /* DarkroomLiteApp.swift */; };
-		C6724A4B8B8E1ED5C67B9FA4 /* LibraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9949A5855F0649149D011F /* LibraryViewModel.swift */; };
-		CA2B4AF09A415D5AB8271B89 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2014784A455656975F92AAB /* ContentView.swift */; };
-		CAA943A583C35175B0BBAC10 /* PresetsPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28946528636B6CFB62F65A3 /* PresetsPanelView.swift */; };
-		D1074311A967531BAC652B8B /* PerspectiveSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF94265B8EB35FAD93392BF /* PerspectiveSettings.swift */; };
-		D68440CC86809D70303ED42C /* BeforeAfterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BA4EEF94D5870C12AF9579 /* BeforeAfterView.swift */; };
-		D7FD41DEA1CE637E1CAE163E /* HistoryPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21554D0AB243A7AB85D26D11 /* HistoryPanelView.swift */; };
-		DA8C4D82A706A6311C64E085 /* KeyboardShortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B94EF2A263CB156C582A2C /* KeyboardShortcuts.swift */; };
-		E02F4130814152EA6C87C6E8 /* ExportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F334C378F8748C84E71E639 /* ExportViewModel.swift */; };
-		E1204BDDA921CA4E4C116A4A /* SidecarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A08436297A06C3517446B4E /* SidecarService.swift */; };
-		E737471BBDA0D7B3921B5669 /* ExportSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BC4FB48C11080389527BF4 /* ExportSettingsView.swift */; };
-		EFA2471F8BA29935318163B1 /* ColorPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB2430C9663AC9EA7652074 /* ColorPanelView.swift */; };
-		F6744C85BD3CC05D80CA60CC /* EditorViewModel+Bindings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC4F759E95E8482075A475 /* EditorViewModel+Bindings.swift */; };
-		F8D44AC283D9CCA4806E93B4 /* EditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B884481938131DD875374A4 /* EditorViewModel.swift */; };
-		F92244959807E0CBE3448FCE /* CropToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A24BAC8E822A741AA47F56 /* CropToolView.swift */; };
-		F9A34E2DB032862AFE15F97F /* PerformanceSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30244D4E8014EBD6F22018EE /* PerformanceSettingsView.swift */; };
-		FBEC4D12AB8169865BFE355A /* DarkroomLiteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1D48A5A6C0CCC488FED5BD /* DarkroomLiteTests.swift */; };
+		01B94E1FAE30894F95E70134 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BB6421E8A3EAF25011EE9F1 /* Assets.xcassets */; };
+		06C5405787FE139C26F24A6D /* AccentColorOption+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940A4DA2A39AB30EAAEAD928 /* AccentColorOption+Color.swift */; };
+		083C4F1A90C985CACEB98AC8 /* CropPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E14125B1A20DDEC6D39B3D /* CropPanelView.swift */; };
+		0A7440B9A126D49731710A04 /* PerformanceSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28854931A043F9B3C16805EF /* PerformanceSettingsView.swift */; };
+		0B3F4AF4AC7E25B3DD3AF1ED /* EditedPhotoPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8847432B8FC026F1AD3F6CAA /* EditedPhotoPreviewView.swift */; };
+		0C634983BFEC42116403590D /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740C41CD9234EB47356AD32D /* GridView.swift */; };
+		0FDD4624881068E7849FFB7E /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84F4FE3854C440C4D61BD8F /* SidebarView.swift */; };
+		16C04433834CF97B62176B64 /* EditSliderRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED049D68909448475AE766D /* EditSliderRow.swift */; };
+		176E4FC8B9FCBFC02BCDAC50 /* CropToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4D4F23B7ADAE15A5BE4AF8 /* CropToolView.swift */; };
+		1A54419AAECF34B000E1325C /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA34795A0B7B00BB679DD2F /* Enums.swift */; };
+		1CDD42E2B08E4A9453853914 /* ImageRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62B42B3A1FC83A691591C58 /* ImageRenderer.swift */; };
+		1E8248918D1A9C8E1E545AF8 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4C47E8A3F6D23FD5C6F578 /* Album.swift */; };
+		23B14987A31514025038BA5D /* MetadataSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F30452099E588DEA4FCF3DB /* MetadataSettingsView.swift */; };
+		273C4A958FE38A62F601B094 /* FilmstripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704F4FD09939DAAA4327D5D6 /* FilmstripView.swift */; };
+		29624FBE9A1C64683603B450 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632F4C70AF1F150F9981B575 /* Project.swift */; };
+		2A0B42A484F61570994FA679 /* CullingControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90842D384BB68A7E12B4DD8 /* CullingControls.swift */; };
+		33924A32933F25AA7BA39E62 /* ExportSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518F40008B68307D4D90351E /* ExportSheetView.swift */; };
+		3A0549BFB31A2DED38AB9662 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6C4A0C892F96CD41014D69 /* Photo.swift */; };
+		3BBE4415923686537FF10F31 /* ExportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01940A4A5B10EE3E569A3E8 /* ExportService.swift */; };
+		50E14185BBA1EEFFD11786D0 /* RawSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B74131B9A10F49570844E8 /* RawSupport.swift */; };
+		551F4ECE8C814B029278D82F /* MainToolbarContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4240C6904A7A90AD9FF3CA /* MainToolbarContent.swift */; };
+		5A5644D4B0BCDC1C48FE10BA /* LUTBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1A4BEB848E570D8B707094 /* LUTBuilder.swift */; };
+		5E97464D9B824E148E44C5B9 /* ImportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F324604A192BC3918FD49A1 /* ImportService.swift */; };
+		5F3D469F8AC1B45AB9D92A3E /* LibraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C245CC855110E685BEE42B /* LibraryViewModel.swift */; };
+		602147D9A8D4832F3D36DA64 /* ProjectWorkspaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098B4904ADF82EF07EED9B50 /* ProjectWorkspaceView.swift */; };
+		622449BEA6B02264F0E67221 /* KeyboardShortcutsSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750D4E4F91A6610F77A840DD /* KeyboardShortcutsSettingsView.swift */; };
+		62C64BB28A2D70E102245287 /* ExportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124C40AE81D91A724894EC47 /* ExportViewModel.swift */; };
+		63F2441983C355AC4DB4F913 /* PresetsPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45304E17859F7069056DFE13 /* PresetsPanelView.swift */; };
+		65144286BCB142D1FC8E32CD /* Preset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68424A158A4FF3C4CBD0EF16 /* Preset.swift */; };
+		6A7F418FBF282E5ED2320B66 /* ConfirmationsSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C474FF499160389C28DA1BC /* ConfirmationsSettingsView.swift */; };
+		6AE84128B628FD886E40F8B6 /* ToneCurvePanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838B47BCA81936C9A0C47793 /* ToneCurvePanelView.swift */; };
+		6E4B4E28B180FB2F549FBED5 /* LibrarySettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17804C2D891B3C1B7CE9D8E3 /* LibrarySettingsView.swift */; };
+		6E6B40BB8D1801B01919AD79 /* FilterBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A748D0B0877585CD13C93D /* FilterBarView.swift */; };
+		6FB94667882991BEC815125F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDC742F695D6FE2E780B79E3 /* Preview Assets.xcassets */; };
+		70B7490DA5C8CBEB810F1041 /* CompareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772241F6A43626E3A6A741A0 /* CompareView.swift */; };
+		74CC4A03B686D46792346988 /* DarkroomLiteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491B4F3B9510F71DA20BF28F /* DarkroomLiteApp.swift */; };
+		7E6F44968794556EFA6E7E64 /* CropPerspectiveSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30A4BE1BCEBA4B01F3AA8DC /* CropPerspectiveSettingsView.swift */; };
+		7E9843C5A698309AE2FFC82D /* ColorWheelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F542CDB2F5556F1AB61DAB /* ColorWheelView.swift */; };
+		7FCC465CA7054692FE93B029 /* DetailPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89C421E8B2A6C3ACE0EEDAA /* DetailPanelView.swift */; };
+		80CA4A8982736934A1E0B9F5 /* EditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EA417AA16A917975A73E4E /* EditorViewModel.swift */; };
+		855C44ADACFE1AC59C60ACE0 /* PhotoThumbnailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63E4071BAB6A775842E7661 /* PhotoThumbnailView.swift */; };
+		857B46A6B501B122C85A8044 /* CurveEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B34989A47A729D1153B827 /* CurveEditorView.swift */; };
+		8C7B4B4EA7B34DF73EC6CB40 /* SettingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79B4DA592C9B036D5199D8A /* SettingsStore.swift */; };
+		8F614265B15E6EFD11DE9CCB /* EditValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9034FE68051C529D32AB055 /* EditValues.swift */; };
+		9085421590659C4E1A36AE92 /* EditSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80844C4DAA713E086DDCC38E /* EditSettings.swift */; };
+		91574EECA3B566CAC2D80A50 /* EditorPanelContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F194D569221B774E7561CFA /* EditorPanelContainerView.swift */; };
+		954C4D4287EB4AAD9F1DC7B8 /* PerspectiveToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BC49759F4CF04B2D39EFB4 /* PerspectiveToolView.swift */; };
+		9BCA4DA1BC2FBB8B20E498EF /* DarkroomLiteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0647D98E50B9D49C1C6E23 /* DarkroomLiteTests.swift */; };
+		A0D34B22B09AF8EAB82854C6 /* SliderRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDC4590B23BE3A1C84B6328 /* SliderRow.swift */; };
+		A10347DDBAA834BC7CD58103 /* PhotoGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08F4CCBA367CCB885287D03 /* PhotoGridCell.swift */; };
+		A3B24C76B35602C434BE81CC /* EditorViewModel+Bindings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3346A9A1481CB4CB7C165B /* EditorViewModel+Bindings.swift */; };
+		A537477980AAA10CD29FA6E9 /* ColorPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA794086B0EFF90A5093D037 /* ColorPanelView.swift */; };
+		AAEC48BAB4C1BB8C72BAB92A /* EffectsPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8E449FA923A62A1EECC793 /* EffectsPanelView.swift */; };
+		AD284CF7B9AE79BC88BD1F84 /* HistoryPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9843EFB39A2644B905CF71 /* HistoryPanelView.swift */; };
+		B0DA475998B74673B1B3B3C4 /* LightPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F945208E4DB4083E45B3EB /* LightPanelView.swift */; };
+		B17F4319B0385CF0C73F381E /* LoupeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562749188D845710D86543FD /* LoupeView.swift */; };
+		B4DB43408CDB07671EEB8BE4 /* SettingsRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBD450F8811FFB399C5966A /* SettingsRootView.swift */; };
+		B7F14C35B027F2C4DF5516EE /* KeyEventMonitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2B41A3BC62B3390CAE3596 /* KeyEventMonitorView.swift */; };
+		B84E48ADAF8EDC19010463E6 /* Comparable+Clamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9394F7ABE5A303697F525D7 /* Comparable+Clamp.swift */; };
+		BA7E4AD5846FE012D71E3D5B /* HorizonDetectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE544884A672CCDCDF708D2A /* HorizonDetectionService.swift */; };
+		BB0B4367B199BB81D904E6C4 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7E42DD932C81622A124DCE /* Formatters.swift */; };
+		BFCD4F00ACB7F8537CD04FA2 /* KeyboardShortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0F40FDB0C02704E7DA312E /* KeyboardShortcuts.swift */; };
+		CB224EFDB34324CA06950698 /* ColorGradingPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F54130A8F341CF37F2C3B0 /* ColorGradingPanelView.swift */; };
+		D22943FC8EAA82DFDF08B734 /* GeneralSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FA4B07AD725C19923789E9 /* GeneralSettingsView.swift */; };
+		D262406397D6D21BA20702F9 /* PerspectiveSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81A48B4B7BEC83B8C68317A /* PerspectiveSettings.swift */; };
+		D28C485FA3AAC7A4FCDA4415 /* AppCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F854A53AC4A803C8A851A59 /* AppCommands.swift */; };
+		D2DE482EB0BB420E4EF87FBE /* LensPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBC4A2095D349C8F70DF87D /* LensPanelView.swift */; };
+		D434404E828B64FB5B41636E /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F54DC7856D4DDE8BB09C8B /* PersistenceController.swift */; };
+		D6DE4BF59F2F4B41C8872C06 /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942E4E7587BE101EA82FB696 /* AppController.swift */; };
+		D9FA4743870EEE22A7BCE822 /* CropSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3045E4A3010D2159B85674 /* CropSettings.swift */; };
+		DB154FEB80165EC78B207897 /* Clipboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D54E68B236C401B7ACA868 /* Clipboard.swift */; };
+		E3744882924AB5E0410CC198 /* BeforeAfterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F94FC6A6FB3A855578F5AD /* BeforeAfterView.swift */; };
+		E3A6440E81BFB27ADE0C8AC4 /* ProjectsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA464B47B6FD0375FBF5FF23 /* ProjectsViewModel.swift */; };
+		E55E470ABA6652F59519192D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240C4321AFA95E49C7A9DE7C /* ContentView.swift */; };
+		E7A94F54826936CFB8B990DB /* ExportSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4D466F81D51B4EA8B90C7F /* ExportSettingsView.swift */; };
+		E8324A41BAFA5BC9D4C230BB /* MetadataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26014C53A0A2147C3B212C29 /* MetadataService.swift */; };
+		EA604F2889ABCAF5C8BB2B95 /* SidecarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7D46C8860D60C7CA652DD6 /* SidecarService.swift */; };
+		EB3B4E83853F98EC41974D00 /* HSLPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DA4D3893D536FA3A54A44E /* HSLPanelView.swift */; };
+		EC4F4976A179EB68082F1B3B /* ShortcutRecorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B904AA1AF02902E214F8BAD /* ShortcutRecorderView.swift */; };
+		F16E497C8127978236D695B0 /* ThumbnailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929D44F59BEC7254E3E1B02F /* ThumbnailService.swift */; };
+		F8EC4F6BA9E403C3941F60FA /* SecurityScopedFileAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BB40839CD2EB820407B599 /* SecurityScopedFileAccess.swift */; };
+		FC194846BA220848B68B223D /* EditSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737A4DE89165571F5BFF493B /* EditSnapshot.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		BA4C5549149B4C71A109E519 /* PBXContainerItemProxy */ = {
+		C0E721EFE3154BB2902FC9AE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = F51E2E4358DC41F99D5871E6 /* Project object */;
+			containerPortal = C580F4FF1B444C95A3E76BB4 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 9A3DC7A79D16495F80E78842;
 			remoteInfo = DarkroomLite;
@@ -102,102 +102,102 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		069B46339928B23B15E52DFF /* DarkroomLiteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DarkroomLiteApp.swift; path = DarkroomLite/DarkroomLiteApp.swift; sourceTree = "<group>"; };
-		0F9345048C741762CB563048 /* PhotoThumbnailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PhotoThumbnailView.swift; path = DarkroomLite/Views/Library/PhotoThumbnailView.swift; sourceTree = "<group>"; };
-		164F4AE1A7340409F4FCBD39 /* PhotoGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PhotoGridCell.swift; path = DarkroomLite/Views/Library/PhotoGridCell.swift; sourceTree = "<group>"; };
-		18EA4EFF836ABF6B540D689E /* KeyEventMonitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KeyEventMonitorView.swift; path = DarkroomLite/Utilities/KeyEventMonitorView.swift; sourceTree = "<group>"; };
-		21554D0AB243A7AB85D26D11 /* HistoryPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HistoryPanelView.swift; path = DarkroomLite/Views/Editor/Panels/HistoryPanelView.swift; sourceTree = "<group>"; };
-		234C42B4AB0E36339857C816 /* Clipboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Clipboard.swift; path = DarkroomLite/Services/Clipboard.swift; sourceTree = "<group>"; };
-		26074E0287FD8CB99C51D0CD /* CullingControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CullingControls.swift; path = DarkroomLite/Views/Library/CullingControls.swift; sourceTree = "<group>"; };
-		27EB461BB1F898BEEF722E7D /* ShortcutRecorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ShortcutRecorderView.swift; path = DarkroomLite/Views/Settings/ShortcutRecorderView.swift; sourceTree = "<group>"; };
-		2F0548F3A53C8ADAE2702634 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = "Preview Assets.xcassets"; path = "DarkroomLite/Preview Content/Preview Assets.xcassets"; sourceTree = "<group>"; };
-		30244D4E8014EBD6F22018EE /* PerformanceSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PerformanceSettingsView.swift; path = DarkroomLite/Views/Settings/PerformanceSettingsView.swift; sourceTree = "<group>"; };
-		354B49C3A9C87BE3AD28DC4F /* KeyboardShortcutsSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KeyboardShortcutsSettingsView.swift; path = DarkroomLite/Views/Settings/KeyboardShortcutsSettingsView.swift; sourceTree = "<group>"; };
-		46BA4EEF94D5870C12AF9579 /* BeforeAfterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BeforeAfterView.swift; path = DarkroomLite/Views/Library/BeforeAfterView.swift; sourceTree = "<group>"; };
-		4C9CF122DF154C11A1EA4D2F /* DarkroomLite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DarkroomLite.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4D28469F8EAC203D62EA30F0 /* ToneCurvePanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ToneCurvePanelView.swift; path = DarkroomLite/Views/Editor/Panels/ToneCurvePanelView.swift; sourceTree = "<group>"; };
-		4EDA4999A8E6D5EC3FFAC010 /* SettingsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsStore.swift; path = DarkroomLite/ViewModels/SettingsStore.swift; sourceTree = "<group>"; };
-		50C24379BB473CD3A3EF2620 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Album.swift; path = DarkroomLite/Models/Album.swift; sourceTree = "<group>"; };
-		55E24AA6BA57919CF2D4FCAB /* LUTBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LUTBuilder.swift; path = DarkroomLite/Services/LUTBuilder.swift; sourceTree = "<group>"; };
-		593D45B586AB6D327707EEE8 /* EffectsPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EffectsPanelView.swift; path = DarkroomLite/Views/Editor/Panels/EffectsPanelView.swift; sourceTree = "<group>"; };
-		5A08436297A06C3517446B4E /* SidecarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SidecarService.swift; path = DarkroomLite/Services/SidecarService.swift; sourceTree = "<group>"; };
-		606F47BBB047883857674B5E /* ProjectWorkspaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProjectWorkspaceView.swift; path = DarkroomLite/Views/Library/ProjectWorkspaceView.swift; sourceTree = "<group>"; };
-		6244458881004CC04526AFB5 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Photo.swift; path = DarkroomLite/Models/Photo.swift; sourceTree = "<group>"; };
-		63354B10A774764B51E2B2E1 /* ProjectsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProjectsViewModel.swift; path = DarkroomLite/ViewModels/ProjectsViewModel.swift; sourceTree = "<group>"; };
-		645F4C7BB784665CCAFDDBCF /* ColorWheelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ColorWheelView.swift; path = DarkroomLite/Views/Editor/ColorWheelView.swift; sourceTree = "<group>"; };
-		65304590AA7733AFA1988C98 /* ThumbnailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ThumbnailService.swift; path = DarkroomLite/Services/ThumbnailService.swift; sourceTree = "<group>"; };
-		6A2A4D7DB8FFD8A3B20D4EDA /* MetadataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MetadataService.swift; path = DarkroomLite/Services/MetadataService.swift; sourceTree = "<group>"; };
-		6B1D48A5A6C0CCC488FED5BD /* DarkroomLiteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DarkroomLiteTests.swift; path = DarkroomLiteTests/DarkroomLiteTests.swift; sourceTree = "<group>"; };
-		6BF448B7843AA4C333A7011F /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Formatters.swift; path = DarkroomLite/Utilities/Formatters.swift; sourceTree = "<group>"; };
-		6C32462C8E07608F2761A608 /* SettingsRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsRootView.swift; path = DarkroomLite/Views/Settings/SettingsRootView.swift; sourceTree = "<group>"; };
-		745D44A5830263BF448DA2E3 /* ImageRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageRenderer.swift; path = DarkroomLite/Services/ImageRenderer.swift; sourceTree = "<group>"; };
-		75944D928BA138C0D81280E2 /* ImportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImportService.swift; path = DarkroomLite/Services/ImportService.swift; sourceTree = "<group>"; };
-		79C04E88B43F6852A8413363 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GridView.swift; path = DarkroomLite/Views/Library/GridView.swift; sourceTree = "<group>"; };
-		7AEB4CDBB6C8DC4CF9B53C0F /* LoupeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoupeView.swift; path = DarkroomLite/Views/Library/LoupeView.swift; sourceTree = "<group>"; };
-		8509440BB3BD5F198215B585 /* CropSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CropSettings.swift; path = DarkroomLite/Models/CropSettings.swift; sourceTree = "<group>"; };
-		861D49A88D4356967B9578E8 /* HorizonDetectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HorizonDetectionService.swift; path = DarkroomLite/Services/HorizonDetectionService.swift; sourceTree = "<group>"; };
-		8B824E53B38BA7432071FFF3 /* MetadataSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MetadataSettingsView.swift; path = DarkroomLite/Views/Settings/MetadataSettingsView.swift; sourceTree = "<group>"; };
-		8B884481938131DD875374A4 /* EditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditorViewModel.swift; path = DarkroomLite/ViewModels/EditorViewModel.swift; sourceTree = "<group>"; };
-		8BB2430C9663AC9EA7652074 /* ColorPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ColorPanelView.swift; path = DarkroomLite/Views/Editor/Panels/ColorPanelView.swift; sourceTree = "<group>"; };
-		8DDE4398B1E6E5D64D4B7908 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Project.swift; path = DarkroomLite/Models/Project.swift; sourceTree = "<group>"; };
-		93DC4F759E95E8482075A475 /* EditorViewModel+Bindings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "EditorViewModel+Bindings.swift"; path = "DarkroomLite/ViewModels/EditorViewModel+Bindings.swift"; sourceTree = "<group>"; };
-		972549409B4779B518DF46E5 /* FilterBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FilterBarView.swift; path = DarkroomLite/Views/Library/FilterBarView.swift; sourceTree = "<group>"; };
-		9A1243838B92B4BA756F77AD /* GeneralSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GeneralSettingsView.swift; path = DarkroomLite/Views/Settings/GeneralSettingsView.swift; sourceTree = "<group>"; };
-		9B054A96BBAE44EBD833769D /* LibrarySettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LibrarySettingsView.swift; path = DarkroomLite/Views/Settings/LibrarySettingsView.swift; sourceTree = "<group>"; };
-		9B9949A5855F0649149D011F /* LibraryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LibraryViewModel.swift; path = DarkroomLite/ViewModels/LibraryViewModel.swift; sourceTree = "<group>"; };
-		9CD3494B94456915AC4912A8 /* EditValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditValues.swift; path = DarkroomLite/Models/EditValues.swift; sourceTree = "<group>"; };
-		9F334C378F8748C84E71E639 /* ExportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExportViewModel.swift; path = DarkroomLite/ViewModels/ExportViewModel.swift; sourceTree = "<group>"; };
-		A2C346E6A21A37A9A8F8F3B5 /* CropPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CropPanelView.swift; path = DarkroomLite/Views/Editor/Panels/CropPanelView.swift; sourceTree = "<group>"; };
-		A4B94EF2A263CB156C582A2C /* KeyboardShortcuts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KeyboardShortcuts.swift; path = DarkroomLite/Services/KeyboardShortcuts.swift; sourceTree = "<group>"; };
-		A5564D6696C580A2D007EAA6 /* PerspectiveToolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PerspectiveToolView.swift; path = DarkroomLite/Views/Geometry/PerspectiveToolView.swift; sourceTree = "<group>"; };
-		A92F4EA288C778A5481966D3 /* EditorPanelContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditorPanelContainerView.swift; path = DarkroomLite/Views/Editor/EditorPanelContainerView.swift; sourceTree = "<group>"; };
-		AE6B4C049B701180785364ED /* EditedPhotoPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditedPhotoPreviewView.swift; path = DarkroomLite/Views/Library/EditedPhotoPreviewView.swift; sourceTree = "<group>"; };
-		B1474273A8C7F0AF9C390D27 /* RawSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RawSupport.swift; path = DarkroomLite/Services/RawSupport.swift; sourceTree = "<group>"; };
-		B3BC4FB48C11080389527BF4 /* ExportSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExportSettingsView.swift; path = DarkroomLite/Views/Settings/ExportSettingsView.swift; sourceTree = "<group>"; };
-		B886469981706777C4C58EAE /* ColorGradingPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ColorGradingPanelView.swift; path = DarkroomLite/Views/Editor/Panels/ColorGradingPanelView.swift; sourceTree = "<group>"; };
-		C190B2240CD24FC0A02059C9 /* DarkroomLiteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DarkroomLiteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C2014784A455656975F92AAB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = DarkroomLite/Views/ContentView.swift; sourceTree = "<group>"; };
-		C31E465FAAE6550A44C20AA1 /* SecurityScopedFileAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SecurityScopedFileAccess.swift; path = DarkroomLite/Services/SecurityScopedFileAccess.swift; sourceTree = "<group>"; };
-		C6054852AE89CFEB26A03899 /* EditSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditSettings.swift; path = DarkroomLite/Models/EditSettings.swift; sourceTree = "<group>"; };
-		C66F46078EB492E178EED787 /* FilmstripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FilmstripView.swift; path = DarkroomLite/Views/Library/FilmstripView.swift; sourceTree = "<group>"; };
-		C7434CA7A6BE1E3C3FABEFA3 /* SliderRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SliderRow.swift; path = DarkroomLite/Views/Editor/SliderRow.swift; sourceTree = "<group>"; };
-		C78647299AFF8CA3F3877045 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SidebarView.swift; path = DarkroomLite/Views/Sidebar/SidebarView.swift; sourceTree = "<group>"; };
-		D28946528636B6CFB62F65A3 /* PresetsPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PresetsPanelView.swift; path = DarkroomLite/Views/Editor/Panels/PresetsPanelView.swift; sourceTree = "<group>"; };
-		D7A24BAC8E822A741AA47F56 /* CropToolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CropToolView.swift; path = DarkroomLite/Views/Geometry/CropToolView.swift; sourceTree = "<group>"; };
-		D7B943C99F904CD0AF6CAECB /* LensPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LensPanelView.swift; path = DarkroomLite/Views/Editor/Panels/LensPanelView.swift; sourceTree = "<group>"; };
-		D9D34A4AAB3EB260B4EF24B8 /* LightPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LightPanelView.swift; path = DarkroomLite/Views/Editor/Panels/LightPanelView.swift; sourceTree = "<group>"; };
-		DB3142FD901D44DB03F3FF5A /* ExportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExportService.swift; path = DarkroomLite/Services/ExportService.swift; sourceTree = "<group>"; };
-		DB9345DA8CF91B5812886828 /* ExportSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExportSheetView.swift; path = DarkroomLite/Views/Export/ExportSheetView.swift; sourceTree = "<group>"; };
-		E1AA454CA05141748BEAEA60 /* AccentColorOption+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "AccentColorOption+Color.swift"; path = "DarkroomLite/Utilities/AccentColorOption+Color.swift"; sourceTree = "<group>"; };
-		E4634C998DD260B330651D9C /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Enums.swift; path = DarkroomLite/Models/Enums.swift; sourceTree = "<group>"; };
-		E46F4C24A3048F4C56088506 /* EditSliderRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditSliderRow.swift; path = DarkroomLite/Views/Editor/EditSliderRow.swift; sourceTree = "<group>"; };
-		E7FF41D9B3F53ED34F4027C5 /* HSLPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HSLPanelView.swift; path = DarkroomLite/Views/Editor/Panels/HSLPanelView.swift; sourceTree = "<group>"; };
-		E9BA4B4197F3F237E428B23F /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PersistenceController.swift; path = DarkroomLite/Persistence/PersistenceController.swift; sourceTree = "<group>"; };
-		EEF94265B8EB35FAD93392BF /* PerspectiveSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PerspectiveSettings.swift; path = DarkroomLite/Models/PerspectiveSettings.swift; sourceTree = "<group>"; };
-		F1634B07B891B6874EB048B5 /* ConfirmationsSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ConfirmationsSettingsView.swift; path = DarkroomLite/Views/Settings/ConfirmationsSettingsView.swift; sourceTree = "<group>"; };
-		F58444A9801B95AB7DECB42F /* AppCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppCommands.swift; path = DarkroomLite/Views/AppCommands.swift; sourceTree = "<group>"; };
-		F60642EBBD1EC15ED78DED35 /* Comparable+Clamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Comparable+Clamp.swift"; path = "DarkroomLite/Utilities/Comparable+Clamp.swift"; sourceTree = "<group>"; };
-		FA104BE595CCF72477F6F1F9 /* DarkroomLite.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = DarkroomLite.entitlements; path = DarkroomLite/DarkroomLite.entitlements; sourceTree = SOURCE_ROOT; };
-		FA4C45988E90678F536F1115 /* MainToolbarContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainToolbarContent.swift; path = DarkroomLite/Views/Toolbar/MainToolbarContent.swift; sourceTree = "<group>"; };
-		FBD745C3B0ABF806FD755B40 /* CompareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CompareView.swift; path = DarkroomLite/Views/Library/CompareView.swift; sourceTree = "<group>"; };
-		FC3341D0B963489DD7B9FAEF /* EditSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditSnapshot.swift; path = DarkroomLite/Models/EditSnapshot.swift; sourceTree = "<group>"; };
-		FC9E4169BBC1D55DC23CD09A /* AppController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppController.swift; path = DarkroomLite/ViewModels/AppController.swift; sourceTree = "<group>"; };
-		FC9F47FAAE982719A7DC04BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = DarkroomLite/Assets.xcassets; sourceTree = "<group>"; };
-		FCC346829657C9C4E808255D /* DetailPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailPanelView.swift; path = DarkroomLite/Views/Editor/Panels/DetailPanelView.swift; sourceTree = "<group>"; };
-		FDA54B81B10B57B3028AACAF /* CropPerspectiveSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CropPerspectiveSettingsView.swift; path = DarkroomLite/Views/Settings/CropPerspectiveSettingsView.swift; sourceTree = "<group>"; };
-		FE8F44D78CE64FDF3F9BFAE9 /* Preset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Preset.swift; path = DarkroomLite/Models/Preset.swift; sourceTree = "<group>"; };
-		FF5B4FB380225DAAEFBB0BE3 /* CurveEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CurveEditorView.swift; path = DarkroomLite/Views/Editor/CurveEditorView.swift; sourceTree = "<group>"; };
+		098B4904ADF82EF07EED9B50 /* ProjectWorkspaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProjectWorkspaceView.swift; path = DarkroomLite/Views/Library/ProjectWorkspaceView.swift; sourceTree = "<group>"; };
+		0EA34795A0B7B00BB679DD2F /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Enums.swift; path = DarkroomLite/Models/Enums.swift; sourceTree = "<group>"; };
+		124C40AE81D91A724894EC47 /* ExportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExportViewModel.swift; path = DarkroomLite/ViewModels/ExportViewModel.swift; sourceTree = "<group>"; };
+		160B72D582A24B6793B606AD /* DarkroomLiteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DarkroomLiteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		17804C2D891B3C1B7CE9D8E3 /* LibrarySettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LibrarySettingsView.swift; path = DarkroomLite/Views/Settings/LibrarySettingsView.swift; sourceTree = "<group>"; };
+		1D7E42DD932C81622A124DCE /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Formatters.swift; path = DarkroomLite/Utilities/Formatters.swift; sourceTree = "<group>"; };
+		21C245CC855110E685BEE42B /* LibraryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LibraryViewModel.swift; path = DarkroomLite/ViewModels/LibraryViewModel.swift; sourceTree = "<group>"; };
+		240C4321AFA95E49C7A9DE7C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = DarkroomLite/Views/ContentView.swift; sourceTree = "<group>"; };
+		26014C53A0A2147C3B212C29 /* MetadataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MetadataService.swift; path = DarkroomLite/Services/MetadataService.swift; sourceTree = "<group>"; };
+		28854931A043F9B3C16805EF /* PerformanceSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PerformanceSettingsView.swift; path = DarkroomLite/Views/Settings/PerformanceSettingsView.swift; sourceTree = "<group>"; };
+		2BB6421E8A3EAF25011EE9F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = DarkroomLite/Assets.xcassets; sourceTree = "<group>"; };
+		2BBD450F8811FFB399C5966A /* SettingsRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsRootView.swift; path = DarkroomLite/Views/Settings/SettingsRootView.swift; sourceTree = "<group>"; };
+		2E4240C6904A7A90AD9FF3CA /* MainToolbarContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainToolbarContent.swift; path = DarkroomLite/Views/Toolbar/MainToolbarContent.swift; sourceTree = "<group>"; };
+		33DA4D3893D536FA3A54A44E /* HSLPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HSLPanelView.swift; path = DarkroomLite/Views/Editor/Panels/HSLPanelView.swift; sourceTree = "<group>"; };
+		36D54E68B236C401B7ACA868 /* Clipboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Clipboard.swift; path = DarkroomLite/Services/Clipboard.swift; sourceTree = "<group>"; };
+		3C0F40FDB0C02704E7DA312E /* KeyboardShortcuts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KeyboardShortcuts.swift; path = DarkroomLite/Services/KeyboardShortcuts.swift; sourceTree = "<group>"; };
+		45304E17859F7069056DFE13 /* PresetsPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PresetsPanelView.swift; path = DarkroomLite/Views/Editor/Panels/PresetsPanelView.swift; sourceTree = "<group>"; };
+		491B4F3B9510F71DA20BF28F /* DarkroomLiteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DarkroomLiteApp.swift; path = DarkroomLite/DarkroomLiteApp.swift; sourceTree = "<group>"; };
+		4F324604A192BC3918FD49A1 /* ImportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImportService.swift; path = DarkroomLite/Services/ImportService.swift; sourceTree = "<group>"; };
+		518F40008B68307D4D90351E /* ExportSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExportSheetView.swift; path = DarkroomLite/Views/Export/ExportSheetView.swift; sourceTree = "<group>"; };
+		562749188D845710D86543FD /* LoupeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoupeView.swift; path = DarkroomLite/Views/Library/LoupeView.swift; sourceTree = "<group>"; };
+		5A4C47E8A3F6D23FD5C6F578 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Album.swift; path = DarkroomLite/Models/Album.swift; sourceTree = "<group>"; };
+		5D3346A9A1481CB4CB7C165B /* EditorViewModel+Bindings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "EditorViewModel+Bindings.swift"; path = "DarkroomLite/ViewModels/EditorViewModel+Bindings.swift"; sourceTree = "<group>"; };
+		5E4D4F23B7ADAE15A5BE4AF8 /* CropToolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CropToolView.swift; path = DarkroomLite/Views/Geometry/CropToolView.swift; sourceTree = "<group>"; };
+		5F30452099E588DEA4FCF3DB /* MetadataSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MetadataSettingsView.swift; path = DarkroomLite/Views/Settings/MetadataSettingsView.swift; sourceTree = "<group>"; };
+		5F6C4A0C892F96CD41014D69 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Photo.swift; path = DarkroomLite/Models/Photo.swift; sourceTree = "<group>"; };
+		5F854A53AC4A803C8A851A59 /* AppCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppCommands.swift; path = DarkroomLite/Views/AppCommands.swift; sourceTree = "<group>"; };
+		632F4C70AF1F150F9981B575 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Project.swift; path = DarkroomLite/Models/Project.swift; sourceTree = "<group>"; };
+		65F54130A8F341CF37F2C3B0 /* ColorGradingPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ColorGradingPanelView.swift; path = DarkroomLite/Views/Editor/Panels/ColorGradingPanelView.swift; sourceTree = "<group>"; };
+		68424A158A4FF3C4CBD0EF16 /* Preset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Preset.swift; path = DarkroomLite/Models/Preset.swift; sourceTree = "<group>"; };
+		6B904AA1AF02902E214F8BAD /* ShortcutRecorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ShortcutRecorderView.swift; path = DarkroomLite/Views/Settings/ShortcutRecorderView.swift; sourceTree = "<group>"; };
+		6D0647D98E50B9D49C1C6E23 /* DarkroomLiteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DarkroomLiteTests.swift; path = DarkroomLiteTests/DarkroomLiteTests.swift; sourceTree = "<group>"; };
+		6DDC4590B23BE3A1C84B6328 /* SliderRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SliderRow.swift; path = DarkroomLite/Views/Editor/SliderRow.swift; sourceTree = "<group>"; };
+		6F194D569221B774E7561CFA /* EditorPanelContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditorPanelContainerView.swift; path = DarkroomLite/Views/Editor/EditorPanelContainerView.swift; sourceTree = "<group>"; };
+		704F4FD09939DAAA4327D5D6 /* FilmstripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FilmstripView.swift; path = DarkroomLite/Views/Library/FilmstripView.swift; sourceTree = "<group>"; };
+		70FA4B07AD725C19923789E9 /* GeneralSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GeneralSettingsView.swift; path = DarkroomLite/Views/Settings/GeneralSettingsView.swift; sourceTree = "<group>"; };
+		737A4DE89165571F5BFF493B /* EditSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditSnapshot.swift; path = DarkroomLite/Models/EditSnapshot.swift; sourceTree = "<group>"; };
+		740C41CD9234EB47356AD32D /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GridView.swift; path = DarkroomLite/Views/Library/GridView.swift; sourceTree = "<group>"; };
+		750D4E4F91A6610F77A840DD /* KeyboardShortcutsSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KeyboardShortcutsSettingsView.swift; path = DarkroomLite/Views/Settings/KeyboardShortcutsSettingsView.swift; sourceTree = "<group>"; };
+		772241F6A43626E3A6A741A0 /* CompareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CompareView.swift; path = DarkroomLite/Views/Library/CompareView.swift; sourceTree = "<group>"; };
+		80844C4DAA713E086DDCC38E /* EditSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditSettings.swift; path = DarkroomLite/Models/EditSettings.swift; sourceTree = "<group>"; };
+		838B47BCA81936C9A0C47793 /* ToneCurvePanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ToneCurvePanelView.swift; path = DarkroomLite/Views/Editor/Panels/ToneCurvePanelView.swift; sourceTree = "<group>"; };
+		85A748D0B0877585CD13C93D /* FilterBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FilterBarView.swift; path = DarkroomLite/Views/Library/FilterBarView.swift; sourceTree = "<group>"; };
+		8847432B8FC026F1AD3F6CAA /* EditedPhotoPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditedPhotoPreviewView.swift; path = DarkroomLite/Views/Library/EditedPhotoPreviewView.swift; sourceTree = "<group>"; };
+		929D44F59BEC7254E3E1B02F /* ThumbnailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ThumbnailService.swift; path = DarkroomLite/Services/ThumbnailService.swift; sourceTree = "<group>"; };
+		940A4DA2A39AB30EAAEAD928 /* AccentColorOption+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "AccentColorOption+Color.swift"; path = "DarkroomLite/Utilities/AccentColorOption+Color.swift"; sourceTree = "<group>"; };
+		942E4E7587BE101EA82FB696 /* AppController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppController.swift; path = DarkroomLite/ViewModels/AppController.swift; sourceTree = "<group>"; };
+		99F945208E4DB4083E45B3EB /* LightPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LightPanelView.swift; path = DarkroomLite/Views/Editor/Panels/LightPanelView.swift; sourceTree = "<group>"; };
+		9BBC4A2095D349C8F70DF87D /* LensPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LensPanelView.swift; path = DarkroomLite/Views/Editor/Panels/LensPanelView.swift; sourceTree = "<group>"; };
+		9C1A4BEB848E570D8B707094 /* LUTBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LUTBuilder.swift; path = DarkroomLite/Services/LUTBuilder.swift; sourceTree = "<group>"; };
+		9C474FF499160389C28DA1BC /* ConfirmationsSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ConfirmationsSettingsView.swift; path = DarkroomLite/Views/Settings/ConfirmationsSettingsView.swift; sourceTree = "<group>"; };
+		A08F4CCBA367CCB885287D03 /* PhotoGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PhotoGridCell.swift; path = DarkroomLite/Views/Library/PhotoGridCell.swift; sourceTree = "<group>"; };
+		A5B74131B9A10F49570844E8 /* RawSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RawSupport.swift; path = DarkroomLite/Services/RawSupport.swift; sourceTree = "<group>"; };
+		AB4D466F81D51B4EA8B90C7F /* ExportSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExportSettingsView.swift; path = DarkroomLite/Views/Settings/ExportSettingsView.swift; sourceTree = "<group>"; };
+		AB9D023F0C5B4170AF8F43E3 /* DarkroomLite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DarkroomLite.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B625483EAEFA66E853A8C063 /* DarkroomLite.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = DarkroomLite.entitlements; path = DarkroomLite/DarkroomLite.entitlements; sourceTree = SOURCE_ROOT; };
+		B6F542CDB2F5556F1AB61DAB /* ColorWheelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ColorWheelView.swift; path = DarkroomLite/Views/Editor/ColorWheelView.swift; sourceTree = "<group>"; };
+		B7F94FC6A6FB3A855578F5AD /* BeforeAfterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BeforeAfterView.swift; path = DarkroomLite/Views/Library/BeforeAfterView.swift; sourceTree = "<group>"; };
+		B84F4FE3854C440C4D61BD8F /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SidebarView.swift; path = DarkroomLite/Views/Sidebar/SidebarView.swift; sourceTree = "<group>"; };
+		B8F54DC7856D4DDE8BB09C8B /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PersistenceController.swift; path = DarkroomLite/Persistence/PersistenceController.swift; sourceTree = "<group>"; };
+		BA464B47B6FD0375FBF5FF23 /* ProjectsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProjectsViewModel.swift; path = DarkroomLite/ViewModels/ProjectsViewModel.swift; sourceTree = "<group>"; };
+		C1EA417AA16A917975A73E4E /* EditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditorViewModel.swift; path = DarkroomLite/ViewModels/EditorViewModel.swift; sourceTree = "<group>"; };
+		C30A4BE1BCEBA4B01F3AA8DC /* CropPerspectiveSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CropPerspectiveSettingsView.swift; path = DarkroomLite/Views/Settings/CropPerspectiveSettingsView.swift; sourceTree = "<group>"; };
+		C6BC49759F4CF04B2D39EFB4 /* PerspectiveToolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PerspectiveToolView.swift; path = DarkroomLite/Views/Geometry/PerspectiveToolView.swift; sourceTree = "<group>"; };
+		C79B4DA592C9B036D5199D8A /* SettingsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsStore.swift; path = DarkroomLite/ViewModels/SettingsStore.swift; sourceTree = "<group>"; };
+		C7B34989A47A729D1153B827 /* CurveEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CurveEditorView.swift; path = DarkroomLite/Views/Editor/CurveEditorView.swift; sourceTree = "<group>"; };
+		C8E14125B1A20DDEC6D39B3D /* CropPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CropPanelView.swift; path = DarkroomLite/Views/Editor/Panels/CropPanelView.swift; sourceTree = "<group>"; };
+		CD2B41A3BC62B3390CAE3596 /* KeyEventMonitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KeyEventMonitorView.swift; path = DarkroomLite/Utilities/KeyEventMonitorView.swift; sourceTree = "<group>"; };
+		CE544884A672CCDCDF708D2A /* HorizonDetectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HorizonDetectionService.swift; path = DarkroomLite/Services/HorizonDetectionService.swift; sourceTree = "<group>"; };
+		CE9843EFB39A2644B905CF71 /* HistoryPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HistoryPanelView.swift; path = DarkroomLite/Views/Editor/Panels/HistoryPanelView.swift; sourceTree = "<group>"; };
+		CED049D68909448475AE766D /* EditSliderRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditSliderRow.swift; path = DarkroomLite/Views/Editor/EditSliderRow.swift; sourceTree = "<group>"; };
+		CF8E449FA923A62A1EECC793 /* EffectsPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EffectsPanelView.swift; path = DarkroomLite/Views/Editor/Panels/EffectsPanelView.swift; sourceTree = "<group>"; };
+		D63E4071BAB6A775842E7661 /* PhotoThumbnailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PhotoThumbnailView.swift; path = DarkroomLite/Views/Library/PhotoThumbnailView.swift; sourceTree = "<group>"; };
+		D90842D384BB68A7E12B4DD8 /* CullingControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CullingControls.swift; path = DarkroomLite/Views/Library/CullingControls.swift; sourceTree = "<group>"; };
+		DDC742F695D6FE2E780B79E3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = "Preview Assets.xcassets"; path = "DarkroomLite/Preview Content/Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E01940A4A5B10EE3E569A3E8 /* ExportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExportService.swift; path = DarkroomLite/Services/ExportService.swift; sourceTree = "<group>"; };
+		E89C421E8B2A6C3ACE0EEDAA /* DetailPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailPanelView.swift; path = DarkroomLite/Views/Editor/Panels/DetailPanelView.swift; sourceTree = "<group>"; };
+		E9394F7ABE5A303697F525D7 /* Comparable+Clamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Comparable+Clamp.swift"; path = "DarkroomLite/Utilities/Comparable+Clamp.swift"; sourceTree = "<group>"; };
+		EA794086B0EFF90A5093D037 /* ColorPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ColorPanelView.swift; path = DarkroomLite/Views/Editor/Panels/ColorPanelView.swift; sourceTree = "<group>"; };
+		EB3045E4A3010D2159B85674 /* CropSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CropSettings.swift; path = DarkroomLite/Models/CropSettings.swift; sourceTree = "<group>"; };
+		F62B42B3A1FC83A691591C58 /* ImageRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageRenderer.swift; path = DarkroomLite/Services/ImageRenderer.swift; sourceTree = "<group>"; };
+		F81A48B4B7BEC83B8C68317A /* PerspectiveSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PerspectiveSettings.swift; path = DarkroomLite/Models/PerspectiveSettings.swift; sourceTree = "<group>"; };
+		F8BB40839CD2EB820407B599 /* SecurityScopedFileAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SecurityScopedFileAccess.swift; path = DarkroomLite/Services/SecurityScopedFileAccess.swift; sourceTree = "<group>"; };
+		F9034FE68051C529D32AB055 /* EditValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditValues.swift; path = DarkroomLite/Models/EditValues.swift; sourceTree = "<group>"; };
+		FE7D46C8860D60C7CA652DD6 /* SidecarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SidecarService.swift; path = DarkroomLite/Services/SidecarService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		12DD9F2B61284188B167D1F7 /* Frameworks */ = {
+		13B1F3A85BDA4367BB174F81 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B24985C702BF4372B041581D /* Frameworks */ = {
+		B72BA8B628AA4536BA2D9F5A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -207,272 +207,239 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0AD2489DBE4ED95F02E43808 /* Models */ = {
+		1B78419B9507B03C8531ECF2 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				E4634C998DD260B330651D9C /* Enums.swift */,
-				FC3341D0B963489DD7B9FAEF /* EditSnapshot.swift */,
-				6244458881004CC04526AFB5 /* Photo.swift */,
-				8509440BB3BD5F198215B585 /* CropSettings.swift */,
-				C6054852AE89CFEB26A03899 /* EditSettings.swift */,
-				EEF94265B8EB35FAD93392BF /* PerspectiveSettings.swift */,
-				8DDE4398B1E6E5D64D4B7908 /* Project.swift */,
-				FE8F44D78CE64FDF3F9BFAE9 /* Preset.swift */,
-				9CD3494B94456915AC4912A8 /* EditValues.swift */,
-				50C24379BB473CD3A3EF2620 /* Album.swift */,
-			);
-			name = Models;
-			path = DarkroomLite/Models;
-			sourceTree = "<group>";
-		};
-		172448019FF89D6ADBAA9E89 /* Persistence */ = {
-			isa = PBXGroup;
-			children = (
-				E9BA4B4197F3F237E428B23F /* PersistenceController.swift */,
-			);
-			name = Persistence;
-			path = DarkroomLite/Persistence;
-			sourceTree = "<group>";
-		};
-		1ECA4A9E85B96F51C7F24B77 /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				6C32462C8E07608F2761A608 /* SettingsRootView.swift */,
-				F1634B07B891B6874EB048B5 /* ConfirmationsSettingsView.swift */,
-				FDA54B81B10B57B3028AACAF /* CropPerspectiveSettingsView.swift */,
-				30244D4E8014EBD6F22018EE /* PerformanceSettingsView.swift */,
-				8B824E53B38BA7432071FFF3 /* MetadataSettingsView.swift */,
-				B3BC4FB48C11080389527BF4 /* ExportSettingsView.swift */,
-				27EB461BB1F898BEEF722E7D /* ShortcutRecorderView.swift */,
-				354B49C3A9C87BE3AD28DC4F /* KeyboardShortcutsSettingsView.swift */,
-				9B054A96BBAE44EBD833769D /* LibrarySettingsView.swift */,
-				9A1243838B92B4BA756F77AD /* GeneralSettingsView.swift */,
+				2BBD450F8811FFB399C5966A /* SettingsRootView.swift */,
+				9C474FF499160389C28DA1BC /* ConfirmationsSettingsView.swift */,
+				C30A4BE1BCEBA4B01F3AA8DC /* CropPerspectiveSettingsView.swift */,
+				28854931A043F9B3C16805EF /* PerformanceSettingsView.swift */,
+				5F30452099E588DEA4FCF3DB /* MetadataSettingsView.swift */,
+				AB4D466F81D51B4EA8B90C7F /* ExportSettingsView.swift */,
+				6B904AA1AF02902E214F8BAD /* ShortcutRecorderView.swift */,
+				750D4E4F91A6610F77A840DD /* KeyboardShortcutsSettingsView.swift */,
+				17804C2D891B3C1B7CE9D8E3 /* LibrarySettingsView.swift */,
+				70FA4B07AD725C19923789E9 /* GeneralSettingsView.swift */,
 			);
 			name = Settings;
-			path = DarkroomLite/Views/Settings;
 			sourceTree = "<group>";
 		};
-		224D4143B9929F3A51A497F4 /* Sidebar */ = {
+		3A7E4724A9A602498D8947CE /* Panels */ = {
 			isa = PBXGroup;
 			children = (
-				C78647299AFF8CA3F3877045 /* SidebarView.swift */,
+				C8E14125B1A20DDEC6D39B3D /* CropPanelView.swift */,
+				9BBC4A2095D349C8F70DF87D /* LensPanelView.swift */,
+				33DA4D3893D536FA3A54A44E /* HSLPanelView.swift */,
+				838B47BCA81936C9A0C47793 /* ToneCurvePanelView.swift */,
+				45304E17859F7069056DFE13 /* PresetsPanelView.swift */,
+				E89C421E8B2A6C3ACE0EEDAA /* DetailPanelView.swift */,
+				CF8E449FA923A62A1EECC793 /* EffectsPanelView.swift */,
+				99F945208E4DB4083E45B3EB /* LightPanelView.swift */,
+				CE9843EFB39A2644B905CF71 /* HistoryPanelView.swift */,
+				65F54130A8F341CF37F2C3B0 /* ColorGradingPanelView.swift */,
+				EA794086B0EFF90A5093D037 /* ColorPanelView.swift */,
 			);
-			name = Sidebar;
-			path = DarkroomLite/Views/Sidebar;
+			name = Panels;
 			sourceTree = "<group>";
 		};
-		3F74470AB4C61CE7E25F9C13 /* Utilities */ = {
+		42E64E3483BCA777C1CFB2DE /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				F60642EBBD1EC15ED78DED35 /* Comparable+Clamp.swift */,
-				18EA4EFF836ABF6B540D689E /* KeyEventMonitorView.swift */,
-				E1AA454CA05141748BEAEA60 /* AccentColorOption+Color.swift */,
-				6BF448B7843AA4C333A7011F /* Formatters.swift */,
+				A08F4CCBA367CCB885287D03 /* PhotoGridCell.swift */,
+				740C41CD9234EB47356AD32D /* GridView.swift */,
+				562749188D845710D86543FD /* LoupeView.swift */,
+				D90842D384BB68A7E12B4DD8 /* CullingControls.swift */,
+				B7F94FC6A6FB3A855578F5AD /* BeforeAfterView.swift */,
+				D63E4071BAB6A775842E7661 /* PhotoThumbnailView.swift */,
+				85A748D0B0877585CD13C93D /* FilterBarView.swift */,
+				098B4904ADF82EF07EED9B50 /* ProjectWorkspaceView.swift */,
+				704F4FD09939DAAA4327D5D6 /* FilmstripView.swift */,
+				772241F6A43626E3A6A741A0 /* CompareView.swift */,
+				8847432B8FC026F1AD3F6CAA /* EditedPhotoPreviewView.swift */,
 			);
-			name = Utilities;
-			path = DarkroomLite/Utilities;
+			name = Library;
 			sourceTree = "<group>";
 		};
-		50CB44448A7C21B30C2E4AAF /* Preview Content */ = {
+		6F4A414F867D0922D4FB6D97 /* Export */ = {
 			isa = PBXGroup;
 			children = (
-				2F0548F3A53C8ADAE2702634 /* Preview Assets.xcassets */,
+				518F40008B68307D4D90351E /* ExportSheetView.swift */,
 			);
-			name = "Preview Content";
-			path = "DarkroomLite/Preview Content";
+			name = Export;
 			sourceTree = "<group>";
 		};
-		730FFD6817EF4F4EA7A9C39E /* Products */ = {
+		72E02C4E879742A9B06ADD69 = {
 			isa = PBXGroup;
 			children = (
-				4C9CF122DF154C11A1EA4D2F /* DarkroomLite.app */,
-				C190B2240CD24FC0A02059C9 /* DarkroomLiteTests.xctest */,
+				A7ABE4B5B0154EDFA6488B55 /* Products */,
+				87404B20AEBF69401A03CEF4 /* DarkroomLite */,
+				827A491EAD1AA391418EE597 /* DarkroomLiteTests */,
+			);
+			sourceTree = "<group>";
+		};
+		827A491EAD1AA391418EE597 /* DarkroomLiteTests */ = {
+			isa = PBXGroup;
+			children = (
+				6D0647D98E50B9D49C1C6E23 /* DarkroomLiteTests.swift */,
+			);
+			name = DarkroomLiteTests;
+			sourceTree = "<group>";
+		};
+		85C74293BAC74BCD3BB7AEC0 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				B8F54DC7856D4DDE8BB09C8B /* PersistenceController.swift */,
+			);
+			name = Persistence;
+			sourceTree = "<group>";
+		};
+		87404B20AEBF69401A03CEF4 /* DarkroomLite */ = {
+			isa = PBXGroup;
+			children = (
+				C41341A8AA495449B137F026 /* Models */,
+				ADB046C28BF6608948F6A338 /* ViewModels */,
+				2BB6421E8A3EAF25011EE9F1 /* Assets.xcassets */,
+				B73349C4BBE58AFD44CD8E25 /* Views */,
+				491B4F3B9510F71DA20BF28F /* DarkroomLiteApp.swift */,
+				AB5549BAA4DB2CA72E1082C8 /* Services */,
+				B4874C16A3EE11DAA6678039 /* Utilities */,
+				85C74293BAC74BCD3BB7AEC0 /* Persistence */,
+				E02041828050E8C8B10455C0 /* Preview Content */,
+				B625483EAEFA66E853A8C063 /* DarkroomLite.entitlements */,
+			);
+			name = DarkroomLite;
+			sourceTree = "<group>";
+		};
+		8E6144DBBB7301BACB947143 /* Editor */ = {
+			isa = PBXGroup;
+			children = (
+				C7B34989A47A729D1153B827 /* CurveEditorView.swift */,
+				6DDC4590B23BE3A1C84B6328 /* SliderRow.swift */,
+				B6F542CDB2F5556F1AB61DAB /* ColorWheelView.swift */,
+				3A7E4724A9A602498D8947CE /* Panels */,
+				CED049D68909448475AE766D /* EditSliderRow.swift */,
+				6F194D569221B774E7561CFA /* EditorPanelContainerView.swift */,
+			);
+			name = Editor;
+			sourceTree = "<group>";
+		};
+		A7ABE4B5B0154EDFA6488B55 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AB9D023F0C5B4170AF8F43E3 /* DarkroomLite.app */,
+				160B72D582A24B6793B606AD /* DarkroomLiteTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8DA8D835D4E0491CA5872D0E /* DarkroomLite */ = {
+		AB5549BAA4DB2CA72E1082C8 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				C301465DB197DE240617BBA3 /* DarkroomLite */,
-				FA104BE595CCF72477F6F1F9 /* DarkroomLite.entitlements */,
-			);
-			path = DarkroomLite;
-			sourceTree = "<group>";
-		};
-		8F2CDE62D5E449EFAE0AB5E2 = {
-			isa = PBXGroup;
-			children = (
-				8DA8D835D4E0491CA5872D0E /* DarkroomLite */,
-				B011119917C847E0B1B0D547 /* DarkroomLiteTests */,
-				730FFD6817EF4F4EA7A9C39E /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		9A54492AAF8EF6ED95C660EB /* Geometry */ = {
-			isa = PBXGroup;
-			children = (
-				A5564D6696C580A2D007EAA6 /* PerspectiveToolView.swift */,
-				D7A24BAC8E822A741AA47F56 /* CropToolView.swift */,
-			);
-			name = Geometry;
-			path = DarkroomLite/Views/Geometry;
-			sourceTree = "<group>";
-		};
-		AB3348E9BE762C894B070B8B /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				B1474273A8C7F0AF9C390D27 /* RawSupport.swift */,
-				75944D928BA138C0D81280E2 /* ImportService.swift */,
-				745D44A5830263BF448DA2E3 /* ImageRenderer.swift */,
-				5A08436297A06C3517446B4E /* SidecarService.swift */,
-				6A2A4D7DB8FFD8A3B20D4EDA /* MetadataService.swift */,
-				234C42B4AB0E36339857C816 /* Clipboard.swift */,
-				C31E465FAAE6550A44C20AA1 /* SecurityScopedFileAccess.swift */,
-				DB3142FD901D44DB03F3FF5A /* ExportService.swift */,
-				55E24AA6BA57919CF2D4FCAB /* LUTBuilder.swift */,
-				65304590AA7733AFA1988C98 /* ThumbnailService.swift */,
-				A4B94EF2A263CB156C582A2C /* KeyboardShortcuts.swift */,
-				861D49A88D4356967B9578E8 /* HorizonDetectionService.swift */,
+				A5B74131B9A10F49570844E8 /* RawSupport.swift */,
+				4F324604A192BC3918FD49A1 /* ImportService.swift */,
+				F62B42B3A1FC83A691591C58 /* ImageRenderer.swift */,
+				FE7D46C8860D60C7CA652DD6 /* SidecarService.swift */,
+				26014C53A0A2147C3B212C29 /* MetadataService.swift */,
+				36D54E68B236C401B7ACA868 /* Clipboard.swift */,
+				F8BB40839CD2EB820407B599 /* SecurityScopedFileAccess.swift */,
+				E01940A4A5B10EE3E569A3E8 /* ExportService.swift */,
+				9C1A4BEB848E570D8B707094 /* LUTBuilder.swift */,
+				929D44F59BEC7254E3E1B02F /* ThumbnailService.swift */,
+				3C0F40FDB0C02704E7DA312E /* KeyboardShortcuts.swift */,
+				CE544884A672CCDCDF708D2A /* HorizonDetectionService.swift */,
 			);
 			name = Services;
-			path = DarkroomLite/Services;
 			sourceTree = "<group>";
 		};
-		B00A4B908EACA56DBDF4E60A /* Editor */ = {
+		ADB046C28BF6608948F6A338 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				FF5B4FB380225DAAEFBB0BE3 /* CurveEditorView.swift */,
-				C7434CA7A6BE1E3C3FABEFA3 /* SliderRow.swift */,
-				645F4C7BB784665CCAFDDBCF /* ColorWheelView.swift */,
-				E4A84C74A8EF1E2308B14C77 /* Panels */,
-				E46F4C24A3048F4C56088506 /* EditSliderRow.swift */,
-				A92F4EA288C778A5481966D3 /* EditorPanelContainerView.swift */,
-			);
-			name = Editor;
-			path = DarkroomLite/Views/Editor;
-			sourceTree = "<group>";
-		};
-		B011119917C847E0B1B0D547 /* DarkroomLiteTests */ = {
-			isa = PBXGroup;
-			children = (
-				F9014A02BA53A6CE679394C6 /* DarkroomLiteTests */,
-			);
-			path = DarkroomLiteTests;
-			sourceTree = "<group>";
-		};
-		BC3E4AD982613CFB12A8AABC /* Toolbar */ = {
-			isa = PBXGroup;
-			children = (
-				FA4C45988E90678F536F1115 /* MainToolbarContent.swift */,
-			);
-			name = Toolbar;
-			path = DarkroomLite/Views/Toolbar;
-			sourceTree = "<group>";
-		};
-		BCE34F5E9EB0D5F58FF5406F /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				93DC4F759E95E8482075A475 /* EditorViewModel+Bindings.swift */,
-				4EDA4999A8E6D5EC3FFAC010 /* SettingsStore.swift */,
-				8B884481938131DD875374A4 /* EditorViewModel.swift */,
-				63354B10A774764B51E2B2E1 /* ProjectsViewModel.swift */,
-				9B9949A5855F0649149D011F /* LibraryViewModel.swift */,
-				FC9E4169BBC1D55DC23CD09A /* AppController.swift */,
-				9F334C378F8748C84E71E639 /* ExportViewModel.swift */,
+				5D3346A9A1481CB4CB7C165B /* EditorViewModel+Bindings.swift */,
+				C79B4DA592C9B036D5199D8A /* SettingsStore.swift */,
+				C1EA417AA16A917975A73E4E /* EditorViewModel.swift */,
+				BA464B47B6FD0375FBF5FF23 /* ProjectsViewModel.swift */,
+				21C245CC855110E685BEE42B /* LibraryViewModel.swift */,
+				942E4E7587BE101EA82FB696 /* AppController.swift */,
+				124C40AE81D91A724894EC47 /* ExportViewModel.swift */,
 			);
 			name = ViewModels;
-			path = DarkroomLite/ViewModels;
 			sourceTree = "<group>";
 		};
-		C301465DB197DE240617BBA3 /* DarkroomLite */ = {
+		B4874C16A3EE11DAA6678039 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				0AD2489DBE4ED95F02E43808 /* Models */,
-				BCE34F5E9EB0D5F58FF5406F /* ViewModels */,
-				FC9F47FAAE982719A7DC04BD /* Assets.xcassets */,
-				CB384D32942EE66CD3424F49 /* Views */,
-				069B46339928B23B15E52DFF /* DarkroomLiteApp.swift */,
-				AB3348E9BE762C894B070B8B /* Services */,
-				3F74470AB4C61CE7E25F9C13 /* Utilities */,
-				172448019FF89D6ADBAA9E89 /* Persistence */,
-				50CB44448A7C21B30C2E4AAF /* Preview Content */,
+				E9394F7ABE5A303697F525D7 /* Comparable+Clamp.swift */,
+				CD2B41A3BC62B3390CAE3596 /* KeyEventMonitorView.swift */,
+				940A4DA2A39AB30EAAEAD928 /* AccentColorOption+Color.swift */,
+				1D7E42DD932C81622A124DCE /* Formatters.swift */,
 			);
-			name = DarkroomLite;
-			path = DarkroomLite;
+			name = Utilities;
 			sourceTree = "<group>";
 		};
-		CB384D32942EE66CD3424F49 /* Views */ = {
+		B73349C4BBE58AFD44CD8E25 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				BC3E4AD982613CFB12A8AABC /* Toolbar */,
-				F58444A9801B95AB7DECB42F /* AppCommands.swift */,
-				224D4143B9929F3A51A497F4 /* Sidebar */,
-				9A54492AAF8EF6ED95C660EB /* Geometry */,
-				1ECA4A9E85B96F51C7F24B77 /* Settings */,
-				EAD949C992477350B6D46330 /* Library */,
-				B00A4B908EACA56DBDF4E60A /* Editor */,
-				C2014784A455656975F92AAB /* ContentView.swift */,
-				F56E4DDBAADED9357FAC01CD /* Export */,
+				E4E44B5A91C0BD4A2080DAE4 /* Toolbar */,
+				5F854A53AC4A803C8A851A59 /* AppCommands.swift */,
+				DDBA48E68DD9D6180709E795 /* Sidebar */,
+				E8614D1B986189573DADBCFA /* Geometry */,
+				1B78419B9507B03C8531ECF2 /* Settings */,
+				42E64E3483BCA777C1CFB2DE /* Library */,
+				8E6144DBBB7301BACB947143 /* Editor */,
+				240C4321AFA95E49C7A9DE7C /* ContentView.swift */,
+				6F4A414F867D0922D4FB6D97 /* Export */,
 			);
 			name = Views;
-			path = DarkroomLite/Views;
 			sourceTree = "<group>";
 		};
-		E4A84C74A8EF1E2308B14C77 /* Panels */ = {
+		C41341A8AA495449B137F026 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				A2C346E6A21A37A9A8F8F3B5 /* CropPanelView.swift */,
-				D7B943C99F904CD0AF6CAECB /* LensPanelView.swift */,
-				E7FF41D9B3F53ED34F4027C5 /* HSLPanelView.swift */,
-				4D28469F8EAC203D62EA30F0 /* ToneCurvePanelView.swift */,
-				D28946528636B6CFB62F65A3 /* PresetsPanelView.swift */,
-				FCC346829657C9C4E808255D /* DetailPanelView.swift */,
-				593D45B586AB6D327707EEE8 /* EffectsPanelView.swift */,
-				D9D34A4AAB3EB260B4EF24B8 /* LightPanelView.swift */,
-				21554D0AB243A7AB85D26D11 /* HistoryPanelView.swift */,
-				B886469981706777C4C58EAE /* ColorGradingPanelView.swift */,
-				8BB2430C9663AC9EA7652074 /* ColorPanelView.swift */,
+				0EA34795A0B7B00BB679DD2F /* Enums.swift */,
+				737A4DE89165571F5BFF493B /* EditSnapshot.swift */,
+				5F6C4A0C892F96CD41014D69 /* Photo.swift */,
+				EB3045E4A3010D2159B85674 /* CropSettings.swift */,
+				80844C4DAA713E086DDCC38E /* EditSettings.swift */,
+				F81A48B4B7BEC83B8C68317A /* PerspectiveSettings.swift */,
+				632F4C70AF1F150F9981B575 /* Project.swift */,
+				68424A158A4FF3C4CBD0EF16 /* Preset.swift */,
+				F9034FE68051C529D32AB055 /* EditValues.swift */,
+				5A4C47E8A3F6D23FD5C6F578 /* Album.swift */,
 			);
-			name = Panels;
-			path = DarkroomLite/Views/Editor/Panels;
+			name = Models;
 			sourceTree = "<group>";
 		};
-		EAD949C992477350B6D46330 /* Library */ = {
+		DDBA48E68DD9D6180709E795 /* Sidebar */ = {
 			isa = PBXGroup;
 			children = (
-				164F4AE1A7340409F4FCBD39 /* PhotoGridCell.swift */,
-				79C04E88B43F6852A8413363 /* GridView.swift */,
-				7AEB4CDBB6C8DC4CF9B53C0F /* LoupeView.swift */,
-				26074E0287FD8CB99C51D0CD /* CullingControls.swift */,
-				46BA4EEF94D5870C12AF9579 /* BeforeAfterView.swift */,
-				0F9345048C741762CB563048 /* PhotoThumbnailView.swift */,
-				972549409B4779B518DF46E5 /* FilterBarView.swift */,
-				606F47BBB047883857674B5E /* ProjectWorkspaceView.swift */,
-				C66F46078EB492E178EED787 /* FilmstripView.swift */,
-				FBD745C3B0ABF806FD755B40 /* CompareView.swift */,
-				AE6B4C049B701180785364ED /* EditedPhotoPreviewView.swift */,
+				B84F4FE3854C440C4D61BD8F /* SidebarView.swift */,
 			);
-			name = Library;
-			path = DarkroomLite/Views/Library;
+			name = Sidebar;
 			sourceTree = "<group>";
 		};
-		F56E4DDBAADED9357FAC01CD /* Export */ = {
+		E02041828050E8C8B10455C0 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				DB9345DA8CF91B5812886828 /* ExportSheetView.swift */,
+				DDC742F695D6FE2E780B79E3 /* Preview Assets.xcassets */,
 			);
-			name = Export;
-			path = DarkroomLite/Views/Export;
+			name = "Preview Content";
 			sourceTree = "<group>";
 		};
-		F9014A02BA53A6CE679394C6 /* DarkroomLiteTests */ = {
+		E4E44B5A91C0BD4A2080DAE4 /* Toolbar */ = {
 			isa = PBXGroup;
 			children = (
-				6B1D48A5A6C0CCC488FED5BD /* DarkroomLiteTests.swift */,
+				2E4240C6904A7A90AD9FF3CA /* MainToolbarContent.swift */,
 			);
-			name = DarkroomLiteTests;
-			path = DarkroomLiteTests;
+			name = Toolbar;
+			sourceTree = "<group>";
+		};
+		E8614D1B986189573DADBCFA /* Geometry */ = {
+			isa = PBXGroup;
+			children = (
+				C6BC49759F4CF04B2D39EFB4 /* PerspectiveToolView.swift */,
+				5E4D4F23B7ADAE15A5BE4AF8 /* CropToolView.swift */,
+			);
+			name = Geometry;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -480,29 +447,29 @@
 /* Begin PBXNativeTarget section */
 		2A221A5507784EFEB08D08D9 /* DarkroomLiteTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 31BE1371F9404960A4BBB8E5 /* Build configuration list for PBXNativeTarget "DarkroomLiteTests" */;
+			buildConfigurationList = EBCCB6D0EC7E41D5B619B0B1 /* Build configuration list for PBXNativeTarget "DarkroomLiteTests" */;
 			buildPhases = (
-				8DD366949AB04636AA1D7622 /* Sources */,
-				12DD9F2B61284188B167D1F7 /* Frameworks */,
-				97E9CEF82C2F4ACB88B6F4DF /* Resources */,
+				FE6BC44BD8824407A5FA6DF8 /* Sources */,
+				B72BA8B628AA4536BA2D9F5A /* Frameworks */,
+				EC9EE562ADE749128B5C7177 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				8D86ADFF05E04EA4936F50B7 /* PBXTargetDependency */,
+				7EA5D22A4C6248928B69C973 /* PBXTargetDependency */,
 			);
 			name = DarkroomLiteTests;
 			productName = DarkroomLiteTests;
-			productReference = C190B2240CD24FC0A02059C9 /* DarkroomLiteTests.xctest */;
+			productReference = 160B72D582A24B6793B606AD /* DarkroomLiteTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		9A3DC7A79D16495F80E78842 /* DarkroomLite */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B5C7B852C7804B3BB3606651 /* Build configuration list for PBXNativeTarget "DarkroomLite" */;
+			buildConfigurationList = 2459A4599F96468096D3C5CC /* Build configuration list for PBXNativeTarget "DarkroomLite" */;
 			buildPhases = (
-				412B4AF22968481E9C38B45E /* Sources */,
-				B24985C702BF4372B041581D /* Frameworks */,
-				2945298769D940149CA80417 /* Resources */,
+				D4B4DE7C539D4BB29CDB5A24 /* Sources */,
+				13B1F3A85BDA4367BB174F81 /* Frameworks */,
+				BAF70D1C73A74B9F9AC2F2DE /* Resources */,
 			);
 			buildRules = (
 			);
@@ -510,13 +477,13 @@
 			);
 			name = DarkroomLite;
 			productName = DarkroomLite;
-			productReference = 4C9CF122DF154C11A1EA4D2F /* DarkroomLite.app */;
+			productReference = AB9D023F0C5B4170AF8F43E3 /* DarkroomLite.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		F51E2E4358DC41F99D5871E6 /* Project object */ = {
+		C580F4FF1B444C95A3E76BB4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
@@ -532,7 +499,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 6AC6785695E7452B960F29BC /* Build configuration list for PBXProject "DarkroomLite" */;
+			buildConfigurationList = 16E14F5B8A104E899B9853FD /* Build configuration list for PBXProject "DarkroomLite" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -540,8 +507,8 @@
 				en,
 				Base,
 			);
-			mainGroup = 8F2CDE62D5E449EFAE0AB5E2;
-			productRefGroup = 730FFD6817EF4F4EA7A9C39E /* Products */;
+			mainGroup = 72E02C4E879742A9B06ADD69;
+			productRefGroup = A7ABE4B5B0154EDFA6488B55 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -552,16 +519,16 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		2945298769D940149CA80417 /* Resources */ = {
+		BAF70D1C73A74B9F9AC2F2DE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BFF4AD8ADBF27FDE737F97B /* Assets.xcassets in Resources */,
-				AB2C410DA1F3B794955C2760 /* Preview Assets.xcassets in Resources */,
+				01B94E1FAE30894F95E70134 /* Assets.xcassets in Resources */,
+				6FB94667882991BEC815125F /* Preview Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		97E9CEF82C2F4ACB88B6F4DF /* Resources */ = {
+		EC9EE562ADE749128B5C7177 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -571,112 +538,112 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		412B4AF22968481E9C38B45E /* Sources */ = {
+		D4B4DE7C539D4BB29CDB5A24 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A44440D79F7D7A74E257E3CB /* Enums.swift in Sources */,
-				AA954979A18248A47476E320 /* EditSnapshot.swift in Sources */,
-				8698478481F53F28E94F4365 /* Photo.swift in Sources */,
-				157D48BC879FCD1F361108E1 /* CropSettings.swift in Sources */,
-				249E4ADD9CF69E7893AC8DDD /* EditSettings.swift in Sources */,
-				D1074311A967531BAC652B8B /* PerspectiveSettings.swift in Sources */,
-				68C748368D8779AA93AC7454 /* Project.swift in Sources */,
-				5A034253950D614C06AD0207 /* Preset.swift in Sources */,
-				7297453DA56A0B09D19A60A3 /* EditValues.swift in Sources */,
-				0B9E4D3B8EA8B6B77060DEF4 /* Album.swift in Sources */,
-				F6744C85BD3CC05D80CA60CC /* EditorViewModel+Bindings.swift in Sources */,
-				8ABF4E57BDA3B2F753618D21 /* SettingsStore.swift in Sources */,
-				F8D44AC283D9CCA4806E93B4 /* EditorViewModel.swift in Sources */,
-				504346709E917026CBBCFD8D /* ProjectsViewModel.swift in Sources */,
-				C6724A4B8B8E1ED5C67B9FA4 /* LibraryViewModel.swift in Sources */,
-				3AE14A21AD2DCACA7B2E0E7C /* AppController.swift in Sources */,
-				E02F4130814152EA6C87C6E8 /* ExportViewModel.swift in Sources */,
-				5E014CD1AAA08C82CE0631AE /* MainToolbarContent.swift in Sources */,
-				B01E41E283044F1734FE7C8C /* AppCommands.swift in Sources */,
-				322E4CE9A5F16C4EFD0393EE /* SidebarView.swift in Sources */,
-				3DBC441A85A5D4B7F8D80C88 /* PerspectiveToolView.swift in Sources */,
-				F92244959807E0CBE3448FCE /* CropToolView.swift in Sources */,
-				2AE8498999A5D56520E5DF94 /* SettingsRootView.swift in Sources */,
-				9EBD4D7C8D068CEAEDD70A6E /* ConfirmationsSettingsView.swift in Sources */,
-				B6AF45C9811DFAED02CB0986 /* CropPerspectiveSettingsView.swift in Sources */,
-				F9A34E2DB032862AFE15F97F /* PerformanceSettingsView.swift in Sources */,
-				8C3C42A5B0534C6F66BA39EA /* MetadataSettingsView.swift in Sources */,
-				E737471BBDA0D7B3921B5669 /* ExportSettingsView.swift in Sources */,
-				640C44E6998C407CAB7E2D5C /* ShortcutRecorderView.swift in Sources */,
-				A1A6422BBD1E5C09AB5B9E6B /* KeyboardShortcutsSettingsView.swift in Sources */,
-				9D284E68BDD10AF5A6C56160 /* LibrarySettingsView.swift in Sources */,
-				15F04A598F3CFFD5A099BBDD /* GeneralSettingsView.swift in Sources */,
-				85084697A7CCAB4AFCA3B907 /* PhotoGridCell.swift in Sources */,
-				0D984EEDB729BC0D5F615FC3 /* GridView.swift in Sources */,
-				4D8B4629A8A2543477E06570 /* LoupeView.swift in Sources */,
-				BA064E4CB23F15A47AA97F5E /* CullingControls.swift in Sources */,
-				D68440CC86809D70303ED42C /* BeforeAfterView.swift in Sources */,
-				35BA408F8C8B2BE3A969B30B /* PhotoThumbnailView.swift in Sources */,
-				2EA4479283E59EB7766D944F /* FilterBarView.swift in Sources */,
-				72E846B4A67A6070DDDA506C /* ProjectWorkspaceView.swift in Sources */,
-				43CD4C778F74EB7A0FCA661D /* FilmstripView.swift in Sources */,
-				93664B2F963AD581412A4F3C /* CompareView.swift in Sources */,
-				22674FA39DB800B1C571FF3F /* EditedPhotoPreviewView.swift in Sources */,
-				A3284FC7A32ABE8196497DBB /* CurveEditorView.swift in Sources */,
-				898B4E93A9FE1D6ABFEDC5DB /* SliderRow.swift in Sources */,
-				03374824BC9E2E2E4B0AD4BC /* ColorWheelView.swift in Sources */,
-				864243B8B75782D8D6CFB1FF /* CropPanelView.swift in Sources */,
-				31BF4EC5B9D1708488ED13DB /* LensPanelView.swift in Sources */,
-				B5754D9EB4B6DCD7A082D703 /* HSLPanelView.swift in Sources */,
-				280F4CC7BBF4ACA2C120931B /* ToneCurvePanelView.swift in Sources */,
-				CAA943A583C35175B0BBAC10 /* PresetsPanelView.swift in Sources */,
-				66074497A267A90C846CD4BE /* DetailPanelView.swift in Sources */,
-				87194FD2B4422B2F1FBE86D7 /* EffectsPanelView.swift in Sources */,
-				87A2497E898282DA84F0387E /* LightPanelView.swift in Sources */,
-				D7FD41DEA1CE637E1CAE163E /* HistoryPanelView.swift in Sources */,
-				64A44C9E9DCA45813CACC8C9 /* ColorGradingPanelView.swift in Sources */,
-				EFA2471F8BA29935318163B1 /* ColorPanelView.swift in Sources */,
-				35B74717842A50710A592E69 /* EditSliderRow.swift in Sources */,
-				75E940049D796CC36F96A1F6 /* EditorPanelContainerView.swift in Sources */,
-				CA2B4AF09A415D5AB8271B89 /* ContentView.swift in Sources */,
-				3B524016BEEE52C8EB5DC826 /* ExportSheetView.swift in Sources */,
-				C33143FEBA8B1D4A28F53A5B /* DarkroomLiteApp.swift in Sources */,
-				BC614770B0AD4D15AD89FADD /* RawSupport.swift in Sources */,
-				62114ADEAFF18398B2B4726D /* ImportService.swift in Sources */,
-				14F34500B573C1E38D7EB60B /* ImageRenderer.swift in Sources */,
-				E1204BDDA921CA4E4C116A4A /* SidecarService.swift in Sources */,
-				95884139AB2FE891ACA03E92 /* MetadataService.swift in Sources */,
-				7B80484FA456CDC7229936F2 /* Clipboard.swift in Sources */,
-				AAFC4596BF7B22D75031819D /* SecurityScopedFileAccess.swift in Sources */,
-				60D248EE89AD8E2DC57FAE6B /* ExportService.swift in Sources */,
-				7A324FF8B8851D2EA35AAC17 /* LUTBuilder.swift in Sources */,
-				08494C1E88867E9C219F4433 /* ThumbnailService.swift in Sources */,
-				DA8C4D82A706A6311C64E085 /* KeyboardShortcuts.swift in Sources */,
-				85834A29875D4E7D3CFF936F /* HorizonDetectionService.swift in Sources */,
-				1A0349399A496610E2A9BA13 /* Comparable+Clamp.swift in Sources */,
-				611A404AAEB6DF6BA644EE3B /* KeyEventMonitorView.swift in Sources */,
-				49E24F6B8E14078459224938 /* AccentColorOption+Color.swift in Sources */,
-				A38C4291A72DAB1BC5EE4917 /* Formatters.swift in Sources */,
-				52F742AE87C05A0AC616E523 /* PersistenceController.swift in Sources */,
+				1A54419AAECF34B000E1325C /* Enums.swift in Sources */,
+				FC194846BA220848B68B223D /* EditSnapshot.swift in Sources */,
+				3A0549BFB31A2DED38AB9662 /* Photo.swift in Sources */,
+				D9FA4743870EEE22A7BCE822 /* CropSettings.swift in Sources */,
+				9085421590659C4E1A36AE92 /* EditSettings.swift in Sources */,
+				D262406397D6D21BA20702F9 /* PerspectiveSettings.swift in Sources */,
+				29624FBE9A1C64683603B450 /* Project.swift in Sources */,
+				65144286BCB142D1FC8E32CD /* Preset.swift in Sources */,
+				8F614265B15E6EFD11DE9CCB /* EditValues.swift in Sources */,
+				1E8248918D1A9C8E1E545AF8 /* Album.swift in Sources */,
+				A3B24C76B35602C434BE81CC /* EditorViewModel+Bindings.swift in Sources */,
+				8C7B4B4EA7B34DF73EC6CB40 /* SettingsStore.swift in Sources */,
+				80CA4A8982736934A1E0B9F5 /* EditorViewModel.swift in Sources */,
+				E3A6440E81BFB27ADE0C8AC4 /* ProjectsViewModel.swift in Sources */,
+				5F3D469F8AC1B45AB9D92A3E /* LibraryViewModel.swift in Sources */,
+				D6DE4BF59F2F4B41C8872C06 /* AppController.swift in Sources */,
+				62C64BB28A2D70E102245287 /* ExportViewModel.swift in Sources */,
+				551F4ECE8C814B029278D82F /* MainToolbarContent.swift in Sources */,
+				D28C485FA3AAC7A4FCDA4415 /* AppCommands.swift in Sources */,
+				0FDD4624881068E7849FFB7E /* SidebarView.swift in Sources */,
+				954C4D4287EB4AAD9F1DC7B8 /* PerspectiveToolView.swift in Sources */,
+				176E4FC8B9FCBFC02BCDAC50 /* CropToolView.swift in Sources */,
+				B4DB43408CDB07671EEB8BE4 /* SettingsRootView.swift in Sources */,
+				6A7F418FBF282E5ED2320B66 /* ConfirmationsSettingsView.swift in Sources */,
+				7E6F44968794556EFA6E7E64 /* CropPerspectiveSettingsView.swift in Sources */,
+				0A7440B9A126D49731710A04 /* PerformanceSettingsView.swift in Sources */,
+				23B14987A31514025038BA5D /* MetadataSettingsView.swift in Sources */,
+				E7A94F54826936CFB8B990DB /* ExportSettingsView.swift in Sources */,
+				EC4F4976A179EB68082F1B3B /* ShortcutRecorderView.swift in Sources */,
+				622449BEA6B02264F0E67221 /* KeyboardShortcutsSettingsView.swift in Sources */,
+				6E4B4E28B180FB2F549FBED5 /* LibrarySettingsView.swift in Sources */,
+				D22943FC8EAA82DFDF08B734 /* GeneralSettingsView.swift in Sources */,
+				A10347DDBAA834BC7CD58103 /* PhotoGridCell.swift in Sources */,
+				0C634983BFEC42116403590D /* GridView.swift in Sources */,
+				B17F4319B0385CF0C73F381E /* LoupeView.swift in Sources */,
+				2A0B42A484F61570994FA679 /* CullingControls.swift in Sources */,
+				E3744882924AB5E0410CC198 /* BeforeAfterView.swift in Sources */,
+				855C44ADACFE1AC59C60ACE0 /* PhotoThumbnailView.swift in Sources */,
+				6E6B40BB8D1801B01919AD79 /* FilterBarView.swift in Sources */,
+				602147D9A8D4832F3D36DA64 /* ProjectWorkspaceView.swift in Sources */,
+				273C4A958FE38A62F601B094 /* FilmstripView.swift in Sources */,
+				70B7490DA5C8CBEB810F1041 /* CompareView.swift in Sources */,
+				0B3F4AF4AC7E25B3DD3AF1ED /* EditedPhotoPreviewView.swift in Sources */,
+				857B46A6B501B122C85A8044 /* CurveEditorView.swift in Sources */,
+				A0D34B22B09AF8EAB82854C6 /* SliderRow.swift in Sources */,
+				7E9843C5A698309AE2FFC82D /* ColorWheelView.swift in Sources */,
+				083C4F1A90C985CACEB98AC8 /* CropPanelView.swift in Sources */,
+				D2DE482EB0BB420E4EF87FBE /* LensPanelView.swift in Sources */,
+				EB3B4E83853F98EC41974D00 /* HSLPanelView.swift in Sources */,
+				6AE84128B628FD886E40F8B6 /* ToneCurvePanelView.swift in Sources */,
+				63F2441983C355AC4DB4F913 /* PresetsPanelView.swift in Sources */,
+				7FCC465CA7054692FE93B029 /* DetailPanelView.swift in Sources */,
+				AAEC48BAB4C1BB8C72BAB92A /* EffectsPanelView.swift in Sources */,
+				B0DA475998B74673B1B3B3C4 /* LightPanelView.swift in Sources */,
+				AD284CF7B9AE79BC88BD1F84 /* HistoryPanelView.swift in Sources */,
+				CB224EFDB34324CA06950698 /* ColorGradingPanelView.swift in Sources */,
+				A537477980AAA10CD29FA6E9 /* ColorPanelView.swift in Sources */,
+				16C04433834CF97B62176B64 /* EditSliderRow.swift in Sources */,
+				91574EECA3B566CAC2D80A50 /* EditorPanelContainerView.swift in Sources */,
+				E55E470ABA6652F59519192D /* ContentView.swift in Sources */,
+				33924A32933F25AA7BA39E62 /* ExportSheetView.swift in Sources */,
+				74CC4A03B686D46792346988 /* DarkroomLiteApp.swift in Sources */,
+				50E14185BBA1EEFFD11786D0 /* RawSupport.swift in Sources */,
+				5E97464D9B824E148E44C5B9 /* ImportService.swift in Sources */,
+				1CDD42E2B08E4A9453853914 /* ImageRenderer.swift in Sources */,
+				EA604F2889ABCAF5C8BB2B95 /* SidecarService.swift in Sources */,
+				E8324A41BAFA5BC9D4C230BB /* MetadataService.swift in Sources */,
+				DB154FEB80165EC78B207897 /* Clipboard.swift in Sources */,
+				F8EC4F6BA9E403C3941F60FA /* SecurityScopedFileAccess.swift in Sources */,
+				3BBE4415923686537FF10F31 /* ExportService.swift in Sources */,
+				5A5644D4B0BCDC1C48FE10BA /* LUTBuilder.swift in Sources */,
+				F16E497C8127978236D695B0 /* ThumbnailService.swift in Sources */,
+				BFCD4F00ACB7F8537CD04FA2 /* KeyboardShortcuts.swift in Sources */,
+				BA7E4AD5846FE012D71E3D5B /* HorizonDetectionService.swift in Sources */,
+				B84E48ADAF8EDC19010463E6 /* Comparable+Clamp.swift in Sources */,
+				B7F14C35B027F2C4DF5516EE /* KeyEventMonitorView.swift in Sources */,
+				06C5405787FE139C26F24A6D /* AccentColorOption+Color.swift in Sources */,
+				BB0B4367B199BB81D904E6C4 /* Formatters.swift in Sources */,
+				D434404E828B64FB5B41636E /* PersistenceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8DD366949AB04636AA1D7622 /* Sources */ = {
+		FE6BC44BD8824407A5FA6DF8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FBEC4D12AB8169865BFE355A /* DarkroomLiteTests.swift in Sources */,
+				9BCA4DA1BC2FBB8B20E498EF /* DarkroomLiteTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		8D86ADFF05E04EA4936F50B7 /* PBXTargetDependency */ = {
+		7EA5D22A4C6248928B69C973 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 9A3DC7A79D16495F80E78842 /* DarkroomLite */;
-			targetProxy = BA4C5549149B4C71A109E519 /* PBXContainerItemProxy */;
+			targetProxy = C0E721EFE3154BB2902FC9AE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		6954D277A0064E8E8BD114FB /* Release */ = {
+		264752D4B8F7413E98106FDD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -732,185 +699,7 @@
 			};
 			name = Release;
 		};
-		7BBC6AE320874A2CA6A06223 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = DarkroomLite/DarkroomLite.entitlements;
-				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Manual;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"DarkroomLite/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
-				ENABLE_PREVIEWS = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SRCROOT)/DarkroomLite",
-					"$(inherited)",
-					"\"$(SRCROOT)/DarkroomLite/Preview Content\"",
-				);
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "\"\"";
-				LIBRARY_SEARCH_PATHS = (
-					"$(SRCROOT)/DarkroomLite/Models",
-					"$(SRCROOT)/DarkroomLite/ViewModels",
-					"$(SRCROOT)/DarkroomLite/Views/Toolbar",
-					"$(SRCROOT)/DarkroomLite/Views",
-					"$(SRCROOT)/DarkroomLite/Views/Sidebar",
-					"$(SRCROOT)/DarkroomLite/Views/Geometry",
-					"$(SRCROOT)/DarkroomLite/Views/Settings",
-					"$(SRCROOT)/DarkroomLite/Views/Library",
-					"$(SRCROOT)/DarkroomLite/Views/Editor",
-					"$(SRCROOT)/DarkroomLite/Views/Editor/Panels",
-					"$(SRCROOT)/DarkroomLite/Views/Export",
-					"$(SRCROOT)/DarkroomLite",
-					"$(SRCROOT)/DarkroomLite/Services",
-					"$(SRCROOT)/DarkroomLite/Utilities",
-					"$(SRCROOT)/DarkroomLite/Persistence",
-					"$(SRCROOT)/DarkroomLiteTests",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 15.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.darkroomlite.app;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
-		AC4E9B41D8DC4D7B9484EB75 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = DarkroomLite/DarkroomLite.entitlements;
-				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Manual;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"DarkroomLite/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
-				ENABLE_PREVIEWS = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SRCROOT)/DarkroomLite",
-					"$(inherited)",
-					"\"$(SRCROOT)/DarkroomLite/Preview Content\"",
-				);
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "\"\"";
-				LIBRARY_SEARCH_PATHS = (
-					"$(SRCROOT)/DarkroomLite/Models",
-					"$(SRCROOT)/DarkroomLite/ViewModels",
-					"$(SRCROOT)/DarkroomLite/Views/Toolbar",
-					"$(SRCROOT)/DarkroomLite/Views",
-					"$(SRCROOT)/DarkroomLite/Views/Sidebar",
-					"$(SRCROOT)/DarkroomLite/Views/Geometry",
-					"$(SRCROOT)/DarkroomLite/Views/Settings",
-					"$(SRCROOT)/DarkroomLite/Views/Library",
-					"$(SRCROOT)/DarkroomLite/Views/Editor",
-					"$(SRCROOT)/DarkroomLite/Views/Editor/Panels",
-					"$(SRCROOT)/DarkroomLite/Views/Export",
-					"$(SRCROOT)/DarkroomLite",
-					"$(SRCROOT)/DarkroomLite/Services",
-					"$(SRCROOT)/DarkroomLite/Utilities",
-					"$(SRCROOT)/DarkroomLite/Persistence",
-					"$(SRCROOT)/DarkroomLiteTests",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 15.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.darkroomlite.app;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		B8274389D82F4C30B8D5CF9F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SRCROOT)/DarkroomLite",
-					"$(inherited)",
-					"\"$(SRCROOT)/DarkroomLite/Preview Content\"",
-				);
-				GENERATE_INFOPLIST_FILE = YES;
-				LIBRARY_SEARCH_PATHS = (
-					"$(SRCROOT)/DarkroomLite/Models",
-					"$(SRCROOT)/DarkroomLite/ViewModels",
-					"$(SRCROOT)/DarkroomLite/Views/Toolbar",
-					"$(SRCROOT)/DarkroomLite/Views",
-					"$(SRCROOT)/DarkroomLite/Views/Sidebar",
-					"$(SRCROOT)/DarkroomLite/Views/Geometry",
-					"$(SRCROOT)/DarkroomLite/Views/Settings",
-					"$(SRCROOT)/DarkroomLite/Views/Library",
-					"$(SRCROOT)/DarkroomLite/Views/Editor",
-					"$(SRCROOT)/DarkroomLite/Views/Editor/Panels",
-					"$(SRCROOT)/DarkroomLite/Views/Export",
-					"$(SRCROOT)/DarkroomLite",
-					"$(SRCROOT)/DarkroomLite/Services",
-					"$(SRCROOT)/DarkroomLite/Utilities",
-					"$(SRCROOT)/DarkroomLite/Persistence",
-					"$(SRCROOT)/DarkroomLiteTests",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 15.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.darkroomlite.app.tests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DarkroomLite.app/Contents/MacOS/DarkroomLite";
-			};
-			name = Release;
-		};
-		BB043FFFE6394D5AA27D94FA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SRCROOT)/DarkroomLite",
-					"$(inherited)",
-					"\"$(SRCROOT)/DarkroomLite/Preview Content\"",
-				);
-				GENERATE_INFOPLIST_FILE = YES;
-				LIBRARY_SEARCH_PATHS = (
-					"$(SRCROOT)/DarkroomLite/Models",
-					"$(SRCROOT)/DarkroomLite/ViewModels",
-					"$(SRCROOT)/DarkroomLite/Views/Toolbar",
-					"$(SRCROOT)/DarkroomLite/Views",
-					"$(SRCROOT)/DarkroomLite/Views/Sidebar",
-					"$(SRCROOT)/DarkroomLite/Views/Geometry",
-					"$(SRCROOT)/DarkroomLite/Views/Settings",
-					"$(SRCROOT)/DarkroomLite/Views/Library",
-					"$(SRCROOT)/DarkroomLite/Views/Editor",
-					"$(SRCROOT)/DarkroomLite/Views/Editor/Panels",
-					"$(SRCROOT)/DarkroomLite/Views/Export",
-					"$(SRCROOT)/DarkroomLite",
-					"$(SRCROOT)/DarkroomLite/Services",
-					"$(SRCROOT)/DarkroomLite/Utilities",
-					"$(SRCROOT)/DarkroomLite/Persistence",
-					"$(SRCROOT)/DarkroomLiteTests",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 15.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.darkroomlite.app.tests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DarkroomLite.app/Contents/MacOS/DarkroomLite";
-			};
-			name = Debug;
-		};
-		C5DF99DCB8174B7191A9E9CA /* Debug */ = {
+		622A81FEBEF548F091EA4254 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -977,37 +766,215 @@
 			};
 			name = Debug;
 		};
+		950DFA2F554348418BF552DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = DarkroomLite/DarkroomLite.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"DarkroomLite/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/DarkroomLite",
+					"$(inherited)",
+					"\"$(SRCROOT)/DarkroomLite/Preview Content\"",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "\"\"";
+				LIBRARY_SEARCH_PATHS = (
+					"$(SRCROOT)/DarkroomLite/Models",
+					"$(SRCROOT)/DarkroomLite/ViewModels",
+					"$(SRCROOT)/DarkroomLite/Views/Toolbar",
+					"$(SRCROOT)/DarkroomLite/Views",
+					"$(SRCROOT)/DarkroomLite/Views/Sidebar",
+					"$(SRCROOT)/DarkroomLite/Views/Geometry",
+					"$(SRCROOT)/DarkroomLite/Views/Settings",
+					"$(SRCROOT)/DarkroomLite/Views/Library",
+					"$(SRCROOT)/DarkroomLite/Views/Editor",
+					"$(SRCROOT)/DarkroomLite/Views/Editor/Panels",
+					"$(SRCROOT)/DarkroomLite/Views/Export",
+					"$(SRCROOT)/DarkroomLite",
+					"$(SRCROOT)/DarkroomLite/Services",
+					"$(SRCROOT)/DarkroomLite/Utilities",
+					"$(SRCROOT)/DarkroomLite/Persistence",
+					"$(SRCROOT)/DarkroomLiteTests",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.darkroomlite.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		D562170C8CC84CDCAE910B79 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = DarkroomLite/DarkroomLite.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"DarkroomLite/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/DarkroomLite",
+					"$(inherited)",
+					"\"$(SRCROOT)/DarkroomLite/Preview Content\"",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "\"\"";
+				LIBRARY_SEARCH_PATHS = (
+					"$(SRCROOT)/DarkroomLite/Models",
+					"$(SRCROOT)/DarkroomLite/ViewModels",
+					"$(SRCROOT)/DarkroomLite/Views/Toolbar",
+					"$(SRCROOT)/DarkroomLite/Views",
+					"$(SRCROOT)/DarkroomLite/Views/Sidebar",
+					"$(SRCROOT)/DarkroomLite/Views/Geometry",
+					"$(SRCROOT)/DarkroomLite/Views/Settings",
+					"$(SRCROOT)/DarkroomLite/Views/Library",
+					"$(SRCROOT)/DarkroomLite/Views/Editor",
+					"$(SRCROOT)/DarkroomLite/Views/Editor/Panels",
+					"$(SRCROOT)/DarkroomLite/Views/Export",
+					"$(SRCROOT)/DarkroomLite",
+					"$(SRCROOT)/DarkroomLite/Services",
+					"$(SRCROOT)/DarkroomLite/Utilities",
+					"$(SRCROOT)/DarkroomLite/Persistence",
+					"$(SRCROOT)/DarkroomLiteTests",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.darkroomlite.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		E30DE28A0E9246AAB4B33F8A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/DarkroomLite",
+					"$(inherited)",
+					"\"$(SRCROOT)/DarkroomLite/Preview Content\"",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				LIBRARY_SEARCH_PATHS = (
+					"$(SRCROOT)/DarkroomLite/Models",
+					"$(SRCROOT)/DarkroomLite/ViewModels",
+					"$(SRCROOT)/DarkroomLite/Views/Toolbar",
+					"$(SRCROOT)/DarkroomLite/Views",
+					"$(SRCROOT)/DarkroomLite/Views/Sidebar",
+					"$(SRCROOT)/DarkroomLite/Views/Geometry",
+					"$(SRCROOT)/DarkroomLite/Views/Settings",
+					"$(SRCROOT)/DarkroomLite/Views/Library",
+					"$(SRCROOT)/DarkroomLite/Views/Editor",
+					"$(SRCROOT)/DarkroomLite/Views/Editor/Panels",
+					"$(SRCROOT)/DarkroomLite/Views/Export",
+					"$(SRCROOT)/DarkroomLite",
+					"$(SRCROOT)/DarkroomLite/Services",
+					"$(SRCROOT)/DarkroomLite/Utilities",
+					"$(SRCROOT)/DarkroomLite/Persistence",
+					"$(SRCROOT)/DarkroomLiteTests",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.darkroomlite.app.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DarkroomLite.app/Contents/MacOS/DarkroomLite";
+			};
+			name = Release;
+		};
+		E98CD723035F4D7E845D456B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/DarkroomLite",
+					"$(inherited)",
+					"\"$(SRCROOT)/DarkroomLite/Preview Content\"",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				LIBRARY_SEARCH_PATHS = (
+					"$(SRCROOT)/DarkroomLite/Models",
+					"$(SRCROOT)/DarkroomLite/ViewModels",
+					"$(SRCROOT)/DarkroomLite/Views/Toolbar",
+					"$(SRCROOT)/DarkroomLite/Views",
+					"$(SRCROOT)/DarkroomLite/Views/Sidebar",
+					"$(SRCROOT)/DarkroomLite/Views/Geometry",
+					"$(SRCROOT)/DarkroomLite/Views/Settings",
+					"$(SRCROOT)/DarkroomLite/Views/Library",
+					"$(SRCROOT)/DarkroomLite/Views/Editor",
+					"$(SRCROOT)/DarkroomLite/Views/Editor/Panels",
+					"$(SRCROOT)/DarkroomLite/Views/Export",
+					"$(SRCROOT)/DarkroomLite",
+					"$(SRCROOT)/DarkroomLite/Services",
+					"$(SRCROOT)/DarkroomLite/Utilities",
+					"$(SRCROOT)/DarkroomLite/Persistence",
+					"$(SRCROOT)/DarkroomLiteTests",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.darkroomlite.app.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DarkroomLite.app/Contents/MacOS/DarkroomLite";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		31BE1371F9404960A4BBB8E5 /* Build configuration list for PBXNativeTarget "DarkroomLiteTests" */ = {
+		16E14F5B8A104E899B9853FD /* Build configuration list for PBXProject "DarkroomLite" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BB043FFFE6394D5AA27D94FA /* Debug */,
-				B8274389D82F4C30B8D5CF9F /* Release */,
+				622A81FEBEF548F091EA4254 /* Debug */,
+				264752D4B8F7413E98106FDD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6AC6785695E7452B960F29BC /* Build configuration list for PBXProject "DarkroomLite" */ = {
+		2459A4599F96468096D3C5CC /* Build configuration list for PBXNativeTarget "DarkroomLite" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C5DF99DCB8174B7191A9E9CA /* Debug */,
-				6954D277A0064E8E8BD114FB /* Release */,
+				D562170C8CC84CDCAE910B79 /* Debug */,
+				950DFA2F554348418BF552DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B5C7B852C7804B3BB3606651 /* Build configuration list for PBXNativeTarget "DarkroomLite" */ = {
+		EBCCB6D0EC7E41D5B619B0B1 /* Build configuration list for PBXNativeTarget "DarkroomLiteTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AC4E9B41D8DC4D7B9484EB75 /* Debug */,
-				7BBC6AE320874A2CA6A06223 /* Release */,
+				E98CD723035F4D7E845D456B /* Debug */,
+				E30DE28A0E9246AAB4B33F8A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = F51E2E4358DC41F99D5871E6 /* Project object */;
+	rootObject = C580F4FF1B444C95A3E76BB4 /* Project object */;
 }
