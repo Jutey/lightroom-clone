@@ -384,9 +384,7 @@ enum ImageRenderer {
             unsharp.intensity = Float(amount / 100) * 0.35
             return (unsharp.outputImage ?? contrasted).cropped(to: extent)
         } else {
-            let fog = CIFilter.constantColorGenerator()
-            fog.color = CIColor(red: 0.82, green: 0.84, blue: 0.86, alpha: 1)
-            let fogImage = (fog.outputImage ?? image).cropped(to: extent)
+            let fogImage = CIImage(color: CIColor(red: 0.82, green: 0.84, blue: 0.86, alpha: 1)).cropped(to: extent)
             return dissolve(base: image, overlay: fogImage, amount: -amount / 100 * 0.35)
         }
     }
