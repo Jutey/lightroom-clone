@@ -13,7 +13,10 @@ struct ProjectWorkspaceView: View {
 
     init(project: Project) {
         self.project = project
-        _photos = Query(filter: #Predicate<Photo> { $0.project == project }, sort: \Photo.importOrder)
+        // Compare on the stable UUID rather than the model instance: #Predicate can't
+        // expand an equality check between two PersistentModel instances directly.
+        let projectID = project.id
+        _photos = Query(filter: #Predicate<Photo> { $0.project?.id == projectID }, sort: \Photo.importOrder)
     }
 
     private var albumFilteredPhotos: [Photo] {
