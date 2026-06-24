@@ -10,6 +10,7 @@ struct EditorPanelContainerView: View {
             header
             Divider()
             if app.library.activePhoto != nil {
+                HistogramView()
                 List {
                     ForEach(SettingsStore.shared.orderedEditorPanels) { kind in
                         DisclosureGroup(isExpanded: collapsedBinding(for: kind)) {
