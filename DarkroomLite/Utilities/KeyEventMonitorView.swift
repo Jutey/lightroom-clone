@@ -19,23 +19,41 @@ struct KeyEventMonitorView: NSViewRepresentable {
     }
 }
 
+/// Watching for first-responder status doesn't work here: key events only reach whichever
+/// view currently *is* the first responder, and that status moves to whatever the user last
+/// clicked (a slider, a thumbnail, a list row — i.e. almost immediately after launch), so a
+/// one-time claim in `viewDidMoveToWindow` would mean shortcuts stop firing for good the
+/// moment focus moves anywhere else. A local event monitor sees every key event for this
+/// window up front regardless of who holds focus, so shortcuts keep working continuously.
 final class KeyCaptureView: NSView {
     var onKeyDown: ((NSEvent) -> Bool)?
-
-    override var acceptsFirstResponder: Bool { true }
+    private var monitor: Any?
 
     override func viewDidMoveToWindow() {
         super.viewDidMoveToWindow()
-        DispatchQueue.main.async { [weak self] in
-            guard let self, let window = self.window else { return }
-            if window.firstResponder === window.contentView {
-                window.makeFirstResponder(self)
+        removeMonitor()
+        guard let window else { return }
+        monitor = NSEvent.addLocalMonitorForEvents(matching: .keyDown) { [weak self, weak window] event in
+            guard let self, let window, event.window === window else { return event }
+            // Let active text editing (search fields, rename fields, etc.) receive keys normally.
+            if window.firstResponder is NSTextView {
+                return event
             }
+            if self.onKeyDown?(event) == true {
+                return nil
+            }
+            return event
         }
     }
 
-    override func keyDown(with event: NSEvent) {
-        if onKeyDown?(event) == true { return }
-        nextResponder?.keyDown(with: event)
+    private func removeMonitor() {
+        if let monitor {
+            NSEvent.removeMonitor(monitor)
+        }
+        monitor = nil
+    }
+
+    deinit {
+        removeMonitor()
     }
 }

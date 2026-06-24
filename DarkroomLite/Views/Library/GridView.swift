@@ -6,42 +6,72 @@ struct GridView: View {
     let photos: [Photo]
     let projectFolderBookmark: Data?
 
-    private let columns = [GridItem(.adaptive(minimum: 140, maximum: 220), spacing: 12)]
+    private let cellMinWidth: CGFloat = 140
+    private let cellMaxWidth: CGFloat = 220
+    private let spacing: CGFloat = 12
+    private let horizontalPadding: CGFloat = 16
+
+    @State private var columnCount: Int = 4
+    @State private var resizeTask: Task<Void, Never>?
 
     var body: some View {
-        ScrollView {
-            if photos.isEmpty {
-                ContentUnavailableLabel()
-                    .padding(.top, 80)
-            } else {
-                LazyVGrid(columns: columns, spacing: 12) {
-                    ForEach(photos) { photo in
-                        PhotoGridCell(
-                            photo: photo,
-                            isSelected: app.library.selectedPhotoIDs.contains(photo.id),
-                            isActive: app.library.activePhoto?.id == photo.id,
-                            projectFolderBookmark: projectFolderBookmark
-                        )
-                        .onTapGesture(count: 2) {
-                            app.library.selectOnly(photo)
-                            app.library.viewMode = .loupe
-                        }
-                        .simultaneousGesture(TapGesture().onEnded {
-                            let flags = NSEvent.modifierFlags
-                            if flags.contains(.shift) {
-                                app.library.selectRange(to: photo)
-                            } else if flags.contains(.command) {
-                                app.library.toggleSelection(photo, extend: true)
-                            } else {
+        GeometryReader { geo in
+            ScrollView {
+                if photos.isEmpty {
+                    ContentUnavailableLabel()
+                        .padding(.top, 80)
+                } else {
+                    LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: spacing), count: columnCount), spacing: spacing) {
+                        ForEach(photos) { photo in
+                            PhotoGridCell(
+                                photo: photo,
+                                isSelected: app.library.selectedPhotoIDs.contains(photo.id),
+                                isActive: app.library.activePhoto?.id == photo.id,
+                                projectFolderBookmark: projectFolderBookmark
+                            )
+                            .frame(maxWidth: cellMaxWidth)
+                            .onTapGesture(count: 2) {
                                 app.library.selectOnly(photo)
+                                app.library.viewMode = .loupe
                             }
-                        })
+                            .simultaneousGesture(TapGesture().onEnded {
+                                let flags = NSEvent.modifierFlags
+                                if flags.contains(.shift) {
+                                    app.library.selectRange(to: photo)
+                                } else if flags.contains(.command) {
+                                    app.library.toggleSelection(photo, extend: true)
+                                } else {
+                                    app.library.selectOnly(photo)
+                                }
+                            })
+                        }
                     }
+                    .padding(horizontalPadding)
                 }
-                .padding(16)
+            }
+            .onAppear {
+                columnCount = columns(for: geo.size.width)
+            }
+            .onChange(of: geo.size.width) { _, newWidth in
+                resizeTask?.cancel()
+                resizeTask = Task {
+                    try? await Task.sleep(nanoseconds: 120_000_000)
+                    guard !Task.isCancelled else { return }
+                    columnCount = columns(for: newWidth)
+                }
             }
         }
         .background(Color(nsColor: .underPageBackgroundColor))
+    }
+
+    /// Approximates `GridItem(.adaptive(minimum:maximum:))`'s column count, but computed once
+    /// per debounced resize instead of every layout pass — recomputing `.adaptive` on each
+    /// frame of a live window resize/fullscreen animation is what caused the multi-second freeze.
+    private func columns(for width: CGFloat) -> Int {
+        let available = width - horizontalPadding * 2
+        guard available > 0 else { return 1 }
+        let count = Int((available + spacing) / (cellMinWidth + spacing))
+        return max(1, count)
     }
 }
 

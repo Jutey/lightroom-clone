@@ -17,11 +17,15 @@ struct SliderRow: View {
                 Text(title)
                     .font(.caption)
                     .foregroundStyle(.secondary)
-                Spacer()
+                    .lineLimit(1)
+                    .truncationMode(.tail)
+                Spacer(minLength: 4)
                 Text(format(value))
                     .font(.caption.monospacedDigit())
                     .foregroundStyle(.secondary)
                     .frame(minWidth: 36, alignment: .trailing)
+                    .lineLimit(1)
+                    .layoutPriority(1)
             }
             Slider(value: $value, in: range, step: step, onEditingChanged: onEditingChanged)
                 .onTapGesture(count: 2) { value = defaultValue }
