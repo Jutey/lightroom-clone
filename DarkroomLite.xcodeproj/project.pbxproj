@@ -89,6 +89,8 @@
 		F16E497C8127978236D695B0 /* ThumbnailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929D44F59BEC7254E3E1B02F /* ThumbnailService.swift */; };
 		F8EC4F6BA9E403C3941F60FA /* SecurityScopedFileAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BB40839CD2EB820407B599 /* SecurityScopedFileAccess.swift */; };
 		FC194846BA220848B68B223D /* EditSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737A4DE89165571F5BFF493B /* EditSnapshot.swift */; };
+		9FD759FE3FE57D709531ADF0 /* CubeLUTParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB88DC48512F1EE572F6857 /* CubeLUTParser.swift */; };
+		E264608738EDD754DE92E294 /* LUTPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4A2C9ECB179955545ED510 /* LUTPanelView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -187,6 +189,8 @@
 		F8BB40839CD2EB820407B599 /* SecurityScopedFileAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SecurityScopedFileAccess.swift; path = DarkroomLite/Services/SecurityScopedFileAccess.swift; sourceTree = "<group>"; };
 		F9034FE68051C529D32AB055 /* EditValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditValues.swift; path = DarkroomLite/Models/EditValues.swift; sourceTree = "<group>"; };
 		FE7D46C8860D60C7CA652DD6 /* SidecarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SidecarService.swift; path = DarkroomLite/Services/SidecarService.swift; sourceTree = "<group>"; };
+		2FB88DC48512F1EE572F6857 /* CubeLUTParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CubeLUTParser.swift; path = DarkroomLite/Services/CubeLUTParser.swift; sourceTree = "<group>"; };
+		CC4A2C9ECB179955545ED510 /* LUTPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LUTPanelView.swift; path = DarkroomLite/Views/Editor/Panels/LUTPanelView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +242,7 @@
 				CE9843EFB39A2644B905CF71 /* HistoryPanelView.swift */,
 				65F54130A8F341CF37F2C3B0 /* ColorGradingPanelView.swift */,
 				EA794086B0EFF90A5093D037 /* ColorPanelView.swift */,
+				CC4A2C9ECB179955545ED510 /* LUTPanelView.swift */,
 			);
 			name = Panels;
 			sourceTree = "<group>";
@@ -344,6 +349,7 @@
 				F8BB40839CD2EB820407B599 /* SecurityScopedFileAccess.swift */,
 				E01940A4A5B10EE3E569A3E8 /* ExportService.swift */,
 				9C1A4BEB848E570D8B707094 /* LUTBuilder.swift */,
+				2FB88DC48512F1EE572F6857 /* CubeLUTParser.swift */,
 				929D44F59BEC7254E3E1B02F /* ThumbnailService.swift */,
 				3C0F40FDB0C02704E7DA312E /* KeyboardShortcuts.swift */,
 				CE544884A672CCDCDF708D2A /* HorizonDetectionService.swift */,
@@ -613,6 +619,8 @@
 				F8EC4F6BA9E403C3941F60FA /* SecurityScopedFileAccess.swift in Sources */,
 				3BBE4415923686537FF10F31 /* ExportService.swift in Sources */,
 				5A5644D4B0BCDC1C48FE10BA /* LUTBuilder.swift in Sources */,
+				9FD759FE3FE57D709531ADF0 /* CubeLUTParser.swift in Sources */,
+				E264608738EDD754DE92E294 /* LUTPanelView.swift in Sources */,
 				F16E497C8127978236D695B0 /* ThumbnailService.swift in Sources */,
 				BFCD4F00ACB7F8537CD04FA2 /* KeyboardShortcuts.swift in Sources */,
 				BA7E4AD5846FE012D71E3D5B /* HorizonDetectionService.swift in Sources */,
