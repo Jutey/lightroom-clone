@@ -21,7 +21,9 @@ struct HistogramData: Equatable {
 enum HistogramService {
     static func compute(from image: CIImage, context: CIContext) -> HistogramData? {
         let extent = image.extent
-        guard extent.isFinite, !extent.isEmpty else { return nil }
+        guard extent.origin.x.isFinite, extent.origin.y.isFinite,
+              extent.width.isFinite, extent.height.isFinite,
+              !extent.isEmpty else { return nil }
 
         let binCount = HistogramData.binCount
         let filter = CIFilter.areaHistogram()
