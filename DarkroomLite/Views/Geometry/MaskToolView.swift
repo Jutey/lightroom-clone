@@ -296,7 +296,7 @@ struct MaskToolView: View {
                     dragStartMask = selectedMask
                     guard let id = app.editor.selectedMaskID else { return }
                     updateSelectedMask { mask in mask.strokes.append(BrushStroke(points: [newPoint], isErase: isErasing)) }
-                    strokeInProgressIndex = app.editor.edit.localAdjustments.first(where: { $0.id == id })?.strokes.count.map { $0 - 1 }
+                    strokeInProgressIndex = app.editor.edit.localAdjustments.first(where: { $0.id == id }).map { $0.strokes.count - 1 }
                     lastStrokePoint = newPoint
                     return
                 }
