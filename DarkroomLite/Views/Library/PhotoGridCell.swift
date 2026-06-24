@@ -74,9 +74,23 @@ struct PhotoContextMenu: View {
             app.pasteEditsToSelection([photo], includeCropAndPerspective: false)
         }
         .disabled(!EditClipboard.shared.hasContent)
+        if selectedPhotos.count > 1 {
+            Button("Paste Edits to \(selectedPhotos.count) Selected Photos") {
+                app.pasteEditsToSelection(selectedPhotos, includeCropAndPerspective: false)
+            }
+            .disabled(!EditClipboard.shared.hasContent)
+            Button("Paste Edits + Crop/Perspective to \(selectedPhotos.count) Selected Photos") {
+                app.pasteEditsToSelection(selectedPhotos, includeCropAndPerspective: true)
+            }
+            .disabled(!EditClipboard.shared.hasContent)
+        }
         Divider()
         Button("Move to Trash", role: .destructive) {
             app.requestDelete([photo])
         }
+    }
+
+    private var selectedPhotos: [Photo] {
+        app.library.selectedPhotos(in: app.library.displayedPhotos)
     }
 }
