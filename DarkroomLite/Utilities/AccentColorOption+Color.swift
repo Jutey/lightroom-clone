@@ -3,6 +3,7 @@ import SwiftUI
 extension AccentColorOption {
     var color: Color {
         switch self {
+        case .sage: return BrandPalette.sage
         case .blue: return .blue
         case .purple: return .purple
         case .pink: return .pink

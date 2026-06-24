@@ -14,7 +14,7 @@ enum AppColorScheme: String, Codable, CaseIterable, Identifiable {
 }
 
 enum AccentColorOption: String, Codable, CaseIterable, Identifiable {
-    case blue, purple, pink, red, orange, yellow, green, teal, graphite
+    case sage, blue, purple, pink, red, orange, yellow, green, teal, graphite
     var id: String { rawValue }
     var label: String { rawValue.capitalized }
 }
@@ -175,7 +175,7 @@ final class SettingsStore {
         rememberLastExportSettings = defaults.object(forKey: Keys.rememberLastExportSettings) as? Bool ?? true
 
         colorScheme = AppColorScheme(rawValue: defaults.string(forKey: Keys.colorScheme) ?? "") ?? .system
-        accentColor = AccentColorOption(rawValue: defaults.string(forKey: Keys.accentColor) ?? "") ?? .blue
+        accentColor = AccentColorOption(rawValue: defaults.string(forKey: Keys.accentColor) ?? "") ?? .sage
 
         thumbnailMaxPixelSize = defaults.object(forKey: Keys.thumbnailMaxPixelSize) as? Double ?? 320
         backgroundThumbnailGeneration = defaults.object(forKey: Keys.backgroundThumbnailGeneration) as? Bool ?? true

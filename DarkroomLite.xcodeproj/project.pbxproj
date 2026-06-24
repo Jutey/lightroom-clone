@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		01B94E1FAE30894F95E70134 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BB6421E8A3EAF25011EE9F1 /* Assets.xcassets */; };
 		06C5405787FE139C26F24A6D /* AccentColorOption+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940A4DA2A39AB30EAAEAD928 /* AccentColorOption+Color.swift */; };
+		D684DFF47E373F1A536BBB84 /* BrandPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B079203BE2C10677AEC90B9 /* BrandPalette.swift */; };
 		083C4F1A90C985CACEB98AC8 /* CropPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E14125B1A20DDEC6D39B3D /* CropPanelView.swift */; };
 		0A7440B9A126D49731710A04 /* PerformanceSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28854931A043F9B3C16805EF /* PerformanceSettingsView.swift */; };
 		0B3F4AF4AC7E25B3DD3AF1ED /* EditedPhotoPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8847432B8FC026F1AD3F6CAA /* EditedPhotoPreviewView.swift */; };
@@ -154,6 +155,7 @@
 		8847432B8FC026F1AD3F6CAA /* EditedPhotoPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditedPhotoPreviewView.swift; path = DarkroomLite/Views/Library/EditedPhotoPreviewView.swift; sourceTree = "<group>"; };
 		929D44F59BEC7254E3E1B02F /* ThumbnailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ThumbnailService.swift; path = DarkroomLite/Services/ThumbnailService.swift; sourceTree = "<group>"; };
 		940A4DA2A39AB30EAAEAD928 /* AccentColorOption+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "AccentColorOption+Color.swift"; path = "DarkroomLite/Utilities/AccentColorOption+Color.swift"; sourceTree = "<group>"; };
+		7B079203BE2C10677AEC90B9 /* BrandPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BrandPalette.swift; path = DarkroomLite/Utilities/BrandPalette.swift; sourceTree = "<group>"; };
 		942E4E7587BE101EA82FB696 /* AppController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppController.swift; path = DarkroomLite/ViewModels/AppController.swift; sourceTree = "<group>"; };
 		99F945208E4DB4083E45B3EB /* LightPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LightPanelView.swift; path = DarkroomLite/Views/Editor/Panels/LightPanelView.swift; sourceTree = "<group>"; };
 		9BBC4A2095D349C8F70DF87D /* LensPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LensPanelView.swift; path = DarkroomLite/Views/Editor/Panels/LensPanelView.swift; sourceTree = "<group>"; };
@@ -387,6 +389,7 @@
 				E9394F7ABE5A303697F525D7 /* Comparable+Clamp.swift */,
 				CD2B41A3BC62B3390CAE3596 /* KeyEventMonitorView.swift */,
 				940A4DA2A39AB30EAAEAD928 /* AccentColorOption+Color.swift */,
+				7B079203BE2C10677AEC90B9 /* BrandPalette.swift */,
 				1D7E42DD932C81622A124DCE /* Formatters.swift */,
 			);
 			name = Utilities;
@@ -643,6 +646,7 @@
 				B84E48ADAF8EDC19010463E6 /* Comparable+Clamp.swift in Sources */,
 				B7F14C35B027F2C4DF5516EE /* KeyEventMonitorView.swift in Sources */,
 				06C5405787FE139C26F24A6D /* AccentColorOption+Color.swift in Sources */,
+				D684DFF47E373F1A536BBB84 /* BrandPalette.swift in Sources */,
 				BB0B4367B199BB81D904E6C4 /* Formatters.swift in Sources */,
 				D434404E828B64FB5B41636E /* PersistenceController.swift in Sources */,
 			);
