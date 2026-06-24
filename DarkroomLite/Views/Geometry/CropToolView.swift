@@ -1,10 +1,12 @@
 import SwiftUI
 
-/// Interactive crop overlay drawn on top of the loupe preview: draggable corner/edge
-/// handles, pan-by-dragging-inside-the-rect, an aspect-ratio menu, straighten/rotate/flip
-/// controls, and Confirm/Cancel. The crop rectangle is normalized (0...1) against the
-/// *displayed* preview image, which already has rotate/flip/straighten baked in (see
-/// `ImageRenderer.applyGeometry`'s ordering).
+/// Interactive crop overlay drawn on top of the loupe preview, Snipping-Tool style: drag
+/// anywhere on the dimmed area to draw a brand new crop box, or drag the existing box's
+/// handles/interior to adjust it. Either way, releasing the mouse finalizes the crop
+/// immediately — there's no separate Confirm step. Every drag pushes one undo step, so
+/// Cmd+Z steps back through crop changes the same way it does for every other edit.
+/// The crop rectangle is normalized (0...1) against the *displayed* preview image, which
+/// already has rotate/flip/straighten baked in (see `ImageRenderer.applyGeometry`'s ordering).
 struct CropToolView: View {
     @Environment(AppController.self) private var app
 
@@ -13,6 +15,9 @@ struct CropToolView: View {
     }
 
     @State private var dragStartViewRect: CGRect?
+    @State private var dragStartCropValues: CropValues?
+    @State private var newSelectionStart: CGPoint?
+    @State private var straightenStartCrop: CropValues?
 
     var body: some View {
         GeometryReader { geo in
@@ -69,10 +74,10 @@ struct CropToolView: View {
                 Button { rotateQuarterTurn(-1) } label: {
                     Image(systemName: "rotate.left")
                 }
-                Button { app.editor.crop.flipHorizontal.toggle(); app.editor.scheduleRenderAndSave() } label: {
+                Button { toggleFlip(horizontal: true) } label: {
                     Image(systemName: "arrow.left.and.right.righttriangle.left.righttriangle.right")
                 }
-                Button { app.editor.crop.flipVertical.toggle(); app.editor.scheduleRenderAndSave() } label: {
+                Button { toggleFlip(horizontal: false) } label: {
                     Image(systemName: "arrow.up.and.down.righttriangle.up.righttriangle.down")
                 }
                 Button("Auto") { app.editor.autoStraighten() }
@@ -86,7 +91,15 @@ struct CropToolView: View {
                             get: { app.editor.crop.straightenAngle },
                             set: { app.editor.crop.straightenAngle = $0; app.editor.scheduleRenderAndSave() }
                         ),
-                        in: -45...45
+                        in: -45...45,
+                        onEditingChanged: { editing in
+                            if editing {
+                                straightenStartCrop = app.editor.crop
+                            } else if let old = straightenStartCrop {
+                                registerCropUndo(actionName: "Straighten", old: old)
+                                straightenStartCrop = nil
+                            }
+                        }
                     )
                     .frame(width: 140)
                     Text("\(Int(app.editor.crop.straightenAngle))°")
@@ -94,27 +107,24 @@ struct CropToolView: View {
                         .frame(width: 32)
                 }
 
-                Button("Reset") {
-                    app.editor.crop = .identity
-                    app.editor.scheduleRenderAndSave()
-                }
+                Button("Reset") { applyCrop(.identity, actionName: "Reset Crop") }
             }
             .padding(.horizontal, 12)
             .padding(.vertical, 8)
             .background(.black.opacity(0.7), in: RoundedRectangle(cornerRadius: 8))
             .foregroundStyle(.white)
 
-            HStack(spacing: 12) {
-                Button("Cancel") {
-                    app.editor.cancelCropTool()
-                    app.requestActiveTool(.none)
-                }
-                Button("Confirm") {
-                    app.editor.confirmCrop()
-                    app.requestActiveTool(.none)
-                }
-                .buttonStyle(.borderedProminent)
+            Text("Drag to draw a new crop, or adjust the handles. Releasing finalizes it — ⌘Z to undo.")
+                .font(.caption)
+                .foregroundStyle(.white.opacity(0.8))
+                .padding(.horizontal, 10)
+                .padding(.vertical, 4)
+                .background(.black.opacity(0.5), in: Capsule())
+
+            Button("Done") {
+                app.requestActiveTool(.none)
             }
+            .buttonStyle(.borderedProminent)
             .padding(.bottom, 12)
         }
     }
@@ -135,13 +145,53 @@ struct CropToolView: View {
             crop.normalizedX = max(0, min(1 - crop.normalizedWidth, center.x - crop.normalizedWidth / 2))
             crop.normalizedY = max(0, min(1 - crop.normalizedHeight, center.y - crop.normalizedHeight / 2))
         }
-        app.editor.crop = crop
-        app.editor.scheduleRenderAndSave()
+        applyCrop(crop, actionName: "Aspect Ratio")
     }
 
     private func rotateQuarterTurn(_ delta: Int) {
-        app.editor.crop.rotationQuarterTurns = ((app.editor.crop.rotationQuarterTurns + delta) % 4 + 4) % 4
+        var crop = app.editor.crop
+        crop.rotationQuarterTurns = ((crop.rotationQuarterTurns + delta) % 4 + 4) % 4
+        applyCrop(crop, actionName: "Rotate Crop")
+    }
+
+    private func toggleFlip(horizontal: Bool) {
+        var crop = app.editor.crop
+        if horizontal {
+            crop.flipHorizontal.toggle()
+        } else {
+            crop.flipVertical.toggle()
+        }
+        applyCrop(crop, actionName: horizontal ? "Flip Horizontal" : "Flip Vertical")
+    }
+
+    // MARK: - Crop mutation + undo helpers
+
+    /// Applies an immediate, discrete crop change (reset, aspect ratio, rotate, flip) as a
+    /// single undoable step.
+    private func applyCrop(_ newCrop: CropValues, actionName: String) {
+        let old = app.editor.crop
+        guard old != newCrop else { return }
+        app.editor.crop = newCrop
+        registerCropUndo(actionName: actionName, old: old)
+    }
+
+    private func registerCropUndo(actionName: String, old: CropValues) {
+        guard old != app.editor.crop else { return }
+        app.editor.registerUndo(actionName: actionName, oldEdit: app.editor.edit, oldCrop: old, oldPerspective: app.editor.perspective)
+        app.editor.confirmCrop()
         app.editor.scheduleRenderAndSave()
+    }
+
+    /// Called at the end of any drag (drawing a new box, panning, or resizing via a handle):
+    /// pushes one undo step covering the whole drag, then finalizes the crop immediately —
+    /// this is what makes the tool "auto-finalize on release" rather than requiring a
+    /// separate Confirm action.
+    private func finalizeDrag() {
+        if let old = dragStartCropValues {
+            registerCropUndo(actionName: "Crop", old: old)
+        }
+        dragStartCropValues = nil
+        dragStartViewRect = nil
     }
 
     // MARK: - Handles
@@ -172,10 +222,33 @@ struct CropToolView: View {
 
     // MARK: - Gestures
 
+    /// Drawing a brand new crop box by dragging on the dimmed area, Snipping-Tool style.
+    /// Replaces whatever crop box currently exists with the freshly dragged rectangle, live,
+    /// and finalizes it the moment the mouse is released.
+    private func newSelectionGesture(imageRect: CGRect) -> some Gesture {
+        DragGesture(minimumDistance: 4)
+            .onChanged { value in
+                if newSelectionStart == nil {
+                    newSelectionStart = value.startLocation
+                    dragStartCropValues = app.editor.crop
+                }
+                guard let start = newSelectionStart else { return }
+                let rect = clampedSize(rect(from: start, to: value.location), in: imageRect)
+                app.editor.crop = cropValues(fromViewRect: rect, imageRect: imageRect)
+            }
+            .onEnded { _ in
+                newSelectionStart = nil
+                finalizeDrag()
+            }
+    }
+
     private func panGesture(imageRect: CGRect, cropRect: CGRect) -> some Gesture {
         DragGesture(minimumDistance: 1)
             .onChanged { value in
-                if dragStartViewRect == nil { dragStartViewRect = cropRect }
+                if dragStartViewRect == nil {
+                    dragStartViewRect = cropRect
+                    dragStartCropValues = app.editor.crop
+                }
                 guard let start = dragStartViewRect else { return }
                 var rect = start
                 rect.origin.x += value.translation.width
@@ -184,15 +257,17 @@ struct CropToolView: View {
                 app.editor.crop = cropValues(fromViewRect: rect, imageRect: imageRect)
             }
             .onEnded { _ in
-                dragStartViewRect = nil
-                app.editor.scheduleRenderAndSave()
+                finalizeDrag()
             }
     }
 
     private func resizeGesture(_ handle: Handle, imageRect: CGRect, cropRect: CGRect) -> some Gesture {
         DragGesture(minimumDistance: 1)
             .onChanged { value in
-                if dragStartViewRect == nil { dragStartViewRect = cropRect }
+                if dragStartViewRect == nil {
+                    dragStartViewRect = cropRect
+                    dragStartCropValues = app.editor.crop
+                }
                 guard let start = dragStartViewRect else { return }
                 var rect = resized(start, handle: handle, translation: value.translation)
                 if let ratio = app.editor.crop.aspectRatio.fixedRatio {
@@ -202,8 +277,7 @@ struct CropToolView: View {
                 app.editor.crop = cropValues(fromViewRect: rect, imageRect: imageRect)
             }
             .onEnded { _ in
-                dragStartViewRect = nil
-                app.editor.scheduleRenderAndSave()
+                finalizeDrag()
             }
     }
 
@@ -273,6 +347,15 @@ struct CropToolView: View {
         return result
     }
 
+    private func rect(from start: CGPoint, to end: CGPoint) -> CGRect {
+        CGRect(
+            x: min(start.x, end.x),
+            y: min(start.y, end.y),
+            width: abs(end.x - start.x),
+            height: abs(end.y - start.y)
+        )
+    }
+
     // MARK: - Normalized <-> view-space mapping
 
     private func fittedImageRect(containerSize: CGSize, imageSize: CGSize) -> CGRect {
@@ -326,6 +409,8 @@ struct CropToolView: View {
             path.addRect(cropRect)
         }
         .fill(Color.black.opacity(0.55), style: FillStyle(eoFill: true))
+        .contentShape(Rectangle())
+        .gesture(newSelectionGesture(imageRect: imageRect))
     }
 }
 

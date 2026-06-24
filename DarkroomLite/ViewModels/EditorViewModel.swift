@@ -299,16 +299,6 @@ final class EditorViewModel {
         perspectiveEntrySnapshot = perspective
     }
 
-    /// Forces an immediate revert to the tool-entry snapshot, regardless of the
-    /// auto-apply setting — used by the tool's explicit "Cancel" button.
-    func cancelCropTool() {
-        if let snapshot = cropEntrySnapshot {
-            crop = snapshot
-            scheduleRenderAndSave()
-        }
-        cropEntrySnapshot = nil
-    }
-
     func cancelPerspectiveTool() {
         if let snapshot = perspectiveEntrySnapshot {
             perspective = snapshot
@@ -358,6 +348,7 @@ final class EditorViewModel {
             let old = crop
             crop.straightenAngle = max(-45, min(45, angle))
             registerUndo(actionName: "Auto Straighten", oldEdit: edit, oldCrop: old, oldPerspective: perspective)
+            confirmCrop()
             scheduleRenderAndSave()
         }
     }
