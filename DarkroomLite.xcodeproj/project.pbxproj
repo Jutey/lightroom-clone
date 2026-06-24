@@ -88,6 +88,7 @@
 		EC4F4976A179EB68082F1B3B /* ShortcutRecorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B904AA1AF02902E214F8BAD /* ShortcutRecorderView.swift */; };
 		F16E497C8127978236D695B0 /* ThumbnailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929D44F59BEC7254E3E1B02F /* ThumbnailService.swift */; };
 		F8EC4F6BA9E403C3941F60FA /* SecurityScopedFileAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BB40839CD2EB820407B599 /* SecurityScopedFileAccess.swift */; };
+		B6BD92DF96C8C867FEAEBEC4 /* SourceImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4564B1BF68804E9E303DD44 /* SourceImageCache.swift */; };
 		FC194846BA220848B68B223D /* EditSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737A4DE89165571F5BFF493B /* EditSnapshot.swift */; };
 		9FD759FE3FE57D709531ADF0 /* CubeLUTParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB88DC48512F1EE572F6857 /* CubeLUTParser.swift */; };
 		E264608738EDD754DE92E294 /* LUTPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4A2C9ECB179955545ED510 /* LUTPanelView.swift */; };
@@ -190,6 +191,7 @@
 		F62B42B3A1FC83A691591C58 /* ImageRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageRenderer.swift; path = DarkroomLite/Services/ImageRenderer.swift; sourceTree = "<group>"; };
 		F81A48B4B7BEC83B8C68317A /* PerspectiveSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PerspectiveSettings.swift; path = DarkroomLite/Models/PerspectiveSettings.swift; sourceTree = "<group>"; };
 		F8BB40839CD2EB820407B599 /* SecurityScopedFileAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SecurityScopedFileAccess.swift; path = DarkroomLite/Services/SecurityScopedFileAccess.swift; sourceTree = "<group>"; };
+		A4564B1BF68804E9E303DD44 /* SourceImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SourceImageCache.swift; path = DarkroomLite/Services/SourceImageCache.swift; sourceTree = "<group>"; };
 		F9034FE68051C529D32AB055 /* EditValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditValues.swift; path = DarkroomLite/Models/EditValues.swift; sourceTree = "<group>"; };
 		FE7D46C8860D60C7CA652DD6 /* SidecarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SidecarService.swift; path = DarkroomLite/Services/SidecarService.swift; sourceTree = "<group>"; };
 		2FB88DC48512F1EE572F6857 /* CubeLUTParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CubeLUTParser.swift; path = DarkroomLite/Services/CubeLUTParser.swift; sourceTree = "<group>"; };
@@ -354,6 +356,7 @@
 				26014C53A0A2147C3B212C29 /* MetadataService.swift */,
 				36D54E68B236C401B7ACA868 /* Clipboard.swift */,
 				F8BB40839CD2EB820407B599 /* SecurityScopedFileAccess.swift */,
+				A4564B1BF68804E9E303DD44 /* SourceImageCache.swift */,
 				E01940A4A5B10EE3E569A3E8 /* ExportService.swift */,
 				9C1A4BEB848E570D8B707094 /* LUTBuilder.swift */,
 				2FB88DC48512F1EE572F6857 /* CubeLUTParser.swift */,
@@ -626,6 +629,7 @@
 				E8324A41BAFA5BC9D4C230BB /* MetadataService.swift in Sources */,
 				DB154FEB80165EC78B207897 /* Clipboard.swift in Sources */,
 				F8EC4F6BA9E403C3941F60FA /* SecurityScopedFileAccess.swift in Sources */,
+				B6BD92DF96C8C867FEAEBEC4 /* SourceImageCache.swift in Sources */,
 				3BBE4415923686537FF10F31 /* ExportService.swift in Sources */,
 				5A5644D4B0BCDC1C48FE10BA /* LUTBuilder.swift in Sources */,
 				9FD759FE3FE57D709531ADF0 /* CubeLUTParser.swift in Sources */,

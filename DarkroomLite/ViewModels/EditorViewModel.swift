@@ -77,6 +77,12 @@ final class EditorViewModel {
         let isRaw = photo.isRaw
         let draft = SettingsStore.shared.rawDraftModeForPreview
 
+        if let cached = SourceImageCache.shared.image(for: photo.id, draft: draft) {
+            sourceCIImage = cached
+            scheduleRenderAndSave(persist: false)
+            return
+        }
+
         Task {
             let image = await Task.detached(priority: .userInitiated) {
                 SecurityScopedFileAccess.withResolvedURL(
@@ -87,6 +93,22 @@ final class EditorViewModel {
             }.value
             self.sourceCIImage = image
             self.scheduleRenderAndSave(persist: false)
+            if let image {
+                SourceImageCache.shared.store(image, for: photo.id, draft: draft)
+            }
+        }
+    }
+
+    /// Speculatively decodes the photos adjacent to `photo` in `photos` so that pressing
+    /// next/prev again immediately afterward finds a warm cache instead of decoding from
+    /// disk — the main source of perceived lag when cycling through RAW files.
+    func prefetchNeighbors(of photo: Photo, in photos: [Photo], projectFolderBookmark: Data?) {
+        guard let index = photos.firstIndex(where: { $0.id == photo.id }) else { return }
+        let draft = SettingsStore.shared.rawDraftModeForPreview
+        for offset in [1, -1, 2] {
+            let neighborIndex = index + offset
+            guard photos.indices.contains(neighborIndex) else { continue }
+            SourceImageCache.shared.prefetch(photos[neighborIndex], projectFolderBookmark: projectFolderBookmark, draft: draft)
         }
     }
 

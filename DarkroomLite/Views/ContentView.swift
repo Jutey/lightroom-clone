@@ -24,7 +24,9 @@ struct ContentView: View {
         .background(KeyEventMonitorView(onKeyDown: handleKeyDown))
         .onChange(of: app.library.activePhoto, initial: true) { _, newPhoto in
             if let newPhoto {
-                app.editor.load(photo: newPhoto, projectFolderBookmark: app.library.selectedProject?.folderBookmark)
+                let folderBookmark = app.library.selectedProject?.folderBookmark
+                app.editor.load(photo: newPhoto, projectFolderBookmark: folderBookmark)
+                app.editor.prefetchNeighbors(of: newPhoto, in: app.library.displayedPhotos, projectFolderBookmark: folderBookmark)
             } else {
                 app.editor.unload()
             }
