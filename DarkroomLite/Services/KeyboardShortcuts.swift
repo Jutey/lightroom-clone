@@ -59,7 +59,7 @@ enum ShortcutAction: String, CaseIterable, Codable, Identifiable {
         switch self {
         case .nextPhoto: return KeyCombo(key: "right")
         case .previousPhoto: return KeyCombo(key: "left")
-        case .togglePick: return KeyCombo(key: "space")
+        case .togglePick: return KeyCombo(key: "p")
         case .reject: return KeyCombo(key: "x")
         case .clearFlag: return KeyCombo(key: "u")
         case .rating0: return KeyCombo(key: "0")
