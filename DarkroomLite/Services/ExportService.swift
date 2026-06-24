@@ -17,6 +17,30 @@ struct ExportOptions: Codable, Equatable, Sendable {
     var longEdgePixels: Int = 2048
     var filenameSuffix: String = "_edited"
     var addSuffixToFilename: Bool = true
+    var watermark: WatermarkOptions = WatermarkOptions()
+}
+
+enum WatermarkPosition: String, Codable, CaseIterable, Identifiable, Sendable {
+    case topLeft, topRight, bottomLeft, bottomRight, center
+    var id: String { rawValue }
+    var label: String {
+        switch self {
+        case .topLeft: return "Top Left"
+        case .topRight: return "Top Right"
+        case .bottomLeft: return "Bottom Left"
+        case .bottomRight: return "Bottom Right"
+        case .center: return "Center"
+        }
+    }
+}
+
+struct WatermarkOptions: Codable, Equatable, Sendable {
+    var enabled: Bool = false
+    var text: String = ""
+    var position: WatermarkPosition = .bottomRight
+    var opacity: Double = 0.5      // 0...1
+    var fontSize: Double = 36      // points, scaled relative to a 2000px-wide reference image
+    var marginPixels: Double = 24
 }
 
 enum ExportSelectionScope: String, CaseIterable, Identifiable, Sendable {
@@ -132,13 +156,62 @@ enum ExportService {
         }
 
         guard let cgImage = ImageRenderer.renderToCGImage(rendered) else { throw ExportError.renderFailed }
+        let watermarked = applyWatermark(to: cgImage, options: options.watermark)
 
         let baseName = (photo.fileName as NSString).deletingPathExtension
         let suffix = options.addSuffixToFilename ? options.filenameSuffix : ""
         let fileName = "\(baseName)\(suffix).\(options.format.fileExtension)"
         let outputURL = uniqueURL(for: destination.appendingPathComponent(fileName))
 
-        try write(cgImage: cgImage, to: outputURL, options: options)
+        try write(cgImage: watermarked, to: outputURL, options: options)
+    }
+
+    /// Composites a text watermark onto the exported pixels at write-time, after every other
+    /// edit/resize step, so its size/position stay anchored to the final exported resolution
+    /// rather than the live-preview resolution.
+    private static func applyWatermark(to cgImage: CGImage, options: WatermarkOptions) -> CGImage {
+        guard options.enabled, !options.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+            return cgImage
+        }
+
+        let width = cgImage.width
+        let height = cgImage.height
+        let bounds = CGRect(x: 0, y: 0, width: width, height: height)
+
+        let referenceDimension: CGFloat = 2000
+        let scale = CGFloat(max(width, height)) / referenceDimension
+        let fontSize = max(8, options.fontSize * scale)
+        let margin = options.marginPixels * scale
+
+        let attributes: [NSAttributedString.Key: Any] = [
+            .font: NSFont.boldSystemFont(ofSize: fontSize),
+            .foregroundColor: NSColor.white.withAlphaComponent(options.opacity)
+        ]
+        let string = NSAttributedString(string: options.text, attributes: attributes)
+        let textSize = string.size()
+
+        let origin: CGPoint
+        switch options.position {
+        case .topLeft:
+            origin = CGPoint(x: margin, y: CGFloat(height) - margin - textSize.height)
+        case .topRight:
+            origin = CGPoint(x: CGFloat(width) - margin - textSize.width, y: CGFloat(height) - margin - textSize.height)
+        case .bottomLeft:
+            origin = CGPoint(x: margin, y: margin)
+        case .bottomRight:
+            origin = CGPoint(x: CGFloat(width) - margin - textSize.width, y: margin)
+        case .center:
+            origin = CGPoint(x: (CGFloat(width) - textSize.width) / 2, y: (CGFloat(height) - textSize.height) / 2)
+        }
+
+        let stamped = NSImage(size: NSSize(width: width, height: height), flipped: false) { _ in
+            guard let context = NSGraphicsContext.current?.cgContext else { return false }
+            context.draw(cgImage, in: bounds)
+            string.draw(at: origin)
+            return true
+        }
+
+        return stamped.cgImage(forProposedRect: nil, context: nil, hints: nil) ?? cgImage
     }
 
     private static func write(cgImage: CGImage, to url: URL, options: ExportOptions) throws {

@@ -62,6 +62,28 @@ struct ExportSheetView: View {
                 if exportViewModel.options.addSuffixToFilename {
                     TextField("Suffix", text: suffixTextBinding)
                 }
+
+                Toggle("Add Watermark", isOn: watermarkEnabledBinding)
+                if exportViewModel.options.watermark.enabled {
+                    TextField("Watermark Text", text: watermarkTextBinding)
+                    Picker("Position", selection: watermarkPositionBinding) {
+                        ForEach(WatermarkPosition.allCases) { position in
+                            Text(position.label).tag(position)
+                        }
+                    }
+                    VStack(alignment: .leading) {
+                        Slider(value: watermarkOpacityBinding, in: 0.1...1, step: 0.05)
+                        Text("Opacity: \(Int(exportViewModel.options.watermark.opacity * 100))%")
+                            .font(.caption2)
+                            .foregroundStyle(.secondary)
+                    }
+                    VStack(alignment: .leading) {
+                        Slider(value: watermarkFontSizeBinding, in: 12...96, step: 2)
+                        Text("Size: \(Int(exportViewModel.options.watermark.fontSize))pt")
+                            .font(.caption2)
+                            .foregroundStyle(.secondary)
+                    }
+                }
             }
 
             Text("\(photoCount) photo(s) will be exported. The original file(s) are never modified.")
@@ -165,5 +187,25 @@ struct ExportSheetView: View {
 
     private var suffixTextBinding: Binding<String> {
         Binding(get: { exportViewModel.options.filenameSuffix }, set: { exportViewModel.options.filenameSuffix = $0 })
+    }
+
+    private var watermarkEnabledBinding: Binding<Bool> {
+        Binding(get: { exportViewModel.options.watermark.enabled }, set: { exportViewModel.options.watermark.enabled = $0 })
+    }
+
+    private var watermarkTextBinding: Binding<String> {
+        Binding(get: { exportViewModel.options.watermark.text }, set: { exportViewModel.options.watermark.text = $0 })
+    }
+
+    private var watermarkPositionBinding: Binding<WatermarkPosition> {
+        Binding(get: { exportViewModel.options.watermark.position }, set: { exportViewModel.options.watermark.position = $0 })
+    }
+
+    private var watermarkOpacityBinding: Binding<Double> {
+        Binding(get: { exportViewModel.options.watermark.opacity }, set: { exportViewModel.options.watermark.opacity = $0 })
+    }
+
+    private var watermarkFontSizeBinding: Binding<Double> {
+        Binding(get: { exportViewModel.options.watermark.fontSize }, set: { exportViewModel.options.watermark.fontSize = $0 })
     }
 }
