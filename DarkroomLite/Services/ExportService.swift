@@ -106,19 +106,19 @@ enum ExportService {
         to destination: URL,
         options: ExportOptions
     ) throws {
+        let edit = photo.edit
+        let crop = photo.crop
+        let perspective = photo.perspective
+
         let ciImage: CIImage? = SecurityScopedFileAccess.withResolvedURL(
             bookmark: photo.bookmarkData,
             fallbackFolderBookmark: projectFolderBookmark,
             relativePath: photo.relativePath
         ) { url in
-            ImageRenderer.loadSourceImage(url: url, isRaw: photo.isRaw, draft: false)
+            ImageRenderer.loadSourceImage(url: url, isRaw: photo.isRaw, draft: false, rawAdjustments: edit.rawAdjustments)
         } ?? nil
 
         guard let source = ciImage else { throw ExportError.sourceUnavailable }
-
-        let edit = photo.edit
-        let crop = photo.crop
-        let perspective = photo.perspective
 
         var rendered = ImageRenderer.render(source: source, edit: edit, crop: crop, perspective: perspective)
 

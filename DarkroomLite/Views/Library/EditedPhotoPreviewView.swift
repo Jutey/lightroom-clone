@@ -50,7 +50,7 @@ struct EditedPhotoPreviewView: View {
             SecurityScopedFileAccess.withResolvedURL(
                 bookmark: bookmark, fallbackFolderBookmark: folderBookmark, relativePath: relativePath
             ) { url -> NSImage? in
-                guard let source = ImageRenderer.loadSourceImage(url: url, isRaw: isRaw, draft: false) else { return nil }
+                guard let source = ImageRenderer.loadSourceImage(url: url, isRaw: isRaw, draft: false, rawAdjustments: edit.rawAdjustments) else { return nil }
                 let downsampled = ImageRenderer.downsampled(source, maxDimension: dimension)
                 let rendered = ImageRenderer.render(source: downsampled, edit: edit, crop: crop, perspective: perspective)
                 return ImageRenderer.renderToNSImage(rendered)

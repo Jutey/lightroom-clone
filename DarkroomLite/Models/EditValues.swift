@@ -68,6 +68,18 @@ struct LensValues: Codable, Equatable, Sendable {
     var isIdentity: Bool { distortion == 0 && vignetteCorrection == 0 && !removeChromaticAberration }
 }
 
+/// RAW-only adjustments applied to `CIRAWFilter` before demosaicing, rather than to the
+/// already-decoded image the rest of the pipeline works with. Ignored for non-RAW photos.
+struct RawAdjustments: Codable, Equatable, Sendable {
+    var exposure: Double = 0              // -4...4 EV, applied in raw linear space pre-demosaic
+    var boostAmount: Double = 100         // 0...200 (100 = camera-native default tone boost)
+    var useCustomWhiteBalance: Bool = false
+    var temperature: Double = 6500        // 2000...12000 K, only applied when useCustomWhiteBalance
+    var tint: Double = 0                  // -150...150, only applied when useCustomWhiteBalance
+
+    var isIdentity: Bool { exposure == 0 && boostAmount == 100 && !useCustomWhiteBalance }
+}
+
 /// A user-imported third-party `.cube` 3D LUT, applied as a creative-profile-style color
 /// grade after every built-in tone/color adjustment. `intensity` cross-dissolves between
 /// the pre-LUT and post-LUT image (100 = fully applied, 0 = no visible effect).
@@ -124,6 +136,9 @@ struct EditValues: Codable, Equatable, Sendable {
 
     // Lens
     var lens = LensValues()
+
+    // RAW-only decode adjustments (ignored for non-RAW photos)
+    var rawAdjustments = RawAdjustments()
 
     // Imported LUT (creative profile)
     var lut: LUTReference? = nil

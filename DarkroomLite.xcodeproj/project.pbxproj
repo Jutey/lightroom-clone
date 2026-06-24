@@ -75,6 +75,7 @@
 		D262406397D6D21BA20702F9 /* PerspectiveSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81A48B4B7BEC83B8C68317A /* PerspectiveSettings.swift */; };
 		D28C485FA3AAC7A4FCDA4415 /* AppCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F854A53AC4A803C8A851A59 /* AppCommands.swift */; };
 		D2DE482EB0BB420E4EF87FBE /* LensPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBC4A2095D349C8F70DF87D /* LensPanelView.swift */; };
+		11A685CB70EE13FD7B1B005E /* RawEditPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD17C62CCF6EEBFFD2770D60 /* RawEditPanelView.swift */; };
 		D434404E828B64FB5B41636E /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F54DC7856D4DDE8BB09C8B /* PersistenceController.swift */; };
 		D6DE4BF59F2F4B41C8872C06 /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942E4E7587BE101EA82FB696 /* AppController.swift */; };
 		D9FA4743870EEE22A7BCE822 /* CropSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3045E4A3010D2159B85674 /* CropSettings.swift */; };
@@ -159,6 +160,7 @@
 		942E4E7587BE101EA82FB696 /* AppController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppController.swift; path = DarkroomLite/ViewModels/AppController.swift; sourceTree = "<group>"; };
 		99F945208E4DB4083E45B3EB /* LightPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LightPanelView.swift; path = DarkroomLite/Views/Editor/Panels/LightPanelView.swift; sourceTree = "<group>"; };
 		9BBC4A2095D349C8F70DF87D /* LensPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LensPanelView.swift; path = DarkroomLite/Views/Editor/Panels/LensPanelView.swift; sourceTree = "<group>"; };
+		FD17C62CCF6EEBFFD2770D60 /* RawEditPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RawEditPanelView.swift; path = DarkroomLite/Views/Editor/Panels/RawEditPanelView.swift; sourceTree = "<group>"; };
 		9C1A4BEB848E570D8B707094 /* LUTBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LUTBuilder.swift; path = DarkroomLite/Services/LUTBuilder.swift; sourceTree = "<group>"; };
 		9C474FF499160389C28DA1BC /* ConfirmationsSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ConfirmationsSettingsView.swift; path = DarkroomLite/Views/Settings/ConfirmationsSettingsView.swift; sourceTree = "<group>"; };
 		A08F4CCBA367CCB885287D03 /* PhotoGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PhotoGridCell.swift; path = DarkroomLite/Views/Library/PhotoGridCell.swift; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 			children = (
 				C8E14125B1A20DDEC6D39B3D /* CropPanelView.swift */,
 				9BBC4A2095D349C8F70DF87D /* LensPanelView.swift */,
+				FD17C62CCF6EEBFFD2770D60 /* RawEditPanelView.swift */,
 				33DA4D3893D536FA3A54A44E /* HSLPanelView.swift */,
 				838B47BCA81936C9A0C47793 /* ToneCurvePanelView.swift */,
 				45304E17859F7069056DFE13 /* PresetsPanelView.swift */,
@@ -611,6 +614,7 @@
 				7E9843C5A698309AE2FFC82D /* ColorWheelView.swift in Sources */,
 				083C4F1A90C985CACEB98AC8 /* CropPanelView.swift in Sources */,
 				D2DE482EB0BB420E4EF87FBE /* LensPanelView.swift in Sources */,
+				11A685CB70EE13FD7B1B005E /* RawEditPanelView.swift in Sources */,
 				EB3B4E83853F98EC41974D00 /* HSLPanelView.swift in Sources */,
 				6AE84128B628FD886E40F8B6 /* ToneCurvePanelView.swift in Sources */,
 				63F2441983C355AC4DB4F913 /* PresetsPanelView.swift in Sources */,

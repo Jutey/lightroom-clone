@@ -56,6 +56,7 @@ enum EditorPanelKind: String, CaseIterable, Codable, Identifiable {
     case effects
     case detail
     case lens
+    case rawEdit
     case lut
     case masks
     case crop
@@ -74,6 +75,7 @@ enum EditorPanelKind: String, CaseIterable, Codable, Identifiable {
         case .effects: return "Effects"
         case .detail: return "Detail"
         case .lens: return "Lens Corrections"
+        case .rawEdit: return "Raw Edit"
         case .lut: return "LUT / Profile"
         case .masks: return "Masking"
         case .crop: return "Crop & Geometry"
@@ -92,6 +94,7 @@ enum EditorPanelKind: String, CaseIterable, Codable, Identifiable {
         case .effects: return "sparkles"
         case .detail: return "viewfinder"
         case .lens: return "camera.aperture"
+        case .rawEdit: return "gauge.medium"
         case .lut: return "camera.filters"
         case .masks: return "circle.lefthalf.filled"
         case .crop: return "crop"

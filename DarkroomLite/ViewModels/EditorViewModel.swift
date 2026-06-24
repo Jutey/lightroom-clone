@@ -26,7 +26,9 @@ final class EditorViewModel {
     let undoManager = UndoManager()
 
     private var sourceCIImage: CIImage?
+    private var sourceRawAdjustments = RawAdjustments()
     private var renderTask: Task<Void, Never>?
+    private var rawReloadTask: Task<Void, Never>?
     private var cachedColorCubeKey: String = ""
     private var cachedColorCubeFilter: CIFilter?
 
@@ -76,9 +78,11 @@ final class EditorViewModel {
         let relativePath = photo.relativePath
         let isRaw = photo.isRaw
         let draft = SettingsStore.shared.rawDraftModeForPreview
+        let rawAdjustments = edit.rawAdjustments
 
-        if let cached = SourceImageCache.shared.image(for: photo.id, draft: draft) {
+        if rawAdjustments.isIdentity, let cached = SourceImageCache.shared.image(for: photo.id, draft: draft) {
             sourceCIImage = cached
+            sourceRawAdjustments = rawAdjustments
             scheduleRenderAndSave(persist: false)
             return
         }
@@ -88,12 +92,13 @@ final class EditorViewModel {
                 SecurityScopedFileAccess.withResolvedURL(
                     bookmark: bookmark, fallbackFolderBookmark: folderBookmark, relativePath: relativePath
                 ) { url in
-                    ImageRenderer.loadSourceImage(url: url, isRaw: isRaw, draft: draft)
+                    ImageRenderer.loadSourceImage(url: url, isRaw: isRaw, draft: draft, rawAdjustments: rawAdjustments)
                 } ?? nil
             }.value
             self.sourceCIImage = image
+            self.sourceRawAdjustments = rawAdjustments
             self.scheduleRenderAndSave(persist: false)
-            if let image {
+            if let image, rawAdjustments.isIdentity {
                 SourceImageCache.shared.store(image, for: photo.id, draft: draft)
             }
         }
@@ -113,6 +118,10 @@ final class EditorViewModel {
     }
 
     func scheduleRenderAndSave(persist: Bool = true) {
+        if let photo, photo.isRaw, edit.rawAdjustments != sourceRawAdjustments {
+            scheduleRawReload(persist: persist)
+            return
+        }
         renderTask?.cancel()
         let debounceMS = SettingsStore.shared.autosaveDebounceMilliseconds
         let editSnapshot = edit
@@ -123,6 +132,46 @@ final class EditorViewModel {
             if persist {
                 try? await Task.sleep(nanoseconds: UInt64(max(0, debounceMS) * 1_000_000))
                 if Task.isCancelled { return }
+            }
+            await self.renderAndMaybeSave(edit: editSnapshot, crop: cropSnapshot, perspective: perspectiveSnapshot, persist: persist)
+        }
+    }
+
+    /// RAW-only adjustments are baked in at decode time rather than in the ordinary render
+    /// pipeline, so any change to `edit.rawAdjustments` requires re-decoding `sourceCIImage`
+    /// from disk before the usual render can run. Routed here transparently from
+    /// `scheduleRenderAndSave` so every existing caller (reset, paste, presets, snapshots,
+    /// the raw bindings) stays correct without special-casing.
+    private func scheduleRawReload(persist: Bool) {
+        guard let photo else { return }
+        renderTask?.cancel()
+        rawReloadTask?.cancel()
+        let bookmark = photo.bookmarkData
+        let folderBookmark = projectFolderBookmark
+        let relativePath = photo.relativePath
+        let draft = SettingsStore.shared.rawDraftModeForPreview
+        let debounceMS = SettingsStore.shared.autosaveDebounceMilliseconds
+        let editSnapshot = edit
+        let cropSnapshot = crop
+        let perspectiveSnapshot = perspective
+        let rawAdjustments = edit.rawAdjustments
+
+        rawReloadTask = Task {
+            if persist {
+                try? await Task.sleep(nanoseconds: UInt64(max(0, debounceMS) * 1_000_000))
+                if Task.isCancelled { return }
+            }
+            let image = await Task.detached(priority: .userInitiated) {
+                SecurityScopedFileAccess.withResolvedURL(
+                    bookmark: bookmark, fallbackFolderBookmark: folderBookmark, relativePath: relativePath
+                ) { url in
+                    ImageRenderer.loadSourceImage(url: url, isRaw: true, draft: draft, rawAdjustments: rawAdjustments)
+                } ?? nil
+            }.value
+            if Task.isCancelled { return }
+            if let image {
+                self.sourceCIImage = image
+                self.sourceRawAdjustments = rawAdjustments
             }
             await self.renderAndMaybeSave(edit: editSnapshot, crop: cropSnapshot, perspective: perspectiveSnapshot, persist: persist)
         }
@@ -273,6 +322,8 @@ final class EditorViewModel {
             edit.noiseReduction = 0; edit.colorNoiseReduction = 0
         case .lens:
             edit.lens = LensValues()
+        case .rawEdit:
+            edit.rawAdjustments = RawAdjustments()
         case .lut:
             edit.lut = nil
             cachedLUTBookmarkKey = nil

@@ -108,6 +108,28 @@ extension EditorViewModel {
         )
     }
 
+    func rawBinding(_ keyPath: WritableKeyPath<RawAdjustments, Double>) -> Binding<Double> {
+        Binding(
+            get: { self.edit.rawAdjustments[keyPath: keyPath] },
+            set: { newValue in
+                self.edit.rawAdjustments[keyPath: keyPath] = newValue
+                self.scheduleRenderAndSave()
+            }
+        )
+    }
+
+    func rawBoolBinding(_ keyPath: WritableKeyPath<RawAdjustments, Bool>, actionName: String) -> Binding<Bool> {
+        Binding(
+            get: { self.edit.rawAdjustments[keyPath: keyPath] },
+            set: { newValue in
+                let old = self.edit
+                self.edit.rawAdjustments[keyPath: keyPath] = newValue
+                self.registerUndo(actionName: actionName, oldEdit: old, oldCrop: self.crop, oldPerspective: self.perspective)
+                self.scheduleRenderAndSave()
+            }
+        )
+    }
+
     /// No-ops if no LUT is loaded; `LUTPanelView` only shows this slider when `edit.lut != nil`.
     func lutIntensityBinding() -> Binding<Double> {
         Binding(

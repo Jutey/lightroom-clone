@@ -13,9 +13,9 @@ enum ImageRenderer {
 
     // MARK: - Loading source pixels
 
-    static func loadSourceImage(url: URL, isRaw: Bool, draft: Bool) -> CIImage? {
+    static func loadSourceImage(url: URL, isRaw: Bool, draft: Bool, rawAdjustments: RawAdjustments = RawAdjustments()) -> CIImage? {
         if isRaw {
-            return RawSupport.ciImage(contentsOf: url, draft: draft)
+            return RawSupport.ciImage(contentsOf: url, draft: draft, adjustments: rawAdjustments)
         }
         return CIImage(contentsOf: url, options: [.applyOrientationProperty: true])
     }
