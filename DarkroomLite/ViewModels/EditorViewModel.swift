@@ -21,6 +21,7 @@ final class EditorViewModel {
     private(set) var isRendering: Bool = false
 
     var beforeAfterMode: Bool = false
+    var selectedMaskID: LocalAdjustmentMask.ID?
 
     let undoManager = UndoManager()
 
@@ -50,6 +51,7 @@ final class EditorViewModel {
         edit = photo.editSettings?.values ?? .identity
         crop = photo.cropSettings?.values ?? .identity
         perspective = photo.perspectiveSettings?.values ?? .identity
+        selectedMaskID = nil
         undoManager.removeAllActions()
 
         sourceCIImage = nil
@@ -253,6 +255,9 @@ final class EditorViewModel {
             edit.lut = nil
             cachedLUTBookmarkKey = nil
             cachedLUTFilter = nil
+        case .masks:
+            edit.localAdjustments = []
+            selectedMaskID = nil
         case .crop, .presets, .history:
             break
         }
@@ -305,6 +310,32 @@ final class EditorViewModel {
         cachedLUTBookmarkKey = nil
         cachedLUTFilter = nil
         registerUndo(actionName: "Remove LUT", oldEdit: old, oldCrop: crop, oldPerspective: perspective)
+        scheduleRenderAndSave()
+    }
+
+    // MARK: - Local adjustment masks
+
+    /// No manual confirm step — masks auto-apply immediately, the same as the crop tool, so
+    /// these are intentionally empty (see `enterCropTool`/`exitCropTool` for the contrasting
+    /// confirm-on-exit model used by perspective).
+    func enterMasksTool() {}
+    func exitMasksTool() {}
+
+    @discardableResult
+    func addMask(kind: LocalMaskKind) -> UUID {
+        let old = edit
+        let mask = LocalAdjustmentMask(kind: kind)
+        edit.localAdjustments.append(mask)
+        registerUndo(actionName: "Add Mask", oldEdit: old, oldCrop: crop, oldPerspective: perspective)
+        scheduleRenderAndSave()
+        return mask.id
+    }
+
+    func deleteMask(id: LocalAdjustmentMask.ID) {
+        guard edit.localAdjustments.contains(where: { $0.id == id }) else { return }
+        let old = edit
+        edit.localAdjustments.removeAll { $0.id == id }
+        registerUndo(actionName: "Delete Mask", oldEdit: old, oldCrop: crop, oldPerspective: perspective)
         scheduleRenderAndSave()
     }
 

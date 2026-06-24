@@ -128,6 +128,9 @@ struct EditValues: Codable, Equatable, Sendable {
     // Imported LUT (creative profile)
     var lut: LUTReference? = nil
 
+    // Local adjustment masks (radial/linear/brush), applied last, in array order
+    var localAdjustments: [LocalAdjustmentMask] = []
+
     // CIFilter.toneCurve() takes exactly 5 points (point0...point4); the curve editor is
     // locked to these same 5 fixed x-positions, so identity is a straight line through them.
     static let identityCurve: [CurvePoint] = [

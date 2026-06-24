@@ -81,6 +81,7 @@ struct EditorPanelContainerView: View {
         case .detail: DetailPanelView()
         case .lens: LensPanelView()
         case .lut: LUTPanelView()
+        case .masks: MasksPanelView()
         case .crop: CropPanelView()
         case .presets: PresetsPanelView()
         case .history: HistoryPanelView()

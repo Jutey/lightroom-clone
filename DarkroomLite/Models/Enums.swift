@@ -43,6 +43,7 @@ enum ActiveTool: String, CaseIterable, Codable {
     case none
     case crop
     case perspective
+    case masks
 }
 
 /// Identifiers for the collapsible/reorderable panels in the right-hand inspector.
@@ -56,6 +57,7 @@ enum EditorPanelKind: String, CaseIterable, Codable, Identifiable {
     case detail
     case lens
     case lut
+    case masks
     case crop
     case presets
     case history
@@ -73,6 +75,7 @@ enum EditorPanelKind: String, CaseIterable, Codable, Identifiable {
         case .detail: return "Detail"
         case .lens: return "Lens Corrections"
         case .lut: return "LUT / Profile"
+        case .masks: return "Masking"
         case .crop: return "Crop & Geometry"
         case .presets: return "Presets"
         case .history: return "History"
@@ -90,6 +93,7 @@ enum EditorPanelKind: String, CaseIterable, Codable, Identifiable {
         case .detail: return "viewfinder"
         case .lens: return "camera.aperture"
         case .lut: return "camera.filters"
+        case .masks: return "circle.lefthalf.filled"
         case .crop: return "crop"
         case .presets: return "square.stack.3d.up"
         case .history: return "clock.arrow.circlepath"

@@ -37,6 +37,7 @@ enum ImageRenderer {
         image = applyGeometry(image, crop: crop, perspective: perspective)
         image = applyToneAndColor(image, edit: edit, cachedColorCube: cachedColorCube, cachedImportedLUT: cachedImportedLUT)
         image = applyEffectsAndDetail(image, edit: edit)
+        image = applyLocalAdjustments(image, masks: edit.localAdjustments)
         return image
     }
 
@@ -468,5 +469,213 @@ enum ImageRenderer {
         blend.inputImage = alphaMatrix.outputImage ?? overlay
         blend.backgroundImage = base
         return blend.outputImage ?? base
+    }
+
+    // MARK: - Local adjustment masks
+
+    /// Applies every enabled mask's tone/color deltas, scoped by its own grayscale influence
+    /// image, layering sequentially so later masks paint on top of earlier ones' results.
+    /// Masks are the last step in the pipeline so their normalized geometry always lines up
+    /// with the image's current extent, with no further geometry change afterward.
+    private static func applyLocalAdjustments(_ image: CIImage, masks: [LocalAdjustmentMask]) -> CIImage {
+        guard !masks.isEmpty else { return image }
+        var result = image
+        let extent = image.extent
+        guard extent.width > 0, extent.height > 0 else { return result }
+
+        for mask in masks where mask.isEnabled && mask.hasAnyAdjustment {
+            guard let influence = maskImage(for: mask, extent: extent) else { continue }
+            let adjusted = applyLocalAdjustmentValues(result, mask: mask)
+
+            let blend = CIFilter.blendWithMask()
+            blend.inputImage = adjusted
+            blend.backgroundImage = result
+            blend.maskImage = influence
+            result = blend.outputImage?.cropped(to: extent) ?? result
+        }
+        return result
+    }
+
+    private static func maskImage(for mask: LocalAdjustmentMask, extent: CGRect) -> CIImage? {
+        let base: CIImage?
+        switch mask.kind {
+        case .radial: base = radialMaskImage(mask, extent: extent)
+        case .linear: base = linearMaskImage(mask, extent: extent)
+        case .brush: base = brushMaskImage(mask, extent: extent)
+        }
+        guard let base else { return nil }
+        return mask.isInverted ? invertedMask(base, extent: extent) : base
+    }
+
+    private static func invertedMask(_ image: CIImage, extent: CGRect) -> CIImage {
+        let invert = CIFilter.colorMatrix()
+        invert.inputImage = image
+        invert.rVector = CIVector(x: -1, y: 0, z: 0, w: 0)
+        invert.gVector = CIVector(x: 0, y: -1, z: 0, w: 0)
+        invert.bVector = CIVector(x: 0, y: 0, z: -1, w: 0)
+        invert.aVector = CIVector(x: 0, y: 0, z: 0, w: 1)
+        invert.biasVector = CIVector(x: 1, y: 1, z: 1, w: 0)
+        return (invert.outputImage ?? image).cropped(to: extent)
+    }
+
+    /// Builds a unit-circle radial gradient (white center, fading to black by `radius1`),
+    /// then scales it anisotropically into an ellipse, rotates, and translates it into place
+    /// — exploiting `CIRadialGradient`'s clamp-to-`color1`-beyond-`radius1` behavior so
+    /// everything outside the ellipse is automatically zero with no extra cropping math.
+    private static func radialMaskImage(_ mask: LocalAdjustmentMask, extent: CGRect) -> CIImage? {
+        let unitRadius: CGFloat = 100
+        let innerFraction = max(0, min(1, 1 - mask.feather / 100))
+
+        let gradient = CIFilter.radialGradient()
+        gradient.center = CGPoint(x: 0, y: 0)
+        gradient.radius0 = Float(unitRadius * innerFraction)
+        gradient.radius1 = Float(unitRadius)
+        gradient.color0 = CIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        gradient.color1 = CIColor(red: 0, green: 0, blue: 0, alpha: 1)
+        guard let unitGradient = gradient.outputImage else { return nil }
+
+        let radiusX = max(0.01, mask.radiusX) * extent.width
+        let radiusY = max(0.01, mask.radiusY) * extent.height
+        let centerPoint = CGPoint(x: extent.minX + mask.centerX * extent.width, y: extent.minY + mask.centerY * extent.height)
+
+        let scale = CGAffineTransform(scaleX: radiusX / unitRadius, y: radiusY / unitRadius)
+        let rotate = CGAffineTransform(rotationAngle: CGFloat(mask.rotation) * .pi / 180)
+        let translate = CGAffineTransform(translationX: centerPoint.x, y: centerPoint.y)
+        let transform = scale.concatenating(rotate).concatenating(translate)
+
+        return unitGradient.transformed(by: transform).cropped(to: extent)
+    }
+
+    /// `point0` (full effect) to `point1` (no effect) directly as the mask's drag endpoints
+    /// — the distance between them is the feather, matching Lightroom's gradient tool.
+    private static func linearMaskImage(_ mask: LocalAdjustmentMask, extent: CGRect) -> CIImage? {
+        let gradient = CIFilter.linearGradient()
+        gradient.point0 = CGPoint(x: extent.minX + mask.startX * extent.width, y: extent.minY + mask.startY * extent.height)
+        gradient.point1 = CGPoint(x: extent.minX + mask.endX * extent.width, y: extent.minY + mask.endY * extent.height)
+        gradient.color0 = CIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        gradient.color1 = CIColor(red: 0, green: 0, blue: 0, alpha: 1)
+        return gradient.outputImage?.cropped(to: extent)
+    }
+
+    /// Composites every stroke's soft circle into a running mask in chronological order:
+    /// paint strokes use `maximumCompositing` (additive, so overlapping paint doesn't darken)
+    /// and erase strokes invert their circle then `multiplyCompositing` against the running
+    /// result (darkening proportional to erase strength). No raw bitmap rasterization, so
+    /// there's no top-down/bottom-up ambiguity to get wrong.
+    private static func brushMaskImage(_ mask: LocalAdjustmentMask, extent: CGRect) -> CIImage? {
+        guard !mask.strokes.isEmpty else { return nil }
+        var current = CIImage(color: CIColor(red: 0, green: 0, blue: 0, alpha: 1)).cropped(to: extent)
+        let minDimension = min(extent.width, extent.height)
+        let radius = CGFloat(mask.brushSize / 200) * minDimension
+        let innerFraction = max(0, min(1, 1 - mask.brushFeather / 100))
+
+        for stroke in mask.strokes {
+            for point in stroke.points {
+                let center = CGPoint(x: extent.minX + point.x * extent.width, y: extent.minY + point.y * extent.height)
+                guard let circle = circleMaskImage(center: center, radius: radius, innerFraction: innerFraction, extent: extent) else { continue }
+
+                if stroke.isErase {
+                    let erase = invertedMask(circle, extent: extent)
+                    let multiply = CIFilter.multiplyCompositing()
+                    multiply.inputImage = erase
+                    multiply.backgroundImage = current
+                    current = multiply.outputImage?.cropped(to: extent) ?? current
+                } else {
+                    let maximum = CIFilter.maximumCompositing()
+                    maximum.inputImage = circle
+                    maximum.backgroundImage = current
+                    current = maximum.outputImage?.cropped(to: extent) ?? current
+                }
+            }
+        }
+        return current
+    }
+
+    private static func circleMaskImage(center: CGPoint, radius: CGFloat, innerFraction: CGFloat, extent: CGRect) -> CIImage? {
+        guard radius > 0 else { return nil }
+        let gradient = CIFilter.radialGradient()
+        gradient.center = center
+        gradient.radius0 = Float(radius * innerFraction)
+        gradient.radius1 = Float(radius)
+        gradient.color0 = CIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        gradient.color1 = CIColor(red: 0, green: 0, blue: 0, alpha: 1)
+        return gradient.outputImage?.cropped(to: extent)
+    }
+
+    /// The locally-adjusted version of `image`, reusing the same filter patterns as the
+    /// global tone/color/effects pipeline but driven by `mask`'s own delta fields. Blended
+    /// into the result by `applyLocalAdjustments` via that mask's influence image.
+    private static func applyLocalAdjustmentValues(_ image: CIImage, mask: LocalAdjustmentMask) -> CIImage {
+        var result = image
+
+        if mask.exposure != 0 {
+            let filter = CIFilter.exposureAdjust()
+            filter.inputImage = result
+            filter.ev = Float(mask.exposure)
+            result = filter.outputImage ?? result
+        }
+
+        if mask.contrast != 0 {
+            let filter = CIFilter.colorControls()
+            filter.inputImage = result
+            filter.contrast = Float(1 + mask.contrast / 100 * 0.75)
+            filter.saturation = 1
+            filter.brightness = 0
+            result = filter.outputImage ?? result
+        }
+
+        if mask.blacks != 0 || mask.shadows != 0 || mask.highlights != 0 || mask.whites != 0 {
+            result = applyToneCurve(result, points: localToneCurvePoints(mask: mask))
+        }
+
+        if mask.temperature != 0 || mask.tint != 0 {
+            let filter = CIFilter.temperatureAndTint()
+            filter.inputImage = result
+            filter.neutral = CIVector(x: 6500, y: 0)
+            filter.targetNeutral = CIVector(x: 6500 - CGFloat(mask.temperature) * 20, y: CGFloat(mask.tint) * 10)
+            result = filter.outputImage ?? result
+        }
+
+        if mask.saturation != 0 {
+            let filter = CIFilter.colorControls()
+            filter.inputImage = result
+            filter.saturation = Float(1 + mask.saturation / 100)
+            filter.contrast = 1
+            filter.brightness = 0
+            result = filter.outputImage ?? result
+        }
+
+        if mask.clarity != 0 {
+            result = applyTextureClarity(result, amount: mask.clarity, radius: 30)
+        }
+
+        if mask.sharpness != 0 {
+            let filter = CIFilter.sharpenLuminance()
+            filter.inputImage = result
+            filter.sharpness = Float(mask.sharpness / 100) * 2.0
+            filter.radius = 1.0
+            result = filter.outputImage ?? result
+        }
+
+        if mask.noiseReduction != 0 {
+            let filter = CIFilter.noiseReduction()
+            filter.inputImage = result
+            filter.noiseLevel = Float(mask.noiseReduction / 100) * 0.1
+            filter.sharpness = 0.4
+            result = filter.outputImage ?? result
+        }
+
+        return result.cropped(to: image.extent)
+    }
+
+    private static func localToneCurvePoints(mask: LocalAdjustmentMask) -> [CurvePoint] {
+        func clamp01(_ v: Double) -> Double { min(max(v, 0), 1) }
+        return [
+            CurvePoint(x: 0, y: clamp01(0 + mask.blacks / 100 * 0.2)),
+            CurvePoint(x: 0.25, y: clamp01(0.25 + mask.shadows / 100 * 0.2)),
+            CurvePoint(x: 0.5, y: 0.5),
+            CurvePoint(x: 0.75, y: clamp01(0.75 + mask.highlights / 100 * 0.2)),
+            CurvePoint(x: 1, y: clamp01(1 + mask.whites / 100 * 0.2)),
+        ]
     }
 }

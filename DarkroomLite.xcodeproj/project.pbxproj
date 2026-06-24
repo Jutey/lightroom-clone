@@ -91,6 +91,9 @@
 		FC194846BA220848B68B223D /* EditSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737A4DE89165571F5BFF493B /* EditSnapshot.swift */; };
 		9FD759FE3FE57D709531ADF0 /* CubeLUTParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB88DC48512F1EE572F6857 /* CubeLUTParser.swift */; };
 		E264608738EDD754DE92E294 /* LUTPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4A2C9ECB179955545ED510 /* LUTPanelView.swift */; };
+		DAF54B72D7231C2389D9558F /* LocalAdjustmentMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACC80577E9524F02D1AC7D5 /* LocalAdjustmentMask.swift */; };
+		F183E216B2AE07D4470AB276 /* MaskToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8290D5DB9C2D49477F86F705 /* MaskToolView.swift */; };
+		509620AD04E4DFC7C89452E4 /* MasksPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA07F94725A1640A31629EA2 /* MasksPanelView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -191,6 +194,9 @@
 		FE7D46C8860D60C7CA652DD6 /* SidecarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SidecarService.swift; path = DarkroomLite/Services/SidecarService.swift; sourceTree = "<group>"; };
 		2FB88DC48512F1EE572F6857 /* CubeLUTParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CubeLUTParser.swift; path = DarkroomLite/Services/CubeLUTParser.swift; sourceTree = "<group>"; };
 		CC4A2C9ECB179955545ED510 /* LUTPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LUTPanelView.swift; path = DarkroomLite/Views/Editor/Panels/LUTPanelView.swift; sourceTree = "<group>"; };
+		0ACC80577E9524F02D1AC7D5 /* LocalAdjustmentMask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocalAdjustmentMask.swift; path = DarkroomLite/Models/LocalAdjustmentMask.swift; sourceTree = "<group>"; };
+		8290D5DB9C2D49477F86F705 /* MaskToolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MaskToolView.swift; path = DarkroomLite/Views/Geometry/MaskToolView.swift; sourceTree = "<group>"; };
+		CA07F94725A1640A31629EA2 /* MasksPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MasksPanelView.swift; path = DarkroomLite/Views/Editor/Panels/MasksPanelView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,6 +249,7 @@
 				65F54130A8F341CF37F2C3B0 /* ColorGradingPanelView.swift */,
 				EA794086B0EFF90A5093D037 /* ColorPanelView.swift */,
 				CC4A2C9ECB179955545ED510 /* LUTPanelView.swift */,
+				CA07F94725A1640A31629EA2 /* MasksPanelView.swift */,
 			);
 			name = Panels;
 			sourceTree = "<group>";
@@ -411,6 +418,7 @@
 				68424A158A4FF3C4CBD0EF16 /* Preset.swift */,
 				F9034FE68051C529D32AB055 /* EditValues.swift */,
 				5A4C47E8A3F6D23FD5C6F578 /* Album.swift */,
+				0ACC80577E9524F02D1AC7D5 /* LocalAdjustmentMask.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -444,6 +452,7 @@
 			children = (
 				C6BC49759F4CF04B2D39EFB4 /* PerspectiveToolView.swift */,
 				5E4D4F23B7ADAE15A5BE4AF8 /* CropToolView.swift */,
+				8290D5DB9C2D49477F86F705 /* MaskToolView.swift */,
 			);
 			name = Geometry;
 			sourceTree = "<group>";
@@ -621,6 +630,9 @@
 				5A5644D4B0BCDC1C48FE10BA /* LUTBuilder.swift in Sources */,
 				9FD759FE3FE57D709531ADF0 /* CubeLUTParser.swift in Sources */,
 				E264608738EDD754DE92E294 /* LUTPanelView.swift in Sources */,
+				DAF54B72D7231C2389D9558F /* LocalAdjustmentMask.swift in Sources */,
+				F183E216B2AE07D4470AB276 /* MaskToolView.swift in Sources */,
+				509620AD04E4DFC7C89452E4 /* MasksPanelView.swift in Sources */,
 				F16E497C8127978236D695B0 /* ThumbnailService.swift in Sources */,
 				BFCD4F00ACB7F8537CD04FA2 /* KeyboardShortcuts.swift in Sources */,
 				BA7E4AD5846FE012D71E3D5B /* HorizonDetectionService.swift in Sources */,

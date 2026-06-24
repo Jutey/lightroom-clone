@@ -199,6 +199,7 @@ final class AppController {
         switch currentTool {
         case .crop: hasUnconfirmedChanges = editor.hasUnconfirmedCropChanges
         case .perspective: hasUnconfirmedChanges = editor.hasUnconfirmedPerspectiveChanges
+        case .masks: hasUnconfirmedChanges = false
         case .none: hasUnconfirmedChanges = false
         }
 
@@ -218,12 +219,14 @@ final class AppController {
         switch currentTool {
         case .crop: editor.exitCropTool()
         case .perspective: editor.exitPerspectiveTool()
+        case .masks: editor.exitMasksTool()
         case .none: break
         }
         library.activeTool = tool
         switch tool {
         case .crop: editor.enterCropTool()
         case .perspective: editor.enterPerspectiveTool()
+        case .masks: editor.enterMasksTool()
         case .none: break
         }
         library.pendingGeometryDiscardConfirmation = nil

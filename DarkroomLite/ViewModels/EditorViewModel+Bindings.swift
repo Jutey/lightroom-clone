@@ -119,4 +119,33 @@ extension EditorViewModel {
             }
         )
     }
+
+    /// No-ops if `maskID` no longer exists (e.g. the mask was deleted while a slider drag was
+    /// mid-flight). Undo for drags through this binding is handled by `EditSliderRow`, the
+    /// same as every other Double slider — `edit` already covers `localAdjustments`.
+    func maskBinding(_ maskID: LocalAdjustmentMask.ID, _ keyPath: WritableKeyPath<LocalAdjustmentMask, Double>) -> Binding<Double> {
+        Binding(
+            get: { self.edit.localAdjustments.first(where: { $0.id == maskID })?[keyPath: keyPath] ?? 0 },
+            set: { newValue in
+                guard let index = self.edit.localAdjustments.firstIndex(where: { $0.id == maskID }) else { return }
+                self.edit.localAdjustments[index][keyPath: keyPath] = newValue
+                self.scheduleRenderAndSave()
+            }
+        )
+    }
+
+    /// Bool mask fields (e.g. Invert) have no drag gesture to wrap, so this registers undo
+    /// immediately on toggle, mirroring `boolBinding(_:actionName:)`.
+    func maskBoolBinding(_ maskID: LocalAdjustmentMask.ID, _ keyPath: WritableKeyPath<LocalAdjustmentMask, Bool>, actionName: String) -> Binding<Bool> {
+        Binding(
+            get: { self.edit.localAdjustments.first(where: { $0.id == maskID })?[keyPath: keyPath] ?? false },
+            set: { newValue in
+                guard let index = self.edit.localAdjustments.firstIndex(where: { $0.id == maskID }) else { return }
+                let old = self.edit
+                self.edit.localAdjustments[index][keyPath: keyPath] = newValue
+                self.registerUndo(actionName: actionName, oldEdit: old, oldCrop: self.crop, oldPerspective: self.perspective)
+                self.scheduleRenderAndSave()
+            }
+        )
+    }
 }
