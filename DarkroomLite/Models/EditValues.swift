@@ -68,6 +68,15 @@ struct LensValues: Codable, Equatable, Sendable {
     var isIdentity: Bool { distortion == 0 && vignetteCorrection == 0 && !removeChromaticAberration }
 }
 
+/// A user-imported third-party `.cube` 3D LUT, applied as a creative-profile-style color
+/// grade after every built-in tone/color adjustment. `intensity` cross-dissolves between
+/// the pre-LUT and post-LUT image (100 = fully applied, 0 = no visible effect).
+struct LUTReference: Codable, Equatable, Sendable {
+    var bookmark: Data
+    var displayName: String
+    var intensity: Double = 100   // 0...100
+}
+
 /// A fully Codable snapshot of every adjustable edit parameter for a photo.
 /// This is the value type used for the live editor, the clipboard (copy/paste edits),
 /// presets, batch-apply, and history snapshots — `EditSettings` (the SwiftData model)
@@ -115,6 +124,9 @@ struct EditValues: Codable, Equatable, Sendable {
 
     // Lens
     var lens = LensValues()
+
+    // Imported LUT (creative profile)
+    var lut: LUTReference? = nil
 
     // CIFilter.toneCurve() takes exactly 5 points (point0...point4); the curve editor is
     // locked to these same 5 fixed x-positions, so identity is a straight line through them.

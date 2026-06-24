@@ -23,8 +23,8 @@ struct LightPanelView: View {
 }
 
 /// Shared "Reset Panel" footer button used by every value-based edit panel — excludes Crop,
-/// Presets, and History, which `EditorViewModel.resetPanel` intentionally no-ops for and which
-/// manage their own reset/management actions instead.
+/// Presets, History, and LUT, which manage their own reset/management actions instead
+/// (`EditorViewModel.resetPanel` intentionally no-ops for Crop/Presets/History).
 struct ResetPanelButton: View {
     @Environment(AppController.self) private var app
     let kind: EditorPanelKind

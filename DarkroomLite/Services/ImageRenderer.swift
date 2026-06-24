@@ -29,12 +29,13 @@ enum ImageRenderer {
         edit: EditValues,
         crop: CropValues,
         perspective: PerspectiveValues,
-        cachedColorCube: CIFilter? = nil
+        cachedColorCube: CIFilter? = nil,
+        cachedImportedLUT: CIFilter? = nil
     ) -> CIImage {
         var image = source
         image = applyLensCorrections(image, lens: edit.lens)
         image = applyGeometry(image, crop: crop, perspective: perspective)
-        image = applyToneAndColor(image, edit: edit, cachedColorCube: cachedColorCube)
+        image = applyToneAndColor(image, edit: edit, cachedColorCube: cachedColorCube, cachedImportedLUT: cachedImportedLUT)
         image = applyEffectsAndDetail(image, edit: edit)
         return image
     }
@@ -243,7 +244,9 @@ enum ImageRenderer {
 
     // MARK: - Tone & color
 
-    private static func applyToneAndColor(_ image: CIImage, edit: EditValues, cachedColorCube: CIFilter?) -> CIImage {
+    private static func applyToneAndColor(
+        _ image: CIImage, edit: EditValues, cachedColorCube: CIFilter?, cachedImportedLUT: CIFilter?
+    ) -> CIImage {
         var result = image
 
         if edit.exposure != 0 {
@@ -287,7 +290,26 @@ enum ImageRenderer {
             result = colorCube.outputImage ?? result
         }
 
+        if let lutRef = edit.lut, let importedLUT = cachedImportedLUT {
+            result = applyImportedLUT(result, filter: importedLUT, intensity: lutRef.intensity)
+        }
+
         return result
+    }
+
+    /// Blends the imported-LUT's full-strength output back toward the pre-LUT image using
+    /// `intensity` (0...100), so creative profiles can be dialed in rather than all-or-nothing.
+    private static func applyImportedLUT(_ image: CIImage, filter: CIFilter, intensity: Double) -> CIImage {
+        guard intensity > 0 else { return image }
+        filter.setValue(image, forKey: kCIInputImageKey)
+        guard let lutOutput = filter.outputImage else { return image }
+        guard intensity < 100 else { return lutOutput }
+
+        let dissolve = CIFilter.dissolveTransition()
+        dissolve.inputImage = image
+        dissolve.targetImage = lutOutput
+        dissolve.time = Float(intensity / 100)
+        return dissolve.outputImage ?? lutOutput
     }
 
     private static func lightToneCurvePoints(edit: EditValues) -> [CurvePoint] {

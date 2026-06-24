@@ -107,4 +107,16 @@ extension EditorViewModel {
             }
         )
     }
+
+    /// No-ops if no LUT is loaded; `LUTPanelView` only shows this slider when `edit.lut != nil`.
+    func lutIntensityBinding() -> Binding<Double> {
+        Binding(
+            get: { self.edit.lut?.intensity ?? 100 },
+            set: { newValue in
+                guard self.edit.lut != nil else { return }
+                self.edit.lut?.intensity = newValue
+                self.scheduleRenderAndSave()
+            }
+        )
+    }
 }

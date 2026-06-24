@@ -29,6 +29,9 @@ final class EditorViewModel {
     private var cachedColorCubeKey: String = ""
     private var cachedColorCubeFilter: CIFilter?
 
+    private var cachedLUTBookmarkKey: Data?
+    private var cachedLUTFilter: CIFilter?
+
     private var modelContext: ModelContext?
     private var projectFolderBookmark: Data?
 
@@ -107,11 +110,13 @@ final class EditorViewModel {
 
         let maxDimension = CGFloat(SettingsStore.shared.maxPreviewDimension)
         let cube = colorCube(for: edit)
+        let importedLUT = importedLUTFilter(for: edit)
 
         let rendered = await Task.detached(priority: .userInitiated) {
             let downsampled = ImageRenderer.downsampled(source, maxDimension: maxDimension)
             let final = ImageRenderer.render(
-                source: downsampled, edit: edit, crop: crop, perspective: perspective, cachedColorCube: cube
+                source: downsampled, edit: edit, crop: crop, perspective: perspective,
+                cachedColorCube: cube, cachedImportedLUT: importedLUT
             )
             return ImageRenderer.renderToNSImage(final)
         }.value
@@ -140,6 +145,24 @@ final class EditorViewModel {
         let filter = LUTBuilder.colorCubeFilter(for: edit)
         cachedColorCubeKey = key
         cachedColorCubeFilter = filter
+        return filter
+    }
+
+    private func importedLUTFilter(for edit: EditValues) -> CIFilter? {
+        guard let lutRef = edit.lut else {
+            cachedLUTBookmarkKey = nil
+            cachedLUTFilter = nil
+            return nil
+        }
+        if lutRef.bookmark == cachedLUTBookmarkKey, let cached = cachedLUTFilter {
+            return cached
+        }
+        guard let url = SecurityScopedFileAccess.resolveBookmark(lutRef.bookmark) else { return nil }
+        let filter = SecurityScopedFileAccess.withSecurityScopedAccess(to: url) {
+            CubeLUTParser.colorCubeFilter(at: url)
+        } ?? nil
+        cachedLUTBookmarkKey = lutRef.bookmark
+        cachedLUTFilter = filter
         return filter
     }
 
@@ -226,6 +249,10 @@ final class EditorViewModel {
             edit.noiseReduction = 0; edit.colorNoiseReduction = 0
         case .lens:
             edit.lens = LensValues()
+        case .lut:
+            edit.lut = nil
+            cachedLUTBookmarkKey = nil
+            cachedLUTFilter = nil
         case .crop, .presets, .history:
             break
         }
@@ -253,6 +280,31 @@ final class EditorViewModel {
         let old = edit
         edit = preset.values
         registerUndo(actionName: "Apply Preset", oldEdit: old, oldCrop: crop, oldPerspective: perspective)
+        scheduleRenderAndSave()
+    }
+
+    /// Imports a third-party `.cube` LUT as a creative profile. Throws `CubeLUTParser.ParseError`
+    /// on malformed/unsupported files so the import UI can show a specific message.
+    func importLUT(from url: URL) throws {
+        let parsed = try CubeLUTParser.parse(url: url).get()
+        guard let bookmark = SecurityScopedFileAccess.makeBookmark(for: url) else {
+            throw CubeLUTParser.ParseError.unreadable
+        }
+        let old = edit
+        edit.lut = LUTReference(bookmark: bookmark, displayName: url.lastPathComponent, intensity: 100)
+        cachedLUTBookmarkKey = bookmark
+        cachedLUTFilter = CubeLUTParser.colorCubeFilter(from: parsed)
+        registerUndo(actionName: "Import LUT", oldEdit: old, oldCrop: crop, oldPerspective: perspective)
+        scheduleRenderAndSave()
+    }
+
+    func removeLUT() {
+        guard edit.lut != nil else { return }
+        let old = edit
+        edit.lut = nil
+        cachedLUTBookmarkKey = nil
+        cachedLUTFilter = nil
+        registerUndo(actionName: "Remove LUT", oldEdit: old, oldCrop: crop, oldPerspective: perspective)
         scheduleRenderAndSave()
     }
 
