@@ -97,6 +97,7 @@
 		9FD759FE3FE57D709531ADF0 /* CubeLUTParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB88DC48512F1EE572F6857 /* CubeLUTParser.swift */; };
 		E264608738EDD754DE92E294 /* LUTPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4A2C9ECB179955545ED510 /* LUTPanelView.swift */; };
 		DAF54B72D7231C2389D9558F /* LocalAdjustmentMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACC80577E9524F02D1AC7D5 /* LocalAdjustmentMask.swift */; };
+		262268306E38E46EE89E9647 /* SpotRemoval.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA5FF93A502EF460B5F0C75 /* SpotRemoval.swift */; };
 		F183E216B2AE07D4470AB276 /* MaskToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8290D5DB9C2D49477F86F705 /* MaskToolView.swift */; };
 		509620AD04E4DFC7C89452E4 /* MasksPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA07F94725A1640A31629EA2 /* MasksPanelView.swift */; };
 		27989351B421F83DA5DEB258 /* SpotRemovalToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E6B23565E6CAD853F1237A /* SpotRemovalToolView.swift */; };
@@ -207,6 +208,7 @@
 		2FB88DC48512F1EE572F6857 /* CubeLUTParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CubeLUTParser.swift; path = DarkroomLite/Services/CubeLUTParser.swift; sourceTree = "<group>"; };
 		CC4A2C9ECB179955545ED510 /* LUTPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LUTPanelView.swift; path = DarkroomLite/Views/Editor/Panels/LUTPanelView.swift; sourceTree = "<group>"; };
 		0ACC80577E9524F02D1AC7D5 /* LocalAdjustmentMask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocalAdjustmentMask.swift; path = DarkroomLite/Models/LocalAdjustmentMask.swift; sourceTree = "<group>"; };
+		BCA5FF93A502EF460B5F0C75 /* SpotRemoval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SpotRemoval.swift; path = DarkroomLite/Models/SpotRemoval.swift; sourceTree = "<group>"; };
 		8290D5DB9C2D49477F86F705 /* MaskToolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MaskToolView.swift; path = DarkroomLite/Views/Geometry/MaskToolView.swift; sourceTree = "<group>"; };
 		CA07F94725A1640A31629EA2 /* MasksPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MasksPanelView.swift; path = DarkroomLite/Views/Editor/Panels/MasksPanelView.swift; sourceTree = "<group>"; };
 		28E6B23565E6CAD853F1237A /* SpotRemovalToolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SpotRemovalToolView.swift; path = DarkroomLite/Views/Geometry/SpotRemovalToolView.swift; sourceTree = "<group>"; };
@@ -439,6 +441,7 @@
 				F9034FE68051C529D32AB055 /* EditValues.swift */,
 				5A4C47E8A3F6D23FD5C6F578 /* Album.swift */,
 				0ACC80577E9524F02D1AC7D5 /* LocalAdjustmentMask.swift */,
+				BCA5FF93A502EF460B5F0C75 /* SpotRemoval.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -656,6 +659,7 @@
 				9FD759FE3FE57D709531ADF0 /* CubeLUTParser.swift in Sources */,
 				E264608738EDD754DE92E294 /* LUTPanelView.swift in Sources */,
 				DAF54B72D7231C2389D9558F /* LocalAdjustmentMask.swift in Sources */,
+				262268306E38E46EE89E9647 /* SpotRemoval.swift in Sources */,
 				F183E216B2AE07D4470AB276 /* MaskToolView.swift in Sources */,
 				509620AD04E4DFC7C89452E4 /* MasksPanelView.swift in Sources */,
 				27989351B421F83DA5DEB258 /* SpotRemovalToolView.swift in Sources */,
