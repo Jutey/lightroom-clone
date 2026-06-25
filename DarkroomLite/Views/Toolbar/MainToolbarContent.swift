@@ -1,8 +1,9 @@
 import SwiftUI
 
 /// Toolbar shown above the workspace: import/export, crop & perspective tool toggles, and
-/// the grid/loupe/compare/before-after view-mode switch. Search/sort/filter live in
-/// `FilterBarView` instead, so they aren't duplicated here.
+/// the Pick/Edit tab switch with its mode-specific sub-picker (Grid/Compare under Pick,
+/// Loupe/Before-After under Edit). Search/sort/filter live in `FilterBarView` instead, so
+/// they aren't duplicated here.
 struct MainToolbarContent: ToolbarContent {
     @Environment(AppController.self) private var app
 
@@ -23,15 +24,31 @@ struct MainToolbarContent: ToolbarContent {
         }
 
         ToolbarItemGroup(placement: .principal) {
-            Picker("View", selection: viewModeBinding) {
-                Label("Grid", systemImage: "square.grid.2x2").tag(ViewMode.grid)
-                Label("Loupe", systemImage: "photo").tag(ViewMode.loupe)
-                Label("Compare", systemImage: "rectangle.split.2x1").tag(ViewMode.compare)
-                Label("Before / After", systemImage: "rectangle.lefthalf.filled").tag(ViewMode.beforeAfter)
+            Picker("Tab", selection: workspaceTabBinding) {
+                Label("Pick", systemImage: "checkmark.circle").tag(WorkspaceTab.pick)
+                Label("Edit", systemImage: "slider.horizontal.3").tag(WorkspaceTab.edit)
             }
             .pickerStyle(.segmented)
-            .labelStyle(.iconOnly)
             .disabled(app.library.activePhoto == nil)
+
+            switch app.library.viewMode.workspaceTab {
+            case .pick:
+                Picker("View", selection: viewModeBinding) {
+                    Label("Grid", systemImage: "square.grid.2x2").tag(ViewMode.grid)
+                    Label("Compare", systemImage: "rectangle.split.2x1").tag(ViewMode.compare)
+                }
+                .pickerStyle(.segmented)
+                .labelStyle(.iconOnly)
+                .disabled(app.library.activePhoto == nil)
+            case .edit:
+                Picker("View", selection: viewModeBinding) {
+                    Label("Loupe", systemImage: "photo").tag(ViewMode.loupe)
+                    Label("Before / After", systemImage: "rectangle.lefthalf.filled").tag(ViewMode.beforeAfter)
+                }
+                .pickerStyle(.segmented)
+                .labelStyle(.iconOnly)
+                .disabled(app.library.activePhoto == nil)
+            }
         }
 
         ToolbarItemGroup(placement: .primaryAction) {
@@ -69,5 +86,19 @@ struct MainToolbarContent: ToolbarContent {
 
     private var viewModeBinding: Binding<ViewMode> {
         Binding(get: { app.library.viewMode }, set: { app.library.viewMode = $0 })
+    }
+
+    /// Switching tabs lands on each tab's primary mode (Grid for Pick, Loupe for Edit)
+    /// rather than trying to preserve a sub-mode that may not make sense in the other tab.
+    private var workspaceTabBinding: Binding<WorkspaceTab> {
+        Binding(
+            get: { app.library.viewMode.workspaceTab },
+            set: { newTab in
+                switch newTab {
+                case .pick: app.library.viewMode = .grid
+                case .edit: app.library.viewMode = .loupe
+                }
+            }
+        )
     }
 }

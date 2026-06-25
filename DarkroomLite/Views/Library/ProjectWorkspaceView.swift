@@ -58,8 +58,10 @@ struct ProjectWorkspaceView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            FilterBarView()
-            Divider()
+            if app.library.viewMode.workspaceTab == .pick {
+                FilterBarView()
+                Divider()
+            }
             Group {
                 switch app.library.viewMode {
                 case .grid:

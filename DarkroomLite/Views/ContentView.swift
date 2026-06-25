@@ -2,9 +2,11 @@ import SwiftUI
 import SwiftData
 import AppKit
 
-/// App root: a three-column layout (projects sidebar / workspace / edit panel) plus the
-/// toolbar, the customizable-keyboard-shortcut monitor, and the alerts that are global to
-/// the whole window rather than any single panel (delete, batch apply, geometry discard).
+/// App root: a sidebar (projects) plus a detail area that itself splits into the workspace
+/// and, only in the Edit tab, the edit panel — mirroring Lightroom's Library/Develop split,
+/// where the right-hand inspector only exists in Develop. Also hosts the toolbar, the
+/// customizable-keyboard-shortcut monitor, and the alerts that are global to the whole
+/// window rather than any single panel (delete, batch apply, geometry discard).
 struct ContentView: View {
     @Environment(AppController.self) private var app
 
@@ -12,11 +14,14 @@ struct ContentView: View {
         NavigationSplitView {
             SidebarView()
                 .navigationSplitViewColumnWidth(min: 180, ideal: 220)
-        } content: {
-            workspace
-                .navigationSplitViewColumnWidth(min: 480, ideal: 800)
         } detail: {
-            EditorPanelContainerView()
+            HSplitView {
+                workspace
+                    .frame(minWidth: 480, idealWidth: 800, maxWidth: .infinity, maxHeight: .infinity)
+                if app.library.viewMode.workspaceTab == .edit {
+                    EditorPanelContainerView()
+                }
+            }
         }
         .toolbar {
             MainToolbarContent()

@@ -38,6 +38,25 @@ enum ViewMode: String, CaseIterable, Codable {
     case beforeAfter
 }
 
+/// Top-level workspace tab, shown in the toolbar as Lightroom's Library/Develop split.
+/// Derived from `ViewMode` rather than stored separately, so there is exactly one source
+/// of truth for "what is the center viewer showing right now."
+enum WorkspaceTab: String, CaseIterable, Codable {
+    case pick
+    case edit
+}
+
+extension ViewMode {
+    /// Grid and Compare are both about choosing between photos (culling); Loupe and
+    /// Before/After are both about assessing one photo's edit progress.
+    var workspaceTab: WorkspaceTab {
+        switch self {
+        case .grid, .compare: return .pick
+        case .loupe, .beforeAfter: return .edit
+        }
+    }
+}
+
 /// Which geometry/edit tool is currently active in the center viewer.
 enum ActiveTool: String, CaseIterable, Codable {
     case none
