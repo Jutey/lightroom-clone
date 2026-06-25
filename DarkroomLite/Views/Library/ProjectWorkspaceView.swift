@@ -67,22 +67,52 @@ struct ProjectWorkspaceView: View {
                 case .grid:
                     GridView(photos: app.library.displayedPhotos, projectFolderBookmark: project.folderBookmark)
                 case .loupe:
-                    LoupeView(projectFolderBookmark: project.folderBookmark)
+                    if isActivePhotoEditable {
+                        LoupeView(projectFolderBookmark: project.folderBookmark)
+                    } else {
+                        noPickedPhotoPlaceholder
+                    }
                 case .compare:
                     CompareView(photos: app.library.displayedPhotos, projectFolderBookmark: project.folderBookmark)
                 case .beforeAfter:
-                    BeforeAfterView()
+                    if isActivePhotoEditable {
+                        BeforeAfterView()
+                    } else {
+                        noPickedPhotoPlaceholder
+                    }
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
 
             if app.library.viewMode != .grid {
                 Divider()
-                FilmstripView(photos: app.library.displayedPhotos, projectFolderBookmark: project.folderBookmark)
+                FilmstripView(photos: app.library.editablePhotos, projectFolderBookmark: project.folderBookmark)
             }
         }
         .onChange(of: filterSnapshot, initial: true) { _, snapshot in
             app.library.syncDisplayedPhotos(snapshot.photos)
         }
+    }
+
+    /// Only reached for `.loupe`/`.beforeAfter` (the Edit tab's two modes), where only a
+    /// Picked photo is editable — if the active photo loses its pick flag (or none has ever
+    /// been picked), this gates Loupe/Before-After off rather than silently letting an
+    /// unpicked photo be edited.
+    private var isActivePhotoEditable: Bool {
+        app.library.activePhoto?.flag == .picked
+    }
+
+    private var noPickedPhotoPlaceholder: some View {
+        VStack(spacing: 8) {
+            Spacer()
+            Text("No Picked Photo")
+                .font(.headline)
+                .foregroundStyle(.secondary)
+            Text("Pick a photo (P) in Grid or Compare before editing it.")
+                .font(.caption)
+                .foregroundStyle(.secondary)
+            Spacer()
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }

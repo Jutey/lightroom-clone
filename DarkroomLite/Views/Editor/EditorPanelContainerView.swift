@@ -9,7 +9,7 @@ struct EditorPanelContainerView: View {
         VStack(spacing: 0) {
             header
             Divider()
-            if app.library.activePhoto != nil {
+            if app.library.activePhoto?.flag == .picked {
                 HistogramView()
                 List {
                     ForEach(SettingsStore.shared.orderedEditorPanels) { kind in
@@ -37,7 +37,7 @@ struct EditorPanelContainerView: View {
             } else {
                 VStack(spacing: 8) {
                     Spacer()
-                    Text("No Photo Selected")
+                    Text(app.library.activePhoto == nil ? "No Photo Selected" : "No Picked Photo")
                         .font(.headline)
                         .foregroundStyle(.secondary)
                     Spacer()

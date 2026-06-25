@@ -23,7 +23,12 @@ final class LibraryViewModel {
     var selectedProject: Project?
     var selectedAlbum: Album?
 
-    var viewMode: ViewMode = .grid
+    var viewMode: ViewMode = .grid {
+        didSet {
+            guard viewMode.workspaceTab == .edit, activePhoto?.flag != .picked else { return }
+            activePhoto = editablePhotos.first
+        }
+    }
     var activeTool: ActiveTool = .none
     var activePhoto: Photo?
     var selectedPhotoIDs: Set<UUID> = []
@@ -41,6 +46,13 @@ final class LibraryViewModel {
     /// The current project's photos after filtering/sorting. Kept in sync by the view
     /// whenever its `@Query` results or the filter/sort criteria above change.
     private(set) var displayedPhotos: [Photo] = []
+
+    /// The photos available to edit/navigate in the Edit tab — only those flagged Picked,
+    /// mirroring Lightroom's workflow of culling in Library before refining in Develop.
+    /// Outside the Edit tab (Grid/Compare), every displayed photo is fair game.
+    var editablePhotos: [Photo] {
+        viewMode.workspaceTab == .edit ? displayedPhotos.filter { $0.flag == .picked } : displayedPhotos
+    }
 
     var pendingDeleteConfirmation: [Photo]?
     var pendingBatchApplyConfirmation: (() -> Void)?
@@ -165,13 +177,14 @@ final class LibraryViewModel {
     }
 
     func selectAdjacent(by delta: Int) {
-        guard !displayedPhotos.isEmpty else { return }
-        guard let activePhoto, let index = displayedPhotos.firstIndex(where: { $0.id == activePhoto.id }) else {
-            selectOnly(displayedPhotos[0])
+        let pool = editablePhotos
+        guard !pool.isEmpty else { return }
+        guard let activePhoto, let index = pool.firstIndex(where: { $0.id == activePhoto.id }) else {
+            selectOnly(pool[0])
             return
         }
-        let newIndex = (index + delta).clamped(to: 0...(displayedPhotos.count - 1))
-        selectOnly(displayedPhotos[newIndex])
+        let newIndex = (index + delta).clamped(to: 0...(pool.count - 1))
+        selectOnly(pool[newIndex])
     }
 
     func selectNext() { selectAdjacent(by: 1) }
