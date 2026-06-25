@@ -20,6 +20,7 @@ final class EditorViewModel {
     private(set) var originalImage: NSImage?
     private(set) var isRendering: Bool = false
     private(set) var histogramData: HistogramData?
+    private(set) var detailZoomImage: NSImage?
 
     var beforeAfterMode: Bool = false
     var selectedMaskID: LocalAdjustmentMask.ID?
@@ -63,6 +64,7 @@ final class EditorViewModel {
         previewImage = nil
         originalImage = nil
         histogramData = nil
+        detailZoomImage = nil
 
         loadSourceAndRender()
     }
@@ -74,6 +76,7 @@ final class EditorViewModel {
         previewImage = nil
         originalImage = nil
         histogramData = nil
+        detailZoomImage = nil
     }
 
     private func loadSourceAndRender() {
@@ -190,19 +193,24 @@ final class EditorViewModel {
         let cube = colorCube(for: edit)
         let importedLUT = importedLUTFilter(for: edit)
 
-        let (rendered, histogram): (NSImage?, HistogramData?) = await Task.detached(priority: .userInitiated) {
+        let (rendered, histogram, detailZoom): (NSImage?, HistogramData?, NSImage?) = await Task.detached(priority: .userInitiated) {
             let downsampled = ImageRenderer.downsampled(source, maxDimension: maxDimension)
             let final = ImageRenderer.render(
                 source: downsampled, edit: edit, crop: crop, perspective: perspective,
                 cachedColorCube: cube, cachedImportedLUT: importedLUT
             )
             let histogram = HistogramService.compute(from: final, context: ImageRenderer.sharedContext)
-            return (ImageRenderer.renderToNSImage(final), histogram)
+            let zoom = ImageRenderer.renderDetailZoom(
+                source: source, edit: edit, crop: crop, perspective: perspective,
+                cachedColorCube: cube, cachedImportedLUT: importedLUT
+            )
+            return (ImageRenderer.renderToNSImage(final), histogram, ImageRenderer.renderToNSImage(zoom))
         }.value
 
         if Task.isCancelled { return }
         previewImage = rendered
         histogramData = histogram
+        detailZoomImage = detailZoom
         isRendering = false
 
         if originalImage == nil {

@@ -42,6 +42,42 @@ enum ImageRenderer {
         return image
     }
 
+    /// Renders a small, fixed-size crop at full source resolution, centered on the photo,
+    /// skipping the spot-removal and local-adjustment-mask stages (their geometry is
+    /// normalized to the full frame and would misalign against a cropped extent). The live
+    /// preview downsamples `source` before running effects, which smooths away the very
+    /// pixel-level grain noise reduction and sharpening are meant to act on — cropping to a
+    /// small region BEFORE running those filters keeps this cheap (Core Image only evaluates
+    /// the pixels inside the crop) while still showing their true full-resolution effect.
+    static func renderDetailZoom(
+        source: CIImage,
+        edit: EditValues,
+        crop: CropValues,
+        perspective: PerspectiveValues,
+        cachedColorCube: CIFilter? = nil,
+        cachedImportedLUT: CIFilter? = nil,
+        zoomSize: CGFloat = 320
+    ) -> CIImage {
+        var image = source
+        image = applyLensCorrections(image, lens: edit.lens)
+        image = applyGeometry(image, crop: crop, perspective: perspective)
+
+        let extent = image.extent
+        guard extent.width > 0, extent.height > 0 else { return image }
+        let side = min(zoomSize, extent.width, extent.height)
+        let cropRect = CGRect(
+            x: (extent.midX - side / 2).rounded(),
+            y: (extent.midY - side / 2).rounded(),
+            width: side.rounded(),
+            height: side.rounded()
+        )
+        image = image.cropped(to: cropRect)
+
+        image = applyToneAndColor(image, edit: edit, cachedColorCube: cachedColorCube, cachedImportedLUT: cachedImportedLUT)
+        image = applyEffectsAndDetail(image, edit: edit)
+        return image
+    }
+
     /// Geometry only (used by the crop/perspective tools to preview the canvas before
     /// committing, without paying the cost of re-running every color filter).
     static func applyGeometry(_ image: CIImage, crop: CropValues, perspective: PerspectiveValues) -> CIImage {
