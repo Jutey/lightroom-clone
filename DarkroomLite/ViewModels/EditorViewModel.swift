@@ -446,6 +446,47 @@ final class EditorViewModel {
         scheduleRenderAndSave()
     }
 
+    // MARK: - White balance eyedropper
+
+    /// No persistent state of its own — picking just nudges `edit.temperature`/`tint` — so,
+    /// like masks/spot removal, there's nothing to set up or tear down on tool switch.
+    func enterWhiteBalanceTool() {}
+    func exitWhiteBalanceTool() {}
+
+    /// Samples the exact pixel the user tapped in the current rendered preview and nudges
+    /// `edit.temperature`/`tint` by whatever delta makes that pixel neutral gray (see
+    /// `ImageRenderer.neutralizingWhiteBalanceDelta`). Picking a true neutral gray/white area
+    /// gives the best result. The numeric solve re-renders the pipeline and runs a small
+    /// bisection search, so it's done off the main thread like any other render; the `edit ==
+    /// editSnapshot` guard drops a stale result if the user changed something while it ran.
+    func pickWhiteBalance(atNormalizedPoint point: CGPoint) {
+        guard let source = sourceCIImage else { return }
+        let maxDimension = CGFloat(SettingsStore.shared.maxPreviewDimension)
+        let editSnapshot = edit
+        let cropSnapshot = crop
+        let perspectiveSnapshot = perspective
+        let cube = colorCube(for: edit)
+        let importedLUT = importedLUTFilter(for: edit)
+
+        Task {
+            let delta = await Task.detached(priority: .userInitiated) {
+                let downsampled = ImageRenderer.downsampled(source, maxDimension: maxDimension)
+                let rendered = ImageRenderer.render(
+                    source: downsampled, edit: editSnapshot, crop: cropSnapshot, perspective: perspectiveSnapshot,
+                    cachedColorCube: cube, cachedImportedLUT: importedLUT
+                )
+                return ImageRenderer.neutralizingWhiteBalanceDelta(in: rendered, atNormalizedPoint: point)
+            }.value
+
+            guard let delta, self.edit == editSnapshot else { return }
+            let old = self.edit
+            self.edit.temperature = max(-100, min(100, self.edit.temperature + delta.temperature))
+            self.edit.tint = max(-100, min(100, self.edit.tint + delta.tint))
+            self.registerUndo(actionName: "White Balance", oldEdit: old, oldCrop: self.crop, oldPerspective: self.perspective)
+            self.scheduleRenderAndSave()
+        }
+    }
+
     func saveAsPreset(name: String, modelContext: ModelContext) {
         let preset = Preset(name: name, values: edit)
         modelContext.insert(preset)

@@ -715,4 +715,98 @@ enum ImageRenderer {
             CurvePoint(x: 1, y: clamp01(1 + mask.whites / 100 * 0.2)),
         ]
     }
+
+    // MARK: - White balance eyedropper
+
+    /// Samples `image` at a normalized point (Core Image's bottom-up convention, matching
+    /// `LocalAdjustmentMask`) and solves for the small additional temperature/tint nudge that
+    /// would make that exact pixel neutral gray when run back through the same
+    /// `CITemperatureAndTint` model the Color panel's sliders use (see the `edit.temperature`/
+    /// `edit.tint` block in `applyToneAndColor`). `CITemperatureAndTint` has no public inverse,
+    /// so this finds it numerically: render the sampled color through trial temperature/tint
+    /// values and bisect until red/green/blue balance. Returns a delta to *add* to the edit's
+    /// current temperature/tint, not a replacement — see `EditorViewModel.pickWhiteBalance`.
+    static func neutralizingWhiteBalanceDelta(
+        in image: CIImage, atNormalizedPoint point: CGPoint, context: CIContext = sharedContext
+    ) -> (temperature: Double, tint: Double)? {
+        let extent = image.extent
+        guard extent.width > 0, extent.height > 0 else { return nil }
+        let x = extent.minX + point.x * extent.width
+        let y = extent.minY + point.y * extent.height
+        guard let sampled = readPixel(image, at: CGPoint(x: x, y: y), context: context) else { return nil }
+        return solveNeutralizingDelta(for: sampled, context: context)
+    }
+
+    private static func readPixel(_ image: CIImage, at point: CGPoint, context: CIContext) -> (r: Float, g: Float, b: Float)? {
+        var pixel = [Float](repeating: 0, count: 4)
+        pixel.withUnsafeMutableBytes { buffer in
+            context.render(
+                image,
+                toBitmap: buffer.baseAddress!,
+                rowBytes: 4 * MemoryLayout<Float>.size,
+                bounds: CGRect(x: point.x, y: point.y, width: 1, height: 1),
+                format: .RGBAf,
+                colorSpace: nil
+            )
+        }
+        guard pixel[3] > 0 else { return nil }
+        return (pixel[0], pixel[1], pixel[2])
+    }
+
+    private static func solveNeutralizingDelta(
+        for color: (r: Float, g: Float, b: Float), context: CIContext
+    ) -> (temperature: Double, tint: Double) {
+        let swatch = CIImage(color: CIColor(red: CGFloat(color.r), green: CGFloat(color.g), blue: CGFloat(color.b)))
+            .cropped(to: CGRect(x: 0, y: 0, width: 4, height: 4))
+
+        func rendered(temperature: Double, tint: Double) -> (r: Float, g: Float, b: Float) {
+            let filter = CIFilter.temperatureAndTint()
+            filter.inputImage = swatch
+            filter.neutral = CIVector(x: 6500, y: 0)
+            filter.targetNeutral = CIVector(x: 6500 - temperature * 20, y: tint * 10)
+            guard let output = filter.outputImage,
+                  let pixel = readPixel(output, at: CGPoint(x: 0, y: 0), context: context) else { return (0, 0, 0) }
+            return pixel
+        }
+
+        // Generic bisection: assumes `error` is monotonic over `range`. If it never crosses
+        // zero (the cast is more extreme than the slider supports), saturates to whichever
+        // bound gets closest rather than extrapolating outside the slider's domain.
+        func bisect(range: ClosedRange<Double>, error: (Double) -> Double) -> Double {
+            var low = range.lowerBound
+            var high = range.upperBound
+            var errLow = error(low)
+            let errHigh = error(high)
+            guard (errLow < 0) != (errHigh < 0) else {
+                return abs(errLow) < abs(errHigh) ? low : high
+            }
+            for _ in 0..<14 {
+                let mid = (low + high) / 2
+                let errMid = error(mid)
+                if (errMid < 0) == (errLow < 0) {
+                    low = mid
+                    errLow = errMid
+                } else {
+                    high = mid
+                }
+            }
+            return (low + high) / 2
+        }
+
+        // Temperature and tint mainly control independent axes (blue-red, green-magenta) but
+        // interact slightly, so a few alternating passes converge both far better than one.
+        var temperature = 0.0
+        var tint = 0.0
+        for _ in 0..<3 {
+            temperature = bisect(range: -100...100) { t in
+                let c = rendered(temperature: t, tint: tint)
+                return Double(c.b - c.r)
+            }
+            tint = bisect(range: -100...100) { tt in
+                let c = rendered(temperature: temperature, tint: tt)
+                return Double(c.g - (c.r + c.b) / 2)
+            }
+        }
+        return (temperature, tint)
+    }
 }

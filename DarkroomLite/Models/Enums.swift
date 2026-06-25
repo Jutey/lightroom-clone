@@ -45,6 +45,7 @@ enum ActiveTool: String, CaseIterable, Codable {
     case perspective
     case masks
     case spotRemoval
+    case whiteBalance
 }
 
 /// Identifiers for the collapsible/reorderable panels in the right-hand inspector.

@@ -5,6 +5,16 @@ struct ColorPanelView: View {
 
     var body: some View {
         VStack(spacing: 10) {
+            HStack {
+                Text("White Balance").font(.caption.bold())
+                Spacer()
+                Button {
+                    app.requestActiveTool(app.library.activeTool == .whiteBalance ? .none : .whiteBalance)
+                } label: {
+                    Label("Pick", systemImage: "eyedropper")
+                }
+                .buttonStyle(.borderless)
+            }
             EditSliderRow(title: "Temperature", value: app.editor.binding(\.temperature), actionName: "Temperature")
             EditSliderRow(title: "Tint", value: app.editor.binding(\.tint), actionName: "Tint")
             EditSliderRow(title: "Saturation", value: app.editor.binding(\.saturation), actionName: "Saturation")

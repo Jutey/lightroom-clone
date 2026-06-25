@@ -31,6 +31,8 @@ struct LoupeView: View {
                         MaskToolView()
                     } else if app.library.activeTool == .spotRemoval {
                         SpotRemovalToolView()
+                    } else if app.library.activeTool == .whiteBalance {
+                        WhiteBalanceToolView()
                     }
                 }
                 .overlay(alignment: .topTrailing) {

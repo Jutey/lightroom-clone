@@ -201,6 +201,7 @@ final class AppController {
         case .perspective: hasUnconfirmedChanges = editor.hasUnconfirmedPerspectiveChanges
         case .masks: hasUnconfirmedChanges = false
         case .spotRemoval: hasUnconfirmedChanges = false
+        case .whiteBalance: hasUnconfirmedChanges = false
         case .none: hasUnconfirmedChanges = false
         }
 
@@ -222,6 +223,7 @@ final class AppController {
         case .perspective: editor.exitPerspectiveTool()
         case .masks: editor.exitMasksTool()
         case .spotRemoval: editor.exitSpotRemovalTool()
+        case .whiteBalance: editor.exitWhiteBalanceTool()
         case .none: break
         }
         library.activeTool = tool
@@ -230,6 +232,7 @@ final class AppController {
         case .perspective: editor.enterPerspectiveTool()
         case .masks: editor.enterMasksTool()
         case .spotRemoval: editor.enterSpotRemovalTool()
+        case .whiteBalance: editor.enterWhiteBalanceTool()
         case .none: break
         }
         library.pendingGeometryDiscardConfirmation = nil
