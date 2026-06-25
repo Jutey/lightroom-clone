@@ -13,18 +13,27 @@ struct EditorPanelContainerView: View {
                 HistogramView()
                 List {
                     ForEach(SettingsStore.shared.orderedEditorPanels) { kind in
-                        DisclosureGroup(isExpanded: collapsedBinding(for: kind)) {
-                            panel(for: kind)
-                        } label: {
-                            Label(kind.title, systemImage: kind.systemImage)
-                                .font(.subheadline)
+                        VStack(alignment: .leading, spacing: 0) {
+                            DisclosureGroup(isExpanded: collapsedBinding(for: kind)) {
+                                panel(for: kind)
+                                    .padding(.top, 6)
+                                    .padding(.bottom, 10)
+                            } label: {
+                                panelHeaderLabel(for: kind)
+                            }
+                            .disclosureGroupStyle(LightroomPanelDisclosureStyle())
+                            Divider()
                         }
+                        .listRowSeparator(.hidden)
+                        .listRowBackground(Color.clear)
+                        .listRowInsets(EdgeInsets(top: 6, leading: 12, bottom: 0, trailing: 12))
                     }
                     .onMove { source, destination in
                         movePanels(from: source, to: destination)
                     }
                 }
-                .listStyle(.sidebar)
+                .listStyle(.plain)
+                .scrollContentBackground(.hidden)
             } else {
                 VStack(spacing: 8) {
                     Spacer()
@@ -91,6 +100,19 @@ struct EditorPanelContainerView: View {
         }
     }
 
+    private func panelHeaderLabel(for kind: EditorPanelKind) -> some View {
+        HStack(spacing: 6) {
+            Image(systemName: kind.systemImage)
+                .font(.caption)
+                .foregroundStyle(.secondary)
+                .frame(width: 14)
+            Text(kind.title.uppercased())
+                .font(.caption.bold())
+                .kerning(0.4)
+                .foregroundStyle(.primary)
+        }
+    }
+
     private func collapsedBinding(for kind: EditorPanelKind) -> Binding<Bool> {
         Binding(
             get: { !SettingsStore.shared.isPanelCollapsed(kind) },
@@ -102,5 +124,37 @@ struct EditorPanelContainerView: View {
         var order = SettingsStore.shared.orderedEditorPanels
         order.move(fromOffsets: source, toOffset: destination)
         SettingsStore.shared.panelOrder = order.map(\.rawValue)
+    }
+}
+
+/// Puts the collapse triangle on the leading edge of the header (Lightroom puts its panel
+/// disclosure triangle to the left of the title, not trailing like the default macOS sidebar
+/// style), and rotates it in place instead of swapping glyphs.
+private struct LightroomPanelDisclosureStyle: DisclosureGroupStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        VStack(alignment: .leading, spacing: 0) {
+            Button {
+                withAnimation(.easeInOut(duration: 0.15)) {
+                    configuration.isExpanded.toggle()
+                }
+            } label: {
+                HStack(spacing: 6) {
+                    Image(systemName: "chevron.right")
+                        .font(.caption2.bold())
+                        .foregroundStyle(.secondary)
+                        .rotationEffect(.degrees(configuration.isExpanded ? 90 : 0))
+                        .frame(width: 10)
+                    configuration.label
+                    Spacer(minLength: 0)
+                }
+                .padding(.vertical, 6)
+                .contentShape(Rectangle())
+            }
+            .buttonStyle(.plain)
+
+            if configuration.isExpanded {
+                configuration.content
+            }
+        }
     }
 }

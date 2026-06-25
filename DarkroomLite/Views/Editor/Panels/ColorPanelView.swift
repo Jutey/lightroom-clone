@@ -15,8 +15,14 @@ struct ColorPanelView: View {
                 }
                 .buttonStyle(.borderless)
             }
-            EditSliderRow(title: "Temperature", value: app.editor.binding(\.temperature), actionName: "Temperature")
-            EditSliderRow(title: "Tint", value: app.editor.binding(\.tint), actionName: "Tint")
+            EditSliderRow(
+                title: "Temperature", value: app.editor.binding(\.temperature),
+                trackTint: Gradient(colors: [.blue, .yellow]), actionName: "Temperature"
+            )
+            EditSliderRow(
+                title: "Tint", value: app.editor.binding(\.tint),
+                trackTint: Gradient(colors: [.green, .pink]), actionName: "Tint"
+            )
             EditSliderRow(title: "Saturation", value: app.editor.binding(\.saturation), actionName: "Saturation")
             EditSliderRow(title: "Vibrance", value: app.editor.binding(\.vibrance), actionName: "Vibrance")
 

@@ -19,6 +19,9 @@ struct SliderRow: View {
     var defaultValue: Double = 0
     var step: Double = 1
     var format: (Double) -> String = { String(format: "%.0f", $0) }
+    /// Purely decorative gradient drawn under the slider, e.g. blue-to-yellow for Temperature,
+    /// matching Lightroom's color-coded white balance sliders. `nil` for every other slider.
+    var trackTint: Gradient? = nil
     var onEditingChanged: (Bool) -> Void = { _ in }
 
     @State private var liveValue: Double = 0
@@ -67,6 +70,12 @@ struct SliderRow: View {
                 }
             )
             .onTapGesture(count: 2) { value = defaultValue }
+            if let trackTint {
+                LinearGradient(gradient: trackTint, startPoint: .leading, endPoint: .trailing)
+                    .frame(height: 3)
+                    .clipShape(Capsule())
+                    .allowsHitTesting(false)
+            }
         }
         .help("Double-click the slider to reset \(title) to its default value.")
     }

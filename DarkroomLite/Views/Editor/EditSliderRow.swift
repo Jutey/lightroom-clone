@@ -18,6 +18,7 @@ struct EditSliderRow: View {
     var defaultValue: Double = 0
     var step: Double = 1
     var format: (Double) -> String = { String(format: "%.0f", $0) }
+    var trackTint: Gradient? = nil
     let actionName: String
 
     @State private var dragStartEdit: EditValues?
@@ -32,6 +33,7 @@ struct EditSliderRow: View {
             defaultValue: defaultValue,
             step: step,
             format: format,
+            trackTint: trackTint,
             onEditingChanged: { editing in
                 if editing {
                     dragStartEdit = app.editor.edit
