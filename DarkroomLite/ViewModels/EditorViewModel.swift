@@ -23,6 +23,7 @@ final class EditorViewModel {
 
     var beforeAfterMode: Bool = false
     var selectedMaskID: LocalAdjustmentMask.ID?
+    var selectedSpotID: SpotRemoval.ID?
 
     let undoManager = UndoManager()
 
@@ -55,6 +56,7 @@ final class EditorViewModel {
         crop = photo.cropSettings?.values ?? .identity
         perspective = photo.perspectiveSettings?.values ?? .identity
         selectedMaskID = nil
+        selectedSpotID = nil
         undoManager.removeAllActions()
 
         sourceCIImage = nil
@@ -336,6 +338,9 @@ final class EditorViewModel {
         case .masks:
             edit.localAdjustments = []
             selectedMaskID = nil
+        case .spotRemoval:
+            edit.spotRemovals = []
+            selectedSpotID = nil
         case .crop, .presets, .history:
             break
         }
@@ -414,6 +419,30 @@ final class EditorViewModel {
         let old = edit
         edit.localAdjustments.removeAll { $0.id == id }
         registerUndo(actionName: "Delete Mask", oldEdit: old, oldCrop: crop, oldPerspective: perspective)
+        scheduleRenderAndSave()
+    }
+
+    // MARK: - Spot removal / healing brush
+
+    /// Same auto-apply-immediately model as masks; see `enterMasksTool`/`exitMasksTool`.
+    func enterSpotRemovalTool() {}
+    func exitSpotRemovalTool() {}
+
+    @discardableResult
+    func addSpot() -> UUID {
+        let old = edit
+        let spot = SpotRemoval()
+        edit.spotRemovals.append(spot)
+        registerUndo(actionName: "Add Spot Removal", oldEdit: old, oldCrop: crop, oldPerspective: perspective)
+        scheduleRenderAndSave()
+        return spot.id
+    }
+
+    func deleteSpot(id: SpotRemoval.ID) {
+        guard edit.spotRemovals.contains(where: { $0.id == id }) else { return }
+        let old = edit
+        edit.spotRemovals.removeAll { $0.id == id }
+        registerUndo(actionName: "Delete Spot Removal", oldEdit: old, oldCrop: crop, oldPerspective: perspective)
         scheduleRenderAndSave()
     }
 

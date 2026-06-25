@@ -44,6 +44,7 @@ enum ActiveTool: String, CaseIterable, Codable {
     case crop
     case perspective
     case masks
+    case spotRemoval
 }
 
 /// Identifiers for the collapsible/reorderable panels in the right-hand inspector.
@@ -59,6 +60,7 @@ enum EditorPanelKind: String, CaseIterable, Codable, Identifiable {
     case rawEdit
     case lut
     case masks
+    case spotRemoval
     case crop
     case presets
     case history
@@ -78,6 +80,7 @@ enum EditorPanelKind: String, CaseIterable, Codable, Identifiable {
         case .rawEdit: return "Raw Edit"
         case .lut: return "LUT / Profile"
         case .masks: return "Masking"
+        case .spotRemoval: return "Spot Removal"
         case .crop: return "Crop & Geometry"
         case .presets: return "Presets"
         case .history: return "History"
@@ -97,6 +100,7 @@ enum EditorPanelKind: String, CaseIterable, Codable, Identifiable {
         case .rawEdit: return "gauge.medium"
         case .lut: return "camera.filters"
         case .masks: return "circle.lefthalf.filled"
+        case .spotRemoval: return "bandage"
         case .crop: return "crop"
         case .presets: return "square.stack.3d.up"
         case .history: return "clock.arrow.circlepath"

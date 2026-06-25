@@ -170,4 +170,32 @@ extension EditorViewModel {
             }
         )
     }
+
+    /// No-ops if `spotID` no longer exists (e.g. the spot was deleted while a slider drag was
+    /// mid-flight). Mirrors `maskBinding(_:_:)`.
+    func spotBinding(_ spotID: SpotRemoval.ID, _ keyPath: WritableKeyPath<SpotRemoval, Double>) -> Binding<Double> {
+        Binding(
+            get: { self.edit.spotRemovals.first(where: { $0.id == spotID })?[keyPath: keyPath] ?? 0 },
+            set: { newValue in
+                guard let index = self.edit.spotRemovals.firstIndex(where: { $0.id == spotID }) else { return }
+                self.edit.spotRemovals[index][keyPath: keyPath] = newValue
+                self.scheduleRenderAndSave()
+            }
+        )
+    }
+
+    /// Bool spot fields (e.g. enabled toggle) have no drag gesture to wrap, so this registers
+    /// undo immediately, mirroring `maskBoolBinding(_:_:actionName:)`.
+    func spotBoolBinding(_ spotID: SpotRemoval.ID, _ keyPath: WritableKeyPath<SpotRemoval, Bool>, actionName: String) -> Binding<Bool> {
+        Binding(
+            get: { self.edit.spotRemovals.first(where: { $0.id == spotID })?[keyPath: keyPath] ?? false },
+            set: { newValue in
+                guard let index = self.edit.spotRemovals.firstIndex(where: { $0.id == spotID }) else { return }
+                let old = self.edit
+                self.edit.spotRemovals[index][keyPath: keyPath] = newValue
+                self.registerUndo(actionName: actionName, oldEdit: old, oldCrop: self.crop, oldPerspective: self.perspective)
+                self.scheduleRenderAndSave()
+            }
+        )
+    }
 }

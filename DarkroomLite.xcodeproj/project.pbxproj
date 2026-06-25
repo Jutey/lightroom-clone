@@ -99,6 +99,8 @@
 		DAF54B72D7231C2389D9558F /* LocalAdjustmentMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACC80577E9524F02D1AC7D5 /* LocalAdjustmentMask.swift */; };
 		F183E216B2AE07D4470AB276 /* MaskToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8290D5DB9C2D49477F86F705 /* MaskToolView.swift */; };
 		509620AD04E4DFC7C89452E4 /* MasksPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA07F94725A1640A31629EA2 /* MasksPanelView.swift */; };
+		27989351B421F83DA5DEB258 /* SpotRemovalToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E6B23565E6CAD853F1237A /* SpotRemovalToolView.swift */; };
+		F967DC8278C5DD51B263C848 /* SpotRemovalPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E0289BFDE7786C46D66122 /* SpotRemovalPanelView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -207,6 +209,8 @@
 		0ACC80577E9524F02D1AC7D5 /* LocalAdjustmentMask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocalAdjustmentMask.swift; path = DarkroomLite/Models/LocalAdjustmentMask.swift; sourceTree = "<group>"; };
 		8290D5DB9C2D49477F86F705 /* MaskToolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MaskToolView.swift; path = DarkroomLite/Views/Geometry/MaskToolView.swift; sourceTree = "<group>"; };
 		CA07F94725A1640A31629EA2 /* MasksPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MasksPanelView.swift; path = DarkroomLite/Views/Editor/Panels/MasksPanelView.swift; sourceTree = "<group>"; };
+		28E6B23565E6CAD853F1237A /* SpotRemovalToolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SpotRemovalToolView.swift; path = DarkroomLite/Views/Geometry/SpotRemovalToolView.swift; sourceTree = "<group>"; };
+		B5E0289BFDE7786C46D66122 /* SpotRemovalPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SpotRemovalPanelView.swift; path = DarkroomLite/Views/Editor/Panels/SpotRemovalPanelView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,6 +265,7 @@
 				EA794086B0EFF90A5093D037 /* ColorPanelView.swift */,
 				CC4A2C9ECB179955545ED510 /* LUTPanelView.swift */,
 				CA07F94725A1640A31629EA2 /* MasksPanelView.swift */,
+				B5E0289BFDE7786C46D66122 /* SpotRemovalPanelView.swift */,
 			);
 			name = Panels;
 			sourceTree = "<group>";
@@ -468,6 +473,7 @@
 				C6BC49759F4CF04B2D39EFB4 /* PerspectiveToolView.swift */,
 				5E4D4F23B7ADAE15A5BE4AF8 /* CropToolView.swift */,
 				8290D5DB9C2D49477F86F705 /* MaskToolView.swift */,
+				28E6B23565E6CAD853F1237A /* SpotRemovalToolView.swift */,
 			);
 			name = Geometry;
 			sourceTree = "<group>";
@@ -652,6 +658,8 @@
 				DAF54B72D7231C2389D9558F /* LocalAdjustmentMask.swift in Sources */,
 				F183E216B2AE07D4470AB276 /* MaskToolView.swift in Sources */,
 				509620AD04E4DFC7C89452E4 /* MasksPanelView.swift in Sources */,
+				27989351B421F83DA5DEB258 /* SpotRemovalToolView.swift in Sources */,
+				F967DC8278C5DD51B263C848 /* SpotRemovalPanelView.swift in Sources */,
 				F16E497C8127978236D695B0 /* ThumbnailService.swift in Sources */,
 				BFCD4F00ACB7F8537CD04FA2 /* KeyboardShortcuts.swift in Sources */,
 				BA7E4AD5846FE012D71E3D5B /* HorizonDetectionService.swift in Sources */,

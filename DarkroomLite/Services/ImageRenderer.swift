@@ -35,6 +35,7 @@ enum ImageRenderer {
         var image = source
         image = applyLensCorrections(image, lens: edit.lens)
         image = applyGeometry(image, crop: crop, perspective: perspective)
+        image = applySpotRemovals(image, spots: edit.spotRemovals)
         image = applyToneAndColor(image, edit: edit, cachedColorCube: cachedColorCube, cachedImportedLUT: cachedImportedLUT)
         image = applyEffectsAndDetail(image, edit: edit)
         image = applyLocalAdjustments(image, masks: edit.localAdjustments)
@@ -469,6 +470,42 @@ enum ImageRenderer {
         blend.inputImage = alphaMatrix.outputImage ?? overlay
         blend.backgroundImage = base
         return blend.outputImage ?? base
+    }
+
+    // MARK: - Spot removal / healing brush
+
+    /// Clone-stamp/heal: for each enabled spot, translates the running result so the sampled
+    /// `sourceX/Y` content lands exactly on `targetX/Y`, then blends it in through a feathered
+    /// circular mask built with the same `circleMaskImage` helper the brush mask uses. Runs
+    /// before tone/color/effects/local-adjustment masks (all of which are uniform or
+    /// position-dependent) so a cloned patch picks up the same later grading as its
+    /// surroundings instead of carrying mismatched grading from its source location.
+    private static func applySpotRemovals(_ image: CIImage, spots: [SpotRemoval]) -> CIImage {
+        guard !spots.isEmpty else { return image }
+        var result = image
+        let extent = image.extent
+        guard extent.width > 0, extent.height > 0 else { return result }
+
+        for spot in spots where spot.isEnabled {
+            let minDimension = min(extent.width, extent.height)
+            let radius = CGFloat(spot.size / 200) * minDimension
+            guard radius > 0 else { continue }
+            let innerFraction = max(0, min(1, 1 - spot.feather / 100))
+
+            let targetCenter = CGPoint(x: extent.minX + spot.targetX * extent.width, y: extent.minY + spot.targetY * extent.height)
+            let sourceCenter = CGPoint(x: extent.minX + spot.sourceX * extent.width, y: extent.minY + spot.sourceY * extent.height)
+            guard let mask = circleMaskImage(center: targetCenter, radius: radius, innerFraction: innerFraction, extent: extent) else { continue }
+
+            let translation = CGAffineTransform(translationX: targetCenter.x - sourceCenter.x, y: targetCenter.y - sourceCenter.y)
+            let cloned = result.transformed(by: translation)
+
+            let blend = CIFilter.blendWithMask()
+            blend.inputImage = cloned
+            blend.backgroundImage = result
+            blend.maskImage = mask
+            result = blend.outputImage?.cropped(to: extent) ?? result
+        }
+        return result
     }
 
     // MARK: - Local adjustment masks
